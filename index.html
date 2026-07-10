@@ -1,2214 +1,1814 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Spring Construction Company | Building Futures Through Quality Construction</title>
-    <meta name="description" content="Quantum Spring Construction Company - A dynamic construction firm based in Gudele 1, Juba, South Sudan. Residential & commercial construction, architectural design, renovations, project management, and flexible installment-based building solutions.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Equity Resource Aid (ERA) — Building an Equitable Society in South Sudan</title>
+    <meta name="description" content="Equity Resource Aid (ERA) is a South Sudan national NGO empowering communities through education, peace-building, livelihoods, food security, nutrition, and economic empowerment." />
+    <meta name="keywords" content="ERA, Equity Resource Aid, South Sudan NGO, humanitarian, education, peace-building, livelihoods, food security, Juba" />
+    <meta name="theme-color" content="#0B5D3B" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Equity Resource Aid — Building an Equitable Society" />
+    <meta property="og:description" content="Empowering communities across South Sudan through education, peace-building, livelihoods, food security and economic empowerment." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            50: '#F2F8F5',
+                            100: '#DDECE4',
+                            200: '#B8D6C5',
+                            300: '#8FBCA1',
+                            400: '#5A9A78',
+                            500: '#2E7A55',
+                            600: '#0B5D3B',
+                            700: '#084429',
+                            800: '#052E1C',
+                            900: '#031D12',
+                        },
+                        gold: {
+                            50: '#FDF9EC',
+                            100: '#FAF0C9',
+                            200: '#F4DE93',
+                            300: '#EBC95C',
+                            400: '#E0B22E',
+                            500: '#D4A017',
+                            600: '#B08312',
+                            700: '#87650E',
+                        },
+                        beige: {
+                            50: '#FDFCF8',
+                            100: '#F8F7F2',
+                            200: '#EFECE0',
+                            300: '#E2DCC7',
+                        },
+                        charcoal: '#1F2937',
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    screens: {
+                        'xs': '480px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                    },
+                }
+            }
+        }
+    </script>
 
     <style>
         :root {
-            --primary: #0b1d3a;
-            --primary-dark: #060f20;
-            --secondary: #d4953a;
-            --secondary-light: #e0a84e;
-            --secondary-dark: #b07828;
-            --white: #ffffff;
-            --off-white: #f8f9fa;
-            --light-gray: #eef1f5;
-            --mid-gray: #d5dbe3;
-            --text: #1a1a2e;
-            --text-light: #5a5f6e;
-            --text-lighter: #7d8292;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
-            --shadow-xl: 0 30px 70px rgba(0, 0, 0, 0.18);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --radius-xl: 28px;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --navbar-height: 78px;
-            --accent-teal: #0d9488;
-            --accent-teal-light: #14b8a6;
+            --forest: #0B5D3B;
+            --forest-dark: #084429;
+            --gold: #D4A017;
+            --beige: #F8F7F2;
+            --charcoal: #1F2937;
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: var(--navbar-height);
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            background-color: var(--white);
-            line-height: 1.7;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            box-sizing: border-box;
         }
-
-        /* ──────────────── NAVBAR ──────────────── */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            transition: var(--transition);
-            height: var(--navbar-height);
-            display: flex;
-            align-items: center;
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
-
-        .navbar.scrolled {
-            box-shadow: var(--shadow-md);
-            background: rgba(255, 255, 255, 0.98);
-            height: 68px;
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background: #FDFCF8;
+            overflow-x: hidden;
+            min-width: 320px;
+            line-height: 1.6;
         }
-
-        .navbar-inner {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            flex-shrink: 0;
-            z-index: 1001;
-        }
-
-        .navbar-logo .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--primary);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary-light);
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            transition: var(--transition);
-        }
-
-        .navbar-logo:hover .logo-icon {
-            background: var(--primary-dark);
-            transform: scale(1.04);
-        }
-
-        .navbar-logo .logo-text {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
             font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary);
-            line-height: 1.2;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.01em;
         }
 
-        .navbar-logo .logo-text small {
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 0.62rem;
-            color: var(--text-lighter);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            list-style: none;
-            flex-shrink: 0;
+        ::-webkit-scrollbar-track {
+            background: var(--beige);
         }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.88rem;
-            padding: 10px 15px;
-            border-radius: 50px;
-            transition: var(--transition);
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--secondary-dark);
-            background: rgba(212, 149, 58, 0.06);
-        }
-
-        .nav-phone {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            white-space: nowrap;
-            padding: 8px 14px;
-            border-radius: 50px;
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .nav-phone:hover {
-            background: rgba(11, 29, 58, 0.04);
-        }
-
-        .nav-phone i {
-            color: var(--secondary);
-            font-size: 1rem;
-            animation: pulse-phone 2s infinite;
-        }
-
-        @keyframes pulse-phone {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.15);
-            }
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 13px 26px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: var(--transition);
-            white-space: nowrap;
-            letter-spacing: 0.2px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: #fff;
-            box-shadow: 0 4px 16px rgba(212, 149, 58, 0.3);
-        }
-        .btn-primary:hover {
-            background: var(--secondary-dark);
-            box-shadow: 0 8px 28px rgba(212, 149, 58, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.85);
-        }
-        .btn-outline:hover {
-            background: #fff;
-            color: var(--primary);
-            border-color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .btn-white {
-            background: #fff;
-            color: var(--primary);
-            box-shadow: var(--shadow-sm);
-        }
-        .btn-white:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .btn-sm {
-            padding: 9px 18px;
-            font-size: 0.8rem;
-            border-radius: 40px;
-        }
-
-        .btn-xs {
-            padding: 7px 14px;
-            font-size: 0.75rem;
-            border-radius: 30px;
-        }
-
-        .btn-teal {
-            background: var(--accent-teal);
-            color: #fff;
-            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.3);
-        }
-        .btn-teal:hover {
-            background: #0f766e;
-            box-shadow: 0 8px 28px rgba(13, 148, 136, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Hamburger */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-            padding: 8px;
-            background: none;
-            border: none;
-        }
-        .hamburger span {
-            display: block;
-            width: 26px;
-            height: 2.5px;
-            background: var(--primary);
+        ::-webkit-scrollbar-thumb {
+            background: var(--forest);
             border-radius: 10px;
-            transition: var(--transition);
         }
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+        @media (max-width: 640px) {
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
         }
 
-        /* ──────────────── HERO ──────────────── */
+        /* Navigation */
+        .nav-scrolled {
+            background: rgba(253, 252, 248, 0.97) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 1px 20px rgba(11, 93, 59, 0.08);
+        }
+        .nav-scrolled .nav-link {
+            color: var(--charcoal) !important;
+        }
+        .nav-scrolled .nav-link:hover {
+            color: var(--forest) !important;
+        }
+        .nav-scrolled .logo-text {
+            color: var(--forest) !important;
+        }
+        .nav-scrolled .logo-mark {
+            background: var(--forest) !important;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .has-dropdown:hover .dropdown,
+        .has-dropdown.dropdown-open .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        @media (hover: none) and (pointer: coarse) {
+            .has-dropdown:hover .dropdown {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                pointer-events: none;
+            }
+            .has-dropdown.dropdown-open .dropdown {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+        }
+
+        /* Hero */
         .hero {
             position: relative;
             min-height: 100vh;
+            min-height: 100dvh;
+            background:
+                linear-gradient(135deg, rgba(3, 29, 18, 0.85) 0%, rgba(11, 93, 59, 0.65) 50%, rgba(8, 68, 41, 0.75) 100%),
+                url('assets/equity.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: url('assets/quantum.jpg') center/cover no-repeat;
-            background-attachment: fixed;
+            color: #fff;
             overflow: hidden;
         }
-
-        .hero-overlay {
+        .hero::before {
+            content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(160deg,
-                    rgba(11, 29, 58, 0.68) 0%,
-                    rgba(11, 29, 58, 0.5) 35%,
-                    rgba(6, 15, 32, 0.7) 100%);
-            z-index: 1;
-        }
-
-        .hero-particles {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
+            background: radial-gradient(ellipse at top right, rgba(212, 160, 23, 0.15), transparent 60%);
             pointer-events: none;
-            opacity: 0.22;
-            background:
-                radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.7), transparent),
-                radial-gradient(1px 1px at 45% 70%, rgba(255, 255, 255, 0.5), transparent),
-                radial-gradient(1.5px 1.5px at 70% 20%, rgba(255, 255, 255, 0.6), transparent),
-                radial-gradient(1px 1px at 85% 55%, rgba(255, 255, 255, 0.4), transparent),
-                radial-gradient(1.5px 1.5px at 10% 80%, rgba(255, 255, 255, 0.5), transparent),
-                radial-gradient(1px 1px at 60% 90%, rgba(255, 255, 255, 0.45), transparent);
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            max-width: 800px;
-            padding: 40px 24px;
-            animation: fadeUp 1s ease forwards;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(212, 149, 58, 0.25);
-            border: 1px solid rgba(224, 168, 78, 0.5);
-            color: var(--secondary-light);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 2px;
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 160, 23, 0.4);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            margin-bottom: 24px;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            color: #F4DE93;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .hero-kicker::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 10px var(--gold);
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.3);
+            }
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-size: clamp(2rem, 5vw, 5.5rem);
+            line-height: 1.05;
             font-weight: 700;
-            color: #fff;
-            line-height: 1.15;
-            margin-bottom: 18px;
-            letter-spacing: -1px;
-            text-shadow: 0 3px 16px rgba(0, 0, 0, 0.55);
+            letter-spacing: -0.02em;
         }
-
-        .hero h1 .highlight {
-            color: var(--secondary-light);
-            position: relative;
-            text-shadow: 0 3px 16px rgba(0, 0, 0, 0.55);
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: rgba(255, 255, 255, 0.92);
-            margin-bottom: 36px;
-            line-height: 1.7;
-            max-width: 620px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .hero-scroll-indicator {
-            position: absolute;
-            bottom: 32px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            animation: bounceDown 2s infinite;
-        }
-
-        .hero-scroll-indicator span {
-            display: block;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 12px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .hero-scroll-indicator span:hover {
-            border-color: #fff;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        @keyframes bounceDown {
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(12px);
-            }
-        }
-
-        /* ──────────────── SECTIONS ──────────────── */
-        .section {
-            padding: 100px 24px;
-            position: relative;
-        }
-        .section-header {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 60px;
-        }
-        .section-tag {
-            display: inline-block;
-            color: var(--secondary-dark);
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
-            margin-bottom: 14px;
-            letter-spacing: -0.5px;
-        }
-        .section-subtitle {
-            color: var(--text-light);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* ──────────────── ABOUT ──────────────── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .about-image-wrapper {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-        }
-        .about-image-wrapper img {
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-            display: block;
-            border-radius: var(--radius-lg);
-            transition: var(--transition-slow);
-        }
-        .about-image-wrapper:hover img {
-            transform: scale(1.04);
-        }
-        .about-image-badge {
-            position: absolute;
-            bottom: 28px;
-            left: 28px;
-            background: #fff;
-            padding: 16px 22px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-        .about-image-badge span {
-            font-size: 2rem;
-            color: var(--secondary);
-            font-weight: 800;
-        }
-        .about-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-        .about-content p {
-            color: var(--text-light);
-            margin-bottom: 16px;
-            line-height: 1.8;
-        }
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 28px;
-        }
-        .about-stat {
-            text-align: center;
-            padding: 18px 10px;
-            background: var(--off-white);
-            border-radius: var(--radius-md);
-            transition: var(--transition);
-        }
-        .about-stat:hover {
-            background: #e8ecf2;
-            transform: translateY(-3px);
-        }
-        .about-stat .stat-num {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--secondary);
-            font-family: 'Playfair Display', serif;
-        }
-        .about-stat .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-lighter);
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
             font-weight: 500;
-            letter-spacing: 0.5px;
         }
 
-        /* ──────────────── PROCESS ──────────────── */
-        .process-section {
-            background: var(--off-white);
-        }
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .process-card {
-            text-align: center;
-            padding: 28px 16px 22px;
-            background: #fff;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
-        }
-        .process-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-        }
-        .process-number {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--secondary);
-            color: #fff;
-            font-weight: 800;
-            font-size: 1.1rem;
-            display: flex;
+        /* Buttons */
+        .btn-primary {
+            background: var(--gold);
+            color: var(--forest-dark);
+            padding: 0.85rem 1.75rem;
+            font-weight: 600;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 14px;
-            transition: var(--transition);
-        }
-        .process-card:hover .process-number {
-            background: var(--primary);
-            transform: scale(1.1);
-        }
-        .process-card h4 {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-        .process-card p {
-            font-size: 0.78rem;
-            color: var(--text-lighter);
-            line-height: 1.5;
-        }
-
-        /* ──────────────── SERVICES ──────────────── */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .service-card {
-            background: #fff;
-            border-radius: var(--radius-lg);
-            padding: 30px 20px 24px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
+            gap: 0.5rem;
+            letter-spacing: 0.02em;
             position: relative;
-            border: 1px solid transparent;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(212, 149, 58, 0.2);
-        }
-        .service-card.featured {
-            border: 2px dashed rgba(212, 149, 58, 0.5);
-            background: #fffdf8;
-        }
-        .service-card.featured::before {
-            content: 'POPULAR';
-            position: absolute;
-            top: 12px;
-            right: 14px;
-            background: var(--secondary);
-            color: #fff;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-        .service-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            background: rgba(212, 149, 58, 0.08);
-            color: var(--secondary-dark);
-            transition: var(--transition);
-        }
-        .service-card:hover .service-icon {
-            background: var(--secondary);
-            color: #fff;
-            transform: scale(1.08);
-        }
-        .service-card h4 {
-            font-weight: 700;
-            font-size: 0.92rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-        .service-card p {
-            font-size: 0.8rem;
-            color: var(--text-lighter);
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: 14px;
-        }
-        .services-cta {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        /* ──────────────── PROJECTS ──────────────── */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .project-card {
-            position: relative;
-            border-radius: var(--radius-lg);
             overflow: hidden;
-            height: 300px;
-            box-shadow: var(--shadow-md);
             cursor: pointer;
-            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 0.9rem;
         }
-        .project-card:hover {
-            box-shadow: var(--shadow-xl);
-            transform: translateY(-4px);
-        }
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-slow);
-        }
-        .project-card:hover img {
-            transform: scale(1.08);
-        }
-        .project-overlay {
+        .btn-primary::before {
+            content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(11, 29, 58, 0.85) 0%, rgba(11, 29, 58, 0.2) 50%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 24px;
-            transition: var(--transition);
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
         }
-        .project-overlay h4 {
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 4px;
+        .btn-primary:hover::before {
+            transform: translateX(100%);
         }
-        .project-overlay span {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.8rem;
-            font-weight: 400;
+        .btn-primary:hover {
+            background: #E0B22E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
         }
-        .projects-cta {
-            text-align: center;
-            margin-top: 40px;
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(212, 160, 23, 0.2);
         }
 
-        /* ──────────────── WHY CHOOSE US ──────────────── */
-        .why-us-section {
-            background: var(--primary);
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.4);
             color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-        .why-us-section::before {
-            content: '';
-            position: absolute;
-            top: -80px;
-            right: -120px;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            background: rgba(212, 149, 58, 0.08);
-            pointer-events: none;
-        }
-        .why-us-section::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            left: -80px;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: rgba(13, 148, 136, 0.06);
-            pointer-events: none;
-        }
-        .why-us-section .section-title {
-            color: #fff;
-        }
-        .why-us-section .section-subtitle {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .why-us-section .section-tag {
-            color: var(--secondary-light);
-        }
-        .why-us-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
-            position: relative;
-            z-index: 1;
-        }
-        .why-us-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: 28px 16px;
-            text-align: center;
-            transition: var(--transition);
-            backdrop-filter: blur(4px);
-        }
-        .why-us-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(212, 149, 58, 0.3);
-            transform: translateY(-6px);
-        }
-        .why-us-icon {
-            font-size: 2rem;
-            color: var(--secondary-light);
-            margin-bottom: 14px;
-            transition: var(--transition);
-        }
-        .why-us-card:hover .why-us-icon {
-            transform: scale(1.15);
-        }
-        .why-us-card h4 {
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-        .why-us-card p {
-            font-size: 0.78rem;
-            color: rgba(255, 255, 255, 0.65);
-            line-height: 1.5;
-        }
-
-        /* ──────────────── MISSION & VISION ──────────────── */
-        .mission-vision-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .mission-vision-card {
-            background: #fff;
-            border-radius: var(--radius-lg);
-            padding: 36px 30px;
-            box-shadow: var(--shadow-md);
-            border-left: 5px solid var(--secondary);
-            transition: var(--transition);
-            text-align: center;
-        }
-        .mission-vision-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-        }
-        .mission-vision-card .mv-icon {
-            font-size: 2.4rem;
-            color: var(--secondary);
-            margin-bottom: 14px;
-        }
-        .mission-vision-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        .mission-vision-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* ──────────────── INSTALLMENT BANNER ──────────────── */
-        .installment-banner {
-            background: linear-gradient(135deg, var(--accent-teal) 0%, #0f766e 100%);
-            color: #fff;
-            text-align: center;
-            padding: 50px 24px;
-            border-radius: var(--radius-lg);
-            max-width: 1000px;
-            margin: 0 auto 40px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-        .installment-banner::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            pointer-events: none;
-        }
-        .installment-banner h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-        .installment-banner p {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .installment-banner .btn {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ──────────────── FAQ ──────────────── */
-        .faq-list {
-            max-width: 750px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .faq-item {
-            background: #fff;
-            border: 1px solid var(--mid-gray);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        .faq-item:hover {
-            border-color: rgba(212, 149, 58, 0.3);
-            box-shadow: var(--shadow-sm);
-        }
-        .faq-item.active {
-            border-color: rgba(212, 149, 58, 0.5);
-            box-shadow: var(--shadow-md);
-        }
-        .faq-question {
-            padding: 20px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.95rem;
-            user-select: none;
-            gap: 16px;
-        }
-        .faq-icon {
-            flex-shrink: 0;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: var(--off-white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            font-size: 0.8rem;
-            color: var(--secondary-dark);
-        }
-        .faq-item.active .faq-icon {
-            background: var(--secondary);
-            color: #fff;
-            transform: rotate(45deg);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            padding: 0 24px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 0 24px 20px;
-        }
-        .faq-cta {
-            text-align: center;
-            margin-top: 36px;
-        }
-
-        /* ──────────────── CONTACT ──────────────── */
-        .contact-section {
-            background: var(--off-white);
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
-            align-items: start;
-        }
-        .contact-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        .contact-info-item {
-            display: flex;
-            gap: 14px;
-            margin-bottom: 22px;
-            align-items: flex-start;
-        }
-        .contact-info-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(212, 149, 58, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--secondary-dark);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        .contact-info-item:hover .contact-info-icon {
-            background: var(--secondary);
-            color: #fff;
-        }
-        .contact-info-text strong {
-            display: block;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 2px;
-        }
-        .contact-info-text span,
-        .contact-info-text a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-        .contact-info-text a:hover {
-            color: var(--secondary-dark);
-        }
-        .contact-form-card {
-            background: #fff;
-            border-radius: var(--radius-lg);
-            padding: 36px;
-            box-shadow: var(--shadow-lg);
-        }
-        .contact-form-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group label {
-            display: block;
+            padding: 0.85rem 1.75rem;
             font-weight: 500;
-            font-size: 0.82rem;
-            color: var(--text);
-            margin-bottom: 6px;
-            letter-spacing: 0.3px;
-        }
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 13px 16px;
-            border: 1.5px solid var(--mid-gray);
-            border-radius: var(--radius-sm);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            background: var(--off-white);
-            color: var(--text);
-        }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 4px rgba(212, 149, 58, 0.08);
-            background: #fff;
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* ──────────────── FOOTER ──────────────── */
-        .footer {
-            background: var(--primary-dark);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 50px 24px 28px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.3fr;
-            gap: 36px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .footer h5 {
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-        .footer a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: var(--transition);
-            display: block;
-            margin-bottom: 8px;
-        }
-        .footer a:hover {
-            color: var(--secondary-light);
-        }
-        .footer-logo-text {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 32px auto 0;
-            padding-top: 22px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        /* ──────────────── SCROLL TO TOP ──────────────── */
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: var(--secondary);
-            color: #fff;
-            border: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             cursor: pointer;
-            z-index: 999;
-            box-shadow: var(--shadow-lg);
-            font-size: 1rem;
-            transition: var(--transition);
-            opacity: 0;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--forest);
+            border-color: #fff;
+        }
+        .btn-outline:active {
+            transform: scale(0.97);
+        }
+
+        .btn-forest {
+            background: var(--forest);
+            color: #fff;
+            padding: 0.85rem 1.75rem;
+            font-weight: 600;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        .btn-forest:hover {
+            background: var(--forest-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(11, 93, 59, 0.25);
+        }
+        .btn-forest:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(11, 93, 59, 0.15);
+        }
+
+        /* Section titles */
+        .section-kicker {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 3.5vw, 3.25rem);
+            line-height: 1.1;
+            color: var(--charcoal);
+            font-weight: 700;
+        }
+        .section-title em {
+            color: var(--forest);
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        /* Impact floating card */
+        .impact-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            padding: 1.5rem 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+        .impact-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+            border-color: rgba(212, 160, 23, 0.4);
+        }
+        .impact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        /* Program cards */
+        .program-card {
+            background: #fff;
+            border: 1px solid #EFECE0;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .program-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(180deg, transparent, rgba(11, 93, 59, 0.05));
+            transition: height 0.4s ease;
             pointer-events: none;
-            transform: translateY(16px);
         }
-        .scroll-top-btn.visible {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(11, 93, 59, 0.12);
+            border-color: var(--forest);
         }
-        .scroll-top-btn:hover {
-            background: var(--secondary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
+        .program-card:hover::after {
+            height: 100%;
+        }
+        .program-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--beige);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--forest);
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+        }
+        .program-card:hover .program-icon {
+            background: var(--forest);
+            color: var(--gold);
+            transform: rotate(-5deg) scale(1.05);
         }
 
-        /* ──────────────── ANIMATIONS ──────────────── */
-        .reveal {
+        /* Project cards */
+        .project-card {
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px rgba(11, 93, 59, 0.15);
+        }
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            flex-shrink: 0;
+        }
+        .project-image img {
+            transition: transform 0.8s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .project-card:hover .project-image img {
+            transform: scale(1.08);
+        }
+        .project-tag {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: var(--gold);
+            color: var(--forest-dark);
+            padding: 0.3rem 0.7rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        /* News cards */
+        .news-card {
+            transition: all 0.4s ease;
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #EFECE0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Documentation cards */
+        .doc-card {
+            background: #fff;
+            border: 1px solid #EFECE0;
+            border-radius: 4px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .doc-card:hover {
+            border-color: var(--forest);
+            transform: translateX(5px);
+            box-shadow: -5px 5px 0 var(--gold);
+        }
+        .doc-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            background: var(--forest);
+            color: var(--gold);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Values */
+        .value-item {
+            padding: 1.5rem 1.25rem;
+            background: #fff;
+            border: 1px solid #EFECE0;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--gold);
+            transition: height 0.4s ease;
+        }
+        .value-item:hover {
+            background: var(--forest);
+            color: #fff;
+            border-color: var(--forest);
+        }
+        .value-item:hover::before {
+            height: 100%;
+        }
+        .value-item:hover h4 {
+            color: var(--gold);
+        }
+        .value-item:hover .value-icon {
+            color: var(--gold);
+        }
+        .value-icon {
+            transition: color 0.4s ease;
+        }
+
+        /* Donation */
+        .donate-section {
+            background:
+                linear-gradient(135deg, rgba(8, 68, 41, 0.95), rgba(11, 93, 59, 0.9)),
+                url('https://images.unsplash.com/photo-1509099836639-18ba1796201b?auto=format&fit=crop&w=2000&q=80') center/cover;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Scroll animations */
+        .fade-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal.visible {
+        .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
 
-        /* ──────────────── RESPONSIVE ──────────────── */
-        @media (max-width: 1200px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-bottom: var(--safe-bottom);
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .mobile-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--gold);
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* Marquee */
+        .marquee {
+            background: var(--forest-dark);
+            color: var(--gold);
+            overflow: hidden;
+            padding: 0.75rem 0;
+            border-top: 1px solid rgba(212, 160, 23, 0.2);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.2);
+        }
+        .marquee-track {
+            display: flex;
+            gap: 2.5rem;
+            animation: scroll 40s linear infinite;
+            white-space: nowrap;
+            width: max-content;
+        }
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
             }
-            .why-us-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .process-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .mission-vision-grid {
-                grid-template-columns: 1fr 1fr;
+            to {
+                transform: translateX(-50%);
             }
         }
 
-        @media (max-width: 900px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                background: #fff;
-                flex-direction: column;
-                padding: 100px 28px 40px;
-                gap: 4px;
-                box-shadow: var(--shadow-xl);
-                transition: var(--transition-slow);
-                z-index: 1000;
-            }
-            .nav-links.active {
-                right: 0;
-            }
-            .nav-links a {
-                font-size: 1rem;
-                padding: 12px 16px;
-                width: 100%;
-            }
-            .nav-phone {
-                display: none;
-            }
-            .nav-phone-mobile {
-                display: flex !important;
-                align-items: center;
-                gap: 8px;
-                color: var(--primary);
-                font-weight: 600;
-                font-size: 0.95rem;
-                padding: 12px 16px;
-                width: 100%;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 36px;
-            }
-            .about-image-wrapper img {
-                height: 340px;
-            }
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .why-us-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-            }
-            .process-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-            }
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero {
-                background-attachment: scroll;
-            }
-            .about-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-            }
-            .mission-vision-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .installment-banner h3 {
-                font-size: 1.4rem;
-            }
+        /* Form */
+        .form-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: #fff;
+            border: 1px solid #E2DCC7;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--forest);
+            box-shadow: 0 0 0 3px rgba(11, 93, 59, 0.1);
+        }
+        select.form-input {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231F2937' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+            cursor: pointer;
         }
 
-        @media (max-width: 600px) {
-            .navbar-inner {
-                padding: 0 16px;
-            }
-            .navbar-logo .logo-text {
-                font-size: 0.95rem;
-            }
-            .navbar-logo .logo-text small {
-                font-size: 0.58rem;
-            }
-            .navbar-logo .logo-icon {
-                width: 36px;
-                height: 36px;
-                font-size: 15px;
-            }
-            .section {
-                padding: 60px 16px;
+        /* Footer */
+        footer a:hover {
+            color: var(--gold);
+        }
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Focus styles */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .hero-kicker {
+                font-size: 0.68rem;
+                padding: 0.4rem 0.9rem;
+                gap: 0.5rem;
             }
             .hero h1 {
-                font-size: 1.9rem;
+                font-size: clamp(1.6rem, 7vw, 2.5rem);
             }
-            .hero p {
-                font-size: 0.9rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-            .hero-buttons .btn {
+            .btn-primary,
+            .btn-outline,
+            .btn-forest {
+                padding: 0.7rem 1.25rem;
+                font-size: 0.8rem;
                 width: 100%;
                 justify-content: center;
             }
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
+            .impact-card {
+                padding: 1rem 0.75rem;
             }
-            .service-card {
-                padding: 20px 12px 16px;
+            .program-card {
+                padding: 1.25rem !important;
             }
-            .service-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 1.2rem;
+            .doc-card {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
             }
-            .service-card h4 {
-                font-size: 0.8rem;
+            .section-kicker {
+                font-size: 0.65rem;
             }
-            .service-card p {
-                font-size: 0.7rem;
+        }
+        @media (max-width: 360px) {
+            .hero-kicker {
+                font-size: 0.6rem;
+                letter-spacing: 0.08em;
+                padding: 0.35rem 0.7rem;
             }
-            .service-card.featured::before {
-                font-size: 0.55rem;
-                padding: 3px 8px;
-                top: 8px;
-                right: 8px;
-            }
-            .why-us-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .why-us-card {
-                padding: 20px 12px;
-            }
-            .why-us-card h4 {
-                font-size: 0.78rem;
-            }
-            .why-us-card p {
-                font-size: 0.7rem;
-            }
-            .process-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .process-card {
-                padding: 18px 10px 14px;
-            }
-            .process-number {
-                width: 34px;
-                height: 34px;
-                font-size: 0.9rem;
-            }
-            .process-card h4 {
-                font-size: 0.75rem;
-            }
-            .process-card p {
-                font-size: 0.68rem;
-            }
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
-            }
-            .project-card {
-                height: 220px;
-            }
-            .about-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-            }
-            .about-stat {
-                padding: 12px 6px;
-            }
-            .about-stat .stat-num {
-                font-size: 1.4rem;
-            }
-            .about-stat .stat-label {
-                font-size: 0.68rem;
-            }
-            .contact-form-card {
-                padding: 22px 16px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            .faq-question {
-                font-size: 0.85rem;
-                padding: 16px 18px;
-            }
-            .scroll-top-btn {
-                bottom: 16px;
-                right: 16px;
-                width: 38px;
-                height: 38px;
-                font-size: 0.85rem;
-            }
-            .mission-vision-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            .mission-vision-card {
-                padding: 24px 20px;
-            }
-            .installment-banner {
-                padding: 32px 16px;
-                border-radius: var(--radius-md);
-            }
-            .installment-banner h3 {
-                font-size: 1.2rem;
-            }
-            .installment-banner p {
-                font-size: 0.85rem;
+            .impact-number {
+                font-size: 1.5rem;
             }
         }
 
-        @media (max-width: 380px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            .why-us-grid {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-            .process-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-            .about-stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 6px;
-            }
-            .about-stat .stat-num {
-                font-size: 1.2rem;
-            }
-            .about-stat .stat-label {
-                font-size: 0.62rem;
-            }
-            .navbar-logo .logo-text {
-                font-size: 0.8rem;
-            }
-            .navbar-logo .logo-icon {
-                width: 30px;
-                height: 30px;
-                font-size: 13px;
-            }
+        /* Prevent horizontal overflow */
+        .max-w-7xl {
+            max-width: 100%;
         }
-
-        /* Mobile nav phone visible only on mobile */
-        .nav-phone-mobile {
-            display: none !important;
-        }
-        @media (max-width: 900px) {
-            .nav-phone-mobile {
-                display: flex !important;
+        @media (min-width: 1280px) {
+            .max-w-7xl {
+                max-width: 1280px;
             }
-        }
-
-        /* Overlay for mobile menu */
-        .nav-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-        }
-        .nav-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
         }
     </style>
 </head>
 <body>
 
-    <!-- ═══════════════ NAVIGATION ═══════════════ -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar-inner">
-            <a href="#" class="navbar-logo" aria-label="Quantum Spring Construction Company Home">
-                <div class="logo-icon">QS</div>
-                <div class="logo-text">
-                    Quantum Spring
-                    <small>Construction Company</small>
+    <!-- ============ NAVIGATION ============ -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2 sm:gap-3 group flex-shrink-0" aria-label="ERA Home">
+                    <div class="logo-mark w-9 h-9 sm:w-11 sm:h-11 bg-white/10 backdrop-blur border border-white/20 rounded-sm flex items-center justify-center text-white font-display font-bold text-base sm:text-lg transition-all group-hover:bg-gold-500 group-hover:text-forest-800 group-hover:border-gold-500">
+                        E
+                    </div>
+                    <div class="flex flex-col leading-tight">
+                        <span class="logo-text text-white font-display font-bold text-sm sm:text-lg tracking-tight">Equity Resource Aid</span>
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] text-gold-400 uppercase">ERA · South Sudan</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-5 xl:gap-8">
+                    <a href="#home" class="nav-link text-white text-sm font-medium">Home</a>
+
+                    <div class="has-dropdown relative">
+                        <a href="#about" class="nav-link text-white text-sm font-medium flex items-center gap-1 cursor-pointer" aria-haspopup="true" aria-expanded="false">
+                            About
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="dropdown absolute top-full left-0 pt-4 z-50">
+                            <div class="bg-white shadow-2xl rounded-sm border border-beige-200 py-3 w-56">
+                                <a href="#about" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">About ERA</a>
+                                <a href="#mission" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Our Vision & Mission</a>
+                                <a href="#values" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Our Values</a>
+                                <a href="#team" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Our Partners</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="has-dropdown relative">
+                        <a href="#programs" class="nav-link text-white text-sm font-medium flex items-center gap-1 cursor-pointer" aria-haspopup="true" aria-expanded="false">
+                            Programs
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="dropdown absolute top-full left-0 pt-4 z-50">
+                            <div class="bg-white shadow-2xl rounded-sm border border-beige-200 py-3 w-56">
+                                <a href="#programs" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Education</a>
+                                <a href="#programs" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Peace Building</a>
+                                <a href="#programs" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Livelihoods</a>
+                                <a href="#programs" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Food & Nutrition</a>
+                                <a href="#programs" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Economic Security</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#projects" class="nav-link text-white text-sm font-medium">Projects</a>
+                    <a href="#documentation" class="nav-link text-white text-sm font-medium">Documentation</a>
+                    <a href="#news" class="nav-link text-white text-sm font-medium">News</a>
+
+                    <div class="has-dropdown relative">
+                        <a href="#donate" class="nav-link text-white text-sm font-medium flex items-center gap-1 cursor-pointer" aria-haspopup="true" aria-expanded="false">
+                            Get Involved
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                        <div class="dropdown absolute top-full right-0 pt-4 z-50">
+                            <div class="bg-white shadow-2xl rounded-sm border border-beige-200 py-3 w-48">
+                                <a href="#donate" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Donate</a>
+                                <a href="#contact" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Volunteer</a>
+                                <a href="#contact" class="block px-5 py-2.5 text-sm text-charcoal hover:bg-beige-100 hover:text-forest-600 transition">Partner With Us</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="nav-link text-white text-sm font-medium">Contact</a>
+
+                    <a href="#donate" class="btn-primary text-sm !py-2 !px-4 xl:!py-2.5 xl:!px-5 flex-shrink-0">
+                        Donate Now
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
-            </a>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active" data-link>Home</a></li>
-                <li><a href="#about" data-link>About</a></li>
-                <li><a href="#services" data-link>Services</a></li>
-                <li><a href="#projects" data-link>Projects</a></li>
-                <li><a href="#mission-vision" data-link>Mission & Vision</a></li>
-                <li><a href="#faq" data-link>FAQ</a></li>
-                <li><a href="#contact" data-link>Contact</a></li>
-                <li><a href="tel:+211916705730" class="nav-phone-mobile"><i class="fas fa-phone"></i> +211 916 705 730</a></li>
-            </ul>
-
-            <a href="tel:+211916705730" class="nav-phone" aria-label="Call us">
-                <i class="fas fa-phone"></i> +211 916 705 730
-            </a>
-
-            <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
-
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+                <!-- Mobile toggle -->
+                <button id="menuToggle" class="lg:hidden text-white p-2 -mr-2" aria-label="Open menu" aria-expanded="false">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
         </div>
     </nav>
-    <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- ═══════════════ HERO ═══════════════ -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-particles"></div>
-        <div class="hero-content">
-            <span class="hero-badge">Dynamic Construction Firm — Juba, South Sudan</span>
-            <h1>We Don't Just Build Structures — <span class="highlight">We Build Futures.</span></h1>
-            <p>Quantum Spring Construction Company delivers high-quality, durable, and cost-effective building solutions. With our flexible installment payment plans, we make construction accessible to everyone — homeowners, investors, and businesses across South Sudan.</p>
-            <div class="hero-buttons">
-                <a href="tel:+211916705730" class="btn btn-outline">
-                    <i class="fas fa-phone"></i> Call Us Now
+    <!-- Mobile Overlay -->
+    <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black/60 z-[55] lg:hidden" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-72 sm:w-80 max-w-[85vw] bg-forest-800 z-[60] shadow-2xl overflow-y-auto lg:hidden">
+        <div class="p-5 sm:p-6 border-b border-white/10 flex items-center justify-between">
+            <span class="text-white font-display text-lg sm:text-xl">Menu</span>
+            <button id="menuClose" class="text-white p-2 -mr-2" aria-label="Close menu">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="p-5 sm:p-6 space-y-1">
+            <a href="#home" class="mobile-link block py-3 text-white/90 border-b border-white/5 text-sm">Home</a>
+            <a href="#about" class="mobile-link block py-3 text-white/90 border-b border-white/5 text-sm">About ERA</a>
+            <a href="#mission" class="mobile-link block py-3 text-white/90 border-b border-white/5 text-sm">Vision & Mission</a>
+            <a href="#programs" class="mobile-link block py-3 text-white/90 border-b border-white/5 text-sm">Programs</a>
+            <a href="#projects" class="mobile-link block py-3 text-white/90 border-b border-white/5 text-sm">Projects</a>
+            <a href="#documentation" class="mobile-link block py-3 text-white/90 border-b border-white/5 text-sm">Documentation</a>
+            <a href="#news" class="mobile-link block py-3 text-white/90 border-b border-white/5 text-sm">News</a>
+            <a href="#donate" class="mobile-link block py-3 text-gold-400 border-b border-white/5 font-semibold text-sm">Donate</a>
+            <a href="#contact" class="mobile-link block py-3 text-white/90 text-sm">Contact</a>
+            <a href="#donate" class="btn-primary mt-6 w-full justify-center text-sm">Donate Now</a>
+        </div>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero" aria-label="Hero section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 w-full relative z-10 pt-20 sm:pt-24 pb-16 sm:pb-20">
+            <div class="max-w-4xl">
+                <div class="hero-kicker fade-in">National NGO · South Sudan</div>
+                <h1 class="mt-6 sm:mt-8 fade-in">
+                    Building an Equitable Society Through <em>Hope</em>, Opportunity, and <em>Action</em>
+                </h1>
+                <p class="mt-5 sm:mt-8 text-base sm:text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed fade-in">
+                    Equity Resource Aid works to empower communities across South Sudan through education, peace-building, sustainable livelihoods, food security, nutrition, and economic development.
+                </p>
+                <div class="mt-6 sm:mt-10 flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4 fade-in">
+                    <a href="#programs" class="btn-primary w-full xs:w-auto justify-center">
+                        Explore Our Programs
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="#donate" class="btn-outline w-full xs:w-auto justify-center">
+                        Support Our Mission
+                    </a>
+                </div>
+            </div>
+
+            <!-- Floating impact stats -->
+            <div class="mt-12 sm:mt-16 md:mt-20 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 fade-in">
+                <div class="impact-card">
+                    <div class="impact-number" data-count="10">0</div>
+                    <div class="text-xs sm:text-sm text-white/70 mt-1 sm:mt-2 tracking-wide uppercase">Communities<br>Supported</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-count="5">0</div>
+                    <div class="text-xs sm:text-sm text-white/70 mt-1 sm:mt-2 tracking-wide uppercase">Key Development<br>Programs</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number" data-count="1000">0</div>
+                    <div class="text-xs sm:text-sm text-white/70 mt-1 sm:mt-2 tracking-wide uppercase">People<br>Impacted</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number text-2xl sm:text-3xl md:text-4xl">🌍</div>
+                    <div class="text-xs sm:text-sm text-white/70 mt-1 sm:mt-2 tracking-wide uppercase">South Sudan<br>Nationwide</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 text-white/60 flex flex-col items-center gap-2 text-[10px] sm:text-xs tracking-widest hidden sm:flex">
+            <span>SCROLL</span>
+            <div class="w-px h-10 sm:h-12 bg-gradient-to-b from-white/60 to-transparent animate-pulse"></div>
+        </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase font-medium">
+            <span>★ Education</span><span>★ Peace Building</span><span>★ Livelihoods</span>
+            <span>★ Food Security</span><span>★ Nutrition</span><span>★ Economic Empowerment</span>
+            <span>★ Education</span><span>★ Peace Building</span><span>★ Livelihoods</span>
+            <span>★ Food Security</span><span>★ Nutrition</span><span>★ Economic Empowerment</span>
+        </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="py-16 sm:py-20 md:py-24 lg:py-32 bg-beige-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-20 items-center">
+                <div class="lg:col-span-5 fade-up">
+                    <div class="relative">
+                        <img src="assets/equity.jpg" alt="Community members in South Sudan" class="rounded-sm shadow-2xl w-full aspect-[4/5] object-cover" loading="lazy" />
+                        <div class="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-8 bg-forest-600 text-white p-5 sm:p-8 rounded-sm shadow-xl hidden md:block max-w-[200px] sm:max-w-[240px]">
+                            <div class="text-gold-400 font-display text-3xl sm:text-5xl font-bold">10+</div>
+                            <div class="text-xs sm:text-sm mt-2 text-white/80">Years serving communities across South Sudan</div>
+                        </div>
+                        <div class="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 sm:w-24 sm:h-24 border-2 border-gold-500 rounded-sm hidden md:block"></div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 fade-up">
+                    <span class="section-kicker">About ERA</span>
+                    <h2 class="section-title">
+                        A national movement for <em>equity, dignity,</em> and lasting change
+                    </h2>
+                    <p class="mt-4 sm:mt-6 text-base sm:text-lg text-charcoal/80 leading-relaxed">
+                        Equity Resource Aid (ERA) is a non-profit national NGO dedicated to creating an equitable society by investing in education, peace-building, livelihoods, food security, nutrition, and economic empowerment.
+                    </p>
+                    <p class="mt-3 sm:mt-4 text-charcoal/70 leading-relaxed text-sm sm:text-base">
+                        Working hand-in-hand with communities, local authorities, and international partners, we design context-driven interventions that restore dignity, strengthen resilience, and open pathways of opportunity for the most vulnerable across South Sudan.
+                    </p>
+
+                    <div id="mission" class="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="border-l-2 border-gold-500 pl-4 sm:pl-5">
+                            <div class="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] text-gold-600 uppercase font-semibold mb-2">Our Mission</div>
+                            <p class="text-charcoal/85 leading-relaxed text-sm sm:text-base">To empower vulnerable communities through sustainable solutions that promote dignity, resilience, and opportunity.</p>
+                        </div>
+                        <div class="border-l-2 border-forest-600 pl-4 sm:pl-5">
+                            <div class="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] text-forest-600 uppercase font-semibold mb-2">Our Vision</div>
+                            <p class="text-charcoal/85 leading-relaxed text-sm sm:text-base">A peaceful and equitable society where every individual has access to opportunities and resources.</p>
+                        </div>
+                    </div>
+
+                    <a href="#programs" class="btn-forest mt-8 sm:mt-10 inline-flex">
+                        Discover Our Work
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ VALUES ============ -->
+    <section id="values" class="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="text-center max-w-3xl mx-auto fade-up">
+                <span class="section-kicker">Our Core Values</span>
+                <h2 class="section-title">The principles that guide <em>every action</em></h2>
+                <p class="mt-4 sm:mt-6 text-charcoal/70 text-base sm:text-lg">Our work is anchored in five enduring values that shape how we serve, partner, and grow alongside the communities of South Sudan.</p>
+            </div>
+
+            <div class="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 fade-up">
+                <div class="value-item">
+                    <svg class="value-icon w-7 h-7 sm:w-8 sm:h-8 text-gold-500 mb-3 sm:mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <h4 class="font-display text-lg sm:text-xl font-bold text-forest-700 transition-colors">Integrity</h4>
+                    <p class="text-xs sm:text-sm text-charcoal/70 mt-1 sm:mt-2">Honest, ethical, and transparent in every commitment.</p>
+                </div>
+                <div class="value-item">
+                    <svg class="value-icon w-7 h-7 sm:w-8 sm:h-8 text-gold-500 mb-3 sm:mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <h4 class="font-display text-lg sm:text-xl font-bold text-forest-700 transition-colors">Inclusion</h4>
+                    <p class="text-xs sm:text-sm text-charcoal/70 mt-1 sm:mt-2">Leaving no one behind — every voice matters.</p>
+                </div>
+                <div class="value-item">
+                    <svg class="value-icon w-7 h-7 sm:w-8 sm:h-8 text-gold-500 mb-3 sm:mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    <h4 class="font-display text-lg sm:text-xl font-bold text-forest-700 transition-colors">Accountability</h4>
+                    <p class="text-xs sm:text-sm text-charcoal/70 mt-1 sm:mt-2">Responsible stewardship of every resource entrusted to us.</p>
+                </div>
+                <div class="value-item">
+                    <svg class="value-icon w-7 h-7 sm:w-8 sm:h-8 text-gold-500 mb-3 sm:mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <h4 class="font-display text-lg sm:text-xl font-bold text-forest-700 transition-colors">Partnership</h4>
+                    <p class="text-xs sm:text-sm text-charcoal/70 mt-1 sm:mt-2">Stronger together — with communities and allies.</p>
+                </div>
+                <div class="value-item sm:col-span-3 lg:col-span-1">
+                    <svg class="value-icon w-7 h-7 sm:w-8 sm:h-8 text-gold-500 mb-3 sm:mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <h4 class="font-display text-lg sm:text-xl font-bold text-forest-700 transition-colors">Sustainability</h4>
+                    <p class="text-xs sm:text-sm text-charcoal/70 mt-1 sm:mt-2">Solutions that endure beyond our presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROGRAMS ============ -->
+    <section id="programs" class="py-16 sm:py-20 md:py-24 lg:py-32 bg-beige-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 sm:gap-8 mb-10 sm:mb-16 fade-up">
+                <div class="max-w-2xl">
+                    <span class="section-kicker">Our Programs</span>
+                    <h2 class="section-title">Five pillars of <em>lasting impact</em></h2>
+                    <p class="mt-4 sm:mt-6 text-charcoal/70 text-base sm:text-lg">Integrated, community-led programs designed to address the root causes of vulnerability and unlock long-term opportunity.</p>
+                </div>
+                <a href="#contact" class="btn-forest whitespace-nowrap self-start">
+                    Partner With Us
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-file-invoice"></i> Get Your Quote
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 fade-up">
+                <!-- Education -->
+                <div class="program-card p-6 sm:p-8">
+                    <div class="program-icon">
+                        <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700 mt-4 sm:mt-6">Education</h3>
+                    <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm sm:text-base">Supporting access to quality education and learning opportunities for children, youth, and adults across underserved communities.</p>
+                    <div class="mt-auto pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-beige-200 flex items-center justify-between text-sm">
+                        <span class="text-forest-600 font-semibold">01 / 05</span>
+                        <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Peace Building -->
+                <div class="program-card p-6 sm:p-8">
+                    <div class="program-icon">
+                        <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700 mt-4 sm:mt-6">Peace Building</h3>
+                    <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm sm:text-base">Promoting dialogue, reconciliation, and peaceful communities through grassroots engagement and conflict transformation.</p>
+                    <div class="mt-auto pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-beige-200 flex items-center justify-between text-sm">
+                        <span class="text-forest-600 font-semibold">02 / 05</span>
+                        <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Livelihoods -->
+                <div class="program-card p-6 sm:p-8">
+                    <div class="program-icon">
+                        <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700 mt-4 sm:mt-6">Livelihoods</h3>
+                    <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm sm:text-base">Strengthening economic opportunities and community resilience through skills training, enterprise support, and market access.</p>
+                    <div class="mt-auto pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-beige-200 flex items-center justify-between text-sm">
+                        <span class="text-forest-600 font-semibold">03 / 05</span>
+                        <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Food & Nutrition -->
+                <div class="program-card p-6 sm:p-8">
+                    <div class="program-icon">
+                        <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700 mt-4 sm:mt-6">Food & Nutrition</h3>
+                    <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm sm:text-base">Improving food security and nutrition outcomes through emergency response, agriculture support, and maternal-child health programs.</p>
+                    <div class="mt-auto pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-beige-200 flex items-center justify-between text-sm">
+                        <span class="text-forest-600 font-semibold">04 / 05</span>
+                        <svg class="w-5 h-5 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </div>
+                </div>
+
+                <!-- Economic Security -->
+                <div class="program-card p-6 sm:p-8 sm:col-span-2 lg:col-span-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                        <div class="program-icon">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700">Economic Security</h3>
+                            <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm sm:text-base">Supporting sustainable economic empowerment through microfinance, vocational training, savings groups, and market-linkage programs that lift families out of poverty for good.</p>
+                        </div>
+                        <div class="text-forest-600 font-semibold text-sm flex-shrink-0">05 / 05</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="text-center max-w-3xl mx-auto fade-up">
+                <span class="section-kicker">Our Projects</span>
+                <h2 class="section-title">Where our work <em>touches lives</em></h2>
+                <p class="mt-4 sm:mt-6 text-charcoal/70 text-base sm:text-lg">A selection of active and recent projects delivering measurable impact across South Sudan.</p>
+            </div>
+
+            <div class="mt-10 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 fade-up">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=800&q=80" alt="Education project in Juba" loading="lazy" />
+                        <span class="project-tag">Education</span>
+                    </div>
+                    <div class="p-5 sm:p-7 flex flex-col flex-1">
+                        <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold mb-2">📍 Juba · Central Equatoria</div>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700">Brighter Futures Learning Initiative</h3>
+                        <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm">Providing access to quality primary education, learning materials, and teacher training for 450 children in underserved communities.</p>
+                        <div class="mt-auto pt-4 sm:pt-5 mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 border-t border-beige-200">
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">450</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Students</div></div>
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">12</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Schools</div></div>
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">3yr</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Duration</div></div>
+                        </div>
+                        <a href="#" class="mt-4 sm:mt-6 inline-flex items-center gap-2 text-forest-600 font-semibold text-sm hover:text-gold-600 transition">
+                            Learn More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=800&q=80" alt="Peace building project" loading="lazy" />
+                        <span class="project-tag">Peace Building</span>
+                    </div>
+                    <div class="p-5 sm:p-7 flex flex-col flex-1">
+                        <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold mb-2">📍 Upper Nile · Jonglei</div>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700">Community Reconciliation & Dialogue</h3>
+                        <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm">Facilitating inter-community dialogue, trauma healing, and youth peace ambassador programs across conflict-affected counties.</p>
+                        <div class="mt-auto pt-4 sm:pt-5 mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 border-t border-beige-200">
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">8</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Communities</div></div>
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">1.2K</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Participants</div></div>
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">24</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Dialogues</div></div>
+                        </div>
+                        <a href="#" class="mt-4 sm:mt-6 inline-flex items-center gap-2 text-forest-600 font-semibold text-sm hover:text-gold-600 transition">
+                            Learn More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card sm:col-span-2 lg:col-span-1">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="Food security project" loading="lazy" />
+                        <span class="project-tag">Food & Nutrition</span>
+                    </div>
+                    <div class="p-5 sm:p-7 flex flex-col flex-1">
+                        <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold mb-2">📍 Warrap · Lakes</div>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700">Nourish & Grow Program</h3>
+                        <p class="mt-2 sm:mt-3 text-charcoal/70 leading-relaxed text-sm">Integrated food security and nutrition support for mothers and children, including school feeding and kitchen-garden training.</p>
+                        <div class="mt-auto pt-4 sm:pt-5 mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 border-t border-beige-200">
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">600</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Families</div></div>
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">95%</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Retention</div></div>
+                            <div><div class="font-display text-xl sm:text-2xl font-bold text-forest-600">18mo</div><div class="text-[10px] sm:text-xs text-charcoal/60 uppercase tracking-wide">Active</div></div>
+                        </div>
+                        <a href="#" class="mt-4 sm:mt-6 inline-flex items-center gap-2 text-forest-600 font-semibold text-sm hover:text-gold-600 transition">
+                            Learn More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 sm:mt-16 text-center fade-up">
+                <a href="#" class="btn-forest">
+                    View All Projects
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
             </div>
         </div>
-        <div class="hero-scroll-indicator">
-            <span onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" title="Scroll down">
-                <i class="fas fa-chevron-down"></i>
-            </span>
-        </div>
     </section>
 
-    <!-- ═══════════════ ABOUT ═══════════════ -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image-wrapper reveal">
-                    <img src="assets/quantum.jpg" alt="Quantum Spring Construction Team at Work" loading="lazy" onerror="this.style.background='#d5dbe3'; this.style.minHeight='300px';">
-                    <div class="about-image-badge">
-                        <span>🏗️</span> Building<br>Futures
-                    </div>
+    <!-- ============ DOCUMENTATION ============ -->
+    <section id="documentation" class="py-16 sm:py-20 md:py-24 lg:py-32 bg-beige-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-3 gap-10 lg:gap-16 xl:gap-20">
+                <div class="lg:col-span-1 fade-up">
+                    <span class="section-kicker">Documentation</span>
+                    <h2 class="section-title">Transparency is our <em>foundation</em></h2>
+                    <p class="mt-4 sm:mt-6 text-charcoal/70 leading-relaxed text-sm sm:text-base">We believe in full accountability. Access our reports, publications, policies, and newsletters — because our partners and communities deserve to see the full picture.</p>
+                    <a href="#" class="btn-forest mt-6 sm:mt-8">Request a Report</a>
                 </div>
-                <div class="about-content reveal">
-                    <span class="section-tag">About Our Company</span>
-                    <h3>Transforming South Sudan's Construction Industry</h3>
-                    <p>Quantum Spring Construction Company is a dynamic and forward-thinking construction firm based in Gudele 1, Juba, South Sudan. Established with a vision to transform the construction industry, we focus on delivering high-quality, durable, and cost-effective building solutions.</p>
-                    <p>We believe in innovation, reliability, and making construction accessible to everyone through flexible payment options. From residential homes to commercial complexes, our skilled professionals bring your vision to life with precision, integrity, and a commitment to exceeding expectations.</p>
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <div class="stat-num">100+</div>
-                            <div class="stat-label">Projects Delivered</div>
+
+                <div class="lg:col-span-2 space-y-3 sm:space-y-4 fade-up">
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                         </div>
-                        <div class="about-stat">
-                            <div class="stat-num">50+</div>
-                            <div class="stat-label">Happy Clients</div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold">Annual Reports</div>
+                            <h4 class="font-display text-base sm:text-lg font-bold text-forest-700 mt-1">ERA Annual Report 2025</h4>
+                            <p class="text-xs sm:text-sm text-charcoal/60 mt-1">Comprehensive overview of programs, finances, and impact.</p>
                         </div>
-                        <div class="about-stat">
-                            <div class="stat-num">1</div>
-                            <div class="stat-label">Office — Gudele 1</div>
+                        <a href="#" class="text-forest-600 hover:text-gold-600 font-semibold text-sm flex-shrink-0 ml-auto">Download PDF →</a>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                         </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold">Project Reports</div>
+                            <h4 class="font-display text-base sm:text-lg font-bold text-forest-700 mt-1">Brighter Futures — Mid-term Evaluation</h4>
+                            <p class="text-xs sm:text-sm text-charcoal/60 mt-1">Independent assessment of education outcomes.</p>
+                        </div>
+                        <a href="#" class="text-forest-600 hover:text-gold-600 font-semibold text-sm flex-shrink-0 ml-auto">Download PDF →</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ═══════════════ OUR PROCESS ──────────────── -->
-    <section class="section process-section" id="process">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">How We Work</span>
-                <h2 class="section-title">Our Structured Approach</h2>
-                <p class="section-subtitle">At Quantum Spring, we follow a clear, step-by-step process to ensure every project is delivered on time, within budget, and to the highest standards.</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-card reveal">
-                    <div class="process-number">1</div>
-                    <h4>Consultation & Planning</h4>
-                    <p>We sit down with you to understand your vision, requirements, and budget.</p>
-                </div>
-                <div class="process-card reveal">
-                    <div class="process-number">2</div>
-                    <h4>Design & Cost Estimation</h4>
-                    <p>Our team creates detailed architectural designs with transparent cost breakdowns.</p>
-                </div>
-                <div class="process-card reveal">
-                    <div class="process-number">3</div>
-                    <h4>Material Sourcing & Prep</h4>
-                    <p>We source only quality materials and prepare the site for construction.</p>
-                </div>
-                <div class="process-card reveal">
-                    <div class="process-number">4</div>
-                    <h4>Construction & Supervision</h4>
-                    <p>Skilled professionals execute the build under strict supervision and quality control.</p>
-                </div>
-                <div class="process-card reveal">
-                    <div class="process-number">5</div>
-                    <h4>Final Delivery & Satisfaction</h4>
-                    <p>We hand over your completed project and ensure you are fully satisfied.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold">Publications</div>
+                            <h4 class="font-display text-base sm:text-lg font-bold text-forest-700 mt-1">Peacebuilding in South Sudan — Field Insights</h4>
+                            <p class="text-xs sm:text-sm text-charcoal/60 mt-1">Research publication on community-led reconciliation.</p>
+                        </div>
+                        <a href="#" class="text-forest-600 hover:text-gold-600 font-semibold text-sm flex-shrink-0 ml-auto">Download PDF →</a>
+                    </div>
 
-    <!-- ═══════════════ SERVICES ═══════════════ -->
-    <section class="section" id="services">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">What We Offer</span>
-                <h2 class="section-title">Our Comprehensive Services</h2>
-                <p class="section-subtitle">From architectural design to final construction and material supply, we provide complete building solutions — including flexible installment plans that make your dream project achievable.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon"><i class="fas fa-home"></i></div>
-                    <h4>Residential Construction</h4>
-                    <p>Beautiful, durable homes built to your specifications with quality craftsmanship.</p>
-                    <a href="#contact" class="btn btn-primary btn-xs">Get Quote</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h4>Commercial Construction</h4>
-                    <p>Functional and impressive commercial spaces that enhance your business presence.</p>
-                    <a href="#contact" class="btn btn-primary btn-xs">Get Quote</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
-                    <h4>Renovation & Remodeling</h4>
-                    <p>Transform existing structures with modern upgrades and expert remodeling services.</p>
-                    <a href="#contact" class="btn btn-primary btn-xs">Get Quote</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-                    <h4>Architectural Design & Planning</h4>
-                    <p>Innovative designs and meticulous planning that bring your vision to paper.</p>
-                    <a href="#contact" class="btn btn-primary btn-xs">Get Quote</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon"><i class="fas fa-tasks"></i></div>
-                    <h4>Project Management</h4>
-                    <p>End-to-end project oversight ensuring timelines, budgets, and quality standards are met.</p>
-                    <a href="#contact" class="btn btn-primary btn-xs">Get Quote</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon"><i class="fas fa-truck-loading"></i></div>
-                    <h4>Construction Materials Supply</h4>
-                    <p>Reliable supply of quality construction materials for projects of any scale.</p>
-                    <a href="#contact" class="btn btn-primary btn-xs">Get Quote</a>
-                </div>
-                <div class="service-card reveal featured">
-                    <div class="service-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                    <h4>Installment-Based Construction</h4>
-                    <p>Build now and pay in flexible installments — making construction accessible to everyone.</p>
-                    <a href="#contact" class="btn btn-teal btn-xs">Learn More</a>
-                </div>
-            </div>
-            <div class="services-cta reveal">
-                <a href="#contact" class="btn btn-primary">See All Services & Get Pricing</a>
-            </div>
-        </div>
-    </section>
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold">Policies</div>
+                            <h4 class="font-display text-base sm:text-lg font-bold text-forest-700 mt-1">Safeguarding & Child Protection Policy</h4>
+                            <p class="text-xs sm:text-sm text-charcoal/60 mt-1">Our commitment to safe, ethical programming.</p>
+                        </div>
+                        <a href="#" class="text-forest-600 hover:text-gold-600 font-semibold text-sm flex-shrink-0 ml-auto">Download PDF →</a>
+                    </div>
 
-    <!-- ═══════════════ INSTALLMENT BANNER ═══════════════ -->
-    <section class="section" style="padding-bottom:40px;">
-        <div class="container">
-            <div class="installment-banner reveal">
-                <h3>🏗️ Build Now, Pay Later</h3>
-                <p>Our flexible installment payment plans make it easier than ever to build your dream home or commercial property. Quality construction shouldn't be out of reach — and with Quantum Spring, it isn't.</p>
-                <a href="#contact" class="btn btn-white">Get Your Installment Plan</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════ PROJECTS ═══════════════ -->
-    <section class="section" id="projects">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Our Portfolio</span>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">A showcase of our landmark construction projects across South Sudan — reflecting quality, durability, and innovative building solutions.</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card reveal">
-                    <img src="assets/quantum.jpg" alt="Modern Office Complex" loading="lazy" onerror="this.style.background='#d5dbe3'">
-                    <div class="project-overlay">
-                        <h4>Modern Office Complex</h4>
-                        <span>Juba, South Sudan</span>
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[10px] sm:text-xs tracking-widest text-gold-600 uppercase font-semibold">Newsletters</div>
+                            <h4 class="font-display text-base sm:text-lg font-bold text-forest-700 mt-1">ERA Quarterly Newsletter — Q2 2026</h4>
+                            <p class="text-xs sm:text-sm text-charcoal/60 mt-1">Stories, updates, and impact from the field.</p>
+                        </div>
+                        <a href="#" class="text-forest-600 hover:text-gold-600 font-semibold text-sm flex-shrink-0 ml-auto">Download PDF →</a>
                     </div>
-                </div>
-                <div class="project-card reveal">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Residential Development" loading="lazy" onerror="this.style.background='#d5dbe3'">
-                    <div class="project-overlay">
-                        <h4>Residential Development</h4>
-                        <span>Gudele, Juba, South Sudan</span>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Commercial Building" loading="lazy" onerror="this.style.background='#d5dbe3'">
-                    <div class="project-overlay">
-                        <h4>Commercial Building</h4>
-                        <span>Juba, South Sudan</span>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Institutional Project" loading="lazy" onerror="this.style.background='#d5dbe3'">
-                    <div class="project-overlay">
-                        <h4>Institutional Project</h4>
-                        <span>South Sudan</span>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80" alt="Infrastructure Development" loading="lazy" onerror="this.style.background='#d5dbe3'">
-                    <div class="project-overlay">
-                        <h4>Infrastructure Development</h4>
-                        <span>Juba, South Sudan</span>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Renovation Project" loading="lazy" onerror="this.style.background='#d5dbe3'">
-                    <div class="project-overlay">
-                        <h4>Renovation Project</h4>
-                        <span>Juba, South Sudan</span>
-                    </div>
-                </div>
-            </div>
-            <div class="projects-cta reveal">
-                <a href="#contact" class="btn btn-primary">See All Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════ WHY CHOOSE US ═══════════════ -->
-    <section class="section why-us-section" id="why-us">
-        <div class="container" style="position:relative;z-index:1;">
-            <div class="section-header reveal">
-                <span class="section-tag">Why Quantum Spring</span>
-                <h2 class="section-title">What Sets Us Apart</h2>
-                <p class="section-subtitle">Our core values drive everything we do — from flexible installment plans to quality materials and on-time delivery. Here's why clients trust us.</p>
-            </div>
-            <div class="why-us-grid">
-                <div class="why-us-card reveal">
-                    <div class="why-us-icon"><i class="fas fa-medal"></i></div>
-                    <h4>Quality</h4>
-                    <p>We deliver strong, lasting structures built with premium materials and expert workmanship.</p>
-                </div>
-                <div class="why-us-card reveal">
-                    <div class="why-us-icon"><i class="fas fa-handshake"></i></div>
-                    <h4>Integrity</h4>
-                    <p>We operate with honesty and transparency in every client interaction and project decision.</p>
-                </div>
-                <div class="why-us-card reveal">
-                    <div class="why-us-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h4>Innovation</h4>
-                    <p>We embrace modern construction methods and technologies for efficient, cutting-edge results.</p>
-                </div>
-                <div class="why-us-card reveal">
-                    <div class="why-us-icon"><i class="fas fa-smile"></i></div>
-                    <h4>Customer Focus</h4>
-                    <p>Client satisfaction is our priority — we listen, adapt, and deliver beyond expectations.</p>
-                </div>
-                <div class="why-us-card reveal">
-                    <div class="why-us-icon"><i class="fas fa-clock"></i></div>
-                    <h4>Reliability</h4>
-                    <p>We deliver projects on time and within budget, every time — no excuses, just results.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════ MISSION & VISION ═══════════════ -->
-    <section class="section" id="mission-vision">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Our Purpose</span>
-                <h2 class="section-title">Mission & Vision</h2>
-                <p class="section-subtitle">Guided by a clear mission and an ambitious vision, we strive to be South Sudan's most trusted construction partner.</p>
-            </div>
-            <div class="mission-vision-grid">
-                <div class="mission-vision-card reveal">
-                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
-                    <h4>Our Mission</h4>
-                    <p>To deliver reliable, affordable, and high-quality construction services while making it easier for clients to build through flexible installment plans.</p>
+    <!-- ============ NEWS ============ -->
+    <section id="news" class="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 sm:gap-8 mb-10 sm:mb-16 fade-up">
+                <div class="max-w-2xl">
+                    <span class="section-kicker">Latest Updates</span>
+                    <h2 class="section-title">Stories from the <em>field</em></h2>
+                    <p class="mt-4 sm:mt-6 text-charcoal/70 text-base sm:text-lg">News, announcements, and voices from the communities we serve.</p>
                 </div>
-                <div class="mission-vision-card reveal">
-                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
-                    <h4>Our Vision</h4>
-                    <p>To be a leading construction company in South Sudan, recognized for quality, innovation, and customer-focused solutions.</p>
+                <a href="#" class="btn-forest whitespace-nowrap self-start">All News</a>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 fade-up">
+                <article class="news-card">
+                    <div class="aspect-[16/10] overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1509099836639-18ba1796201b?auto=format&fit=crop&w=800&q=80" alt="New learning centers" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    </div>
+                    <div class="p-5 sm:p-7 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs flex-wrap">
+                            <span class="text-gold-600 font-semibold tracking-widest uppercase">Education</span>
+                            <span class="text-charcoal/40">·</span>
+                            <span class="text-charcoal/60">June 28, 2026</span>
+                        </div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-forest-700 mt-2 sm:mt-3 leading-snug">ERA launches new learning centers in three counties</h3>
+                        <p class="mt-2 sm:mt-3 text-charcoal/70 text-sm leading-relaxed">Three new community learning centers opened their doors, reaching over 300 children with quality primary education.</p>
+                        <a href="#" class="mt-auto pt-3 sm:pt-5 mt-3 sm:mt-5 inline-flex items-center gap-2 text-forest-600 font-semibold text-sm hover:text-gold-600 transition">
+                            Read More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="aspect-[16/10] overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=800&q=80" alt="Youth peace ambassadors" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    </div>
+                    <div class="p-5 sm:p-7 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs flex-wrap">
+                            <span class="text-gold-600 font-semibold tracking-widest uppercase">Peace Building</span>
+                            <span class="text-charcoal/40">·</span>
+                            <span class="text-charcoal/60">June 12, 2026</span>
+                        </div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-forest-700 mt-2 sm:mt-3 leading-snug">Youth peace ambassadors complete national training</h3>
+                        <p class="mt-2 sm:mt-3 text-charcoal/70 text-sm leading-relaxed">Forty young leaders from across South Sudan completed a two-week intensive peace-building and dialogue facilitation program.</p>
+                        <a href="#" class="mt-auto pt-3 sm:pt-5 mt-3 sm:mt-5 inline-flex items-center gap-2 text-forest-600 font-semibold text-sm hover:text-gold-600 transition">
+                            Read More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="news-card sm:col-span-2 lg:col-span-1">
+                    <div class="aspect-[16/10] overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="Nourish & Grow program" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    </div>
+                    <div class="p-5 sm:p-7 flex flex-col flex-1">
+                        <div class="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs flex-wrap">
+                            <span class="text-gold-600 font-semibold tracking-widest uppercase">Food Security</span>
+                            <span class="text-charcoal/40">·</span>
+                            <span class="text-charcoal/60">May 30, 2026</span>
+                        </div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-forest-700 mt-2 sm:mt-3 leading-snug">Nourish & Grow reaches 600 families in Warrap</h3>
+                        <p class="mt-2 sm:mt-3 text-charcoal/70 text-sm leading-relaxed">Our integrated nutrition program expanded to three new payams, delivering food assistance and agricultural training to vulnerable households.</p>
+                        <a href="#" class="mt-auto pt-3 sm:pt-5 mt-3 sm:mt-5 inline-flex items-center gap-2 text-forest-600 font-semibold text-sm hover:text-gold-600 transition">
+                            Read More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DONATE ============ -->
+    <section id="donate" class="donate-section py-16 sm:py-20 md:py-24 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div class="fade-up">
+                    <span class="inline-block text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] text-gold-400 uppercase font-semibold pb-2 sm:pb-3 border-b-2 border-gold-400 mb-4 sm:mb-6">Support Our Work</span>
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Your gift turns <em class="text-gold-400 italic font-medium">hope</em> into <em class="text-gold-400 italic font-medium">action</em>
+                    </h2>
+                    <p class="mt-4 sm:mt-6 text-base sm:text-lg text-white/85 leading-relaxed max-w-xl">
+                        Every contribution directly funds programs that educate children, feed families, build peace, and empower communities across South Sudan.
+                    </p>
+
+                    <div class="mt-6 sm:mt-10 grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4">
+                        <div class="flex items-start gap-3 p-4 sm:p-5 bg-white/5 border border-white/10 rounded-sm backdrop-blur">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            <div><div class="font-semibold text-sm sm:text-base">Education</div><div class="text-xs sm:text-sm text-white/70">Schools, materials, teachers</div></div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 sm:p-5 bg-white/5 border border-white/10 rounded-sm backdrop-blur">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            <div><div class="font-semibold text-sm sm:text-base">Community</div><div class="text-xs sm:text-sm text-white/70">Peace & reconciliation work</div></div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 sm:p-5 bg-white/5 border border-white/10 rounded-sm backdrop-blur">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17"/></svg>
+                            <div><div class="font-semibold text-sm sm:text-base">Food Security</div><div class="text-xs sm:text-sm text-white/70">Nutrition & agriculture</div></div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 sm:p-5 bg-white/5 border border-white/10 rounded-sm backdrop-blur">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            <div><div class="font-semibold text-sm sm:text-base">Livelihoods</div><div class="text-xs sm:text-sm text-white/70">Economic empowerment</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-up">
+                    <div class="bg-white text-charcoal rounded-sm p-6 sm:p-8 md:p-10 shadow-2xl">
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700">Choose how to give</h3>
+                        <p class="text-charcoal/70 mt-2 text-sm">Select a donation method that works best for you.</p>
+
+                        <div class="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
+                            <div class="border border-beige-200 rounded-sm p-4 sm:p-5 hover:border-forest-600 transition cursor-pointer" tabindex="0" role="button" aria-label="Bank Transfer donation option">
+                                <div class="flex items-center gap-3 sm:gap-4">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-forest-600 text-gold-400 rounded-sm flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-semibold text-forest-700 text-sm sm:text-base">Bank Transfer</div>
+                                        <div class="text-xs text-charcoal/60 mt-0.5">Direct deposit to ERA's account</div>
+                                    </div>
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-charcoal/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+
+                            <div class="border border-beige-200 rounded-sm p-4 sm:p-5 hover:border-forest-600 transition cursor-pointer" tabindex="0" role="button" aria-label="Mobile Money donation option">
+                                <div class="flex items-center gap-3 sm:gap-4">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-forest-600 text-gold-400 rounded-sm flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-semibold text-forest-700 text-sm sm:text-base">Mobile Money</div>
+                                        <div class="text-xs text-charcoal/60 mt-0.5">Quick & secure mobile payment</div>
+                                    </div>
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-charcoal/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+
+                            <div class="border border-beige-200 rounded-sm p-4 sm:p-5 hover:border-forest-600 transition cursor-pointer" tabindex="0" role="button" aria-label="Contact donation team option">
+                                <div class="flex items-center gap-3 sm:gap-4">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-forest-600 text-gold-400 rounded-sm flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="font-semibold text-forest-700 text-sm sm:text-base">Contact Donation Team</div>
+                                        <div class="text-xs text-charcoal/60 mt-0.5">Speak with our team directly</div>
+                                    </div>
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-charcoal/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="btn-primary w-full justify-center mt-6 sm:mt-8 text-sm sm:text-base">
+                            Donate Now
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <p class="text-xs text-charcoal/50 text-center mt-3 sm:mt-4">All donations are tax-deductible where applicable. Receipts provided on request.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════ FAQ ═══════════════ -->
-    <section class="section" id="faq">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Frequently Asked Questions</span>
-                <h2 class="section-title">Got Questions?</h2>
-                <p class="section-subtitle">Find answers to common questions about our services, process, and how our flexible payment options can work for you.</p>
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="py-16 sm:py-20 md:py-24 lg:py-32 bg-beige-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 fade-up">
+                <span class="section-kicker">Get In Touch</span>
+                <h2 class="section-title">Let's build something <em>meaningful</em> together</h2>
+                <p class="mt-4 sm:mt-6 text-charcoal/70 text-base sm:text-lg">Whether you're a donor, partner, volunteer, or community member — we'd love to hear from you.</p>
             </div>
-            <div class="faq-list">
-                <div class="faq-item reveal">
-                    <div class="faq-question" tabindex="0">
-                        <span>Where are you located in South Sudan?</span>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We are headquartered in Gudele 1, Juba, South Sudan. From our Juba office, we serve clients across all major regions of South Sudan, providing quality construction services nationwide.</p>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question" tabindex="0">
-                        <span>How do your installment-based payment plans work?</span>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our flexible installment plans allow you to spread the cost of construction over manageable payments. We work with you to design a payment schedule that fits your budget — making quality construction accessible without the burden of a large upfront payment. Contact us to discuss a customized plan for your project.</p>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question" tabindex="0">
-                        <span>How do I get a quote for my construction project?</span>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Simply reach out via our contact form, call us at +211 916 705 730, or email info@quantumspring.com. Our team will schedule a consultation to understand your needs, conduct a site assessment if required, and provide a detailed, transparent quotation tailored to your project.</p>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question" tabindex="0">
-                        <span>What types of projects do you specialize in?</span>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We specialize in residential construction, commercial construction, building renovation & remodeling, architectural design & planning, project management, and supply of construction materials. We serve homeowners, real estate investors, businesses, and government projects of varying scales across South Sudan.</p>
-                    </div>
-                </div>
-                <div class="faq-item reveal">
-                    <div class="faq-question" tabindex="0">
-                        <span>What makes Quantum Spring different from other construction firms?</span>
-                        <div class="faq-icon"><i class="fas fa-plus"></i></div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We combine high-quality construction with flexible installment payment plans — a unique offering in South Sudan. Our skilled and experienced professionals use quality materials, and we are deeply committed to exceeding client expectations. We value innovation, integrity, and reliability, ensuring every project is delivered on time and within budget.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="faq-cta reveal">
-                <a href="#contact" class="btn btn-primary">See All FAQs & Ask Yours</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- ═══════════════ CONTACT ═══════════════ -->
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">Ready to start your project? Reach out today and let's make your dream project a reality — together.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <h3>Reach Out to Us</h3>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-info-text">
-                            <strong>Head Office</strong>
-                            <span>Gudele 1, Juba, South Sudan</span>
+            <div class="grid lg:grid-cols-5 gap-8 sm:gap-10 fade-up">
+                <!-- Contact info -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-forest-600 text-white p-6 sm:p-8 rounded-sm">
+                        <h3 class="font-display text-xl sm:text-2xl font-bold">Our Office</h3>
+                        <div class="mt-5 sm:mt-6 space-y-4 sm:space-y-5">
+                            <div class="flex gap-3 sm:gap-4">
+                                <div class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-sm flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] sm:text-xs tracking-widest text-gold-400 uppercase font-semibold">Address</div>
+                                    <div class="mt-1 text-sm sm:text-base">Juba, South Sudan</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 sm:gap-4">
+                                <div class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-sm flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] sm:text-xs tracking-widest text-gold-400 uppercase font-semibold">Phone</div>
+                                    <a href="tel:+211919399329" class="mt-1 block hover:text-gold-400 transition text-sm sm:text-base">+211 919 399 329</a>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 sm:gap-4">
+                                <div class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 rounded-sm flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] sm:text-xs tracking-widest text-gold-400 uppercase font-semibold">Email</div>
+                                    <a href="mailto:equityresourceaid.net@gmail.com" class="mt-1 block hover:text-gold-400 transition break-all text-sm sm:text-base">equityresourceaid.net@gmail.com</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-info-text">
-                            <strong>Phone</strong>
-                            <a href="tel:+211916705730">+211 916 705 730</a>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-info-text">
-                            <strong>Email</strong>
-                            <a href="mailto:info@quantumspring.com">info@quantumspring.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
-                        <div class="contact-info-text">
-                            <strong>Working Hours</strong>
-                            <span>Monday – Saturday | 8:00 AM – 5:00 PM</span>
+
+                        <div class="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-white/10">
+                            <div class="text-[10px] sm:text-xs tracking-widest text-gold-400 uppercase font-semibold mb-3 sm:mb-4">Follow Us</div>
+                            <div class="flex gap-2 sm:gap-3">
+                                <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-gold-500 hover:text-forest-800 rounded-sm flex items-center justify-center transition" aria-label="Facebook">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.842c-3.596 0-5.115 1.334-5.115 4.333v1.667z"/></svg>
+                                </a>
+                                <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-gold-500 hover:text-forest-800 rounded-sm flex items-center justify-center transition" aria-label="Twitter">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                                </a>
+                                <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-gold-500 hover:text-forest-800 rounded-sm flex items-center justify-center transition" aria-label="LinkedIn">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.578c0-3.032 3.949-3.305 3.949 0v8.578h5v-9.594c0-6.95-8-6.677-8-3.365v-3.041z"/></svg>
+                                </a>
+                                <a href="#" class="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-gold-500 hover:text-forest-800 rounded-sm flex items-center justify-center transition" aria-label="Instagram">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form-card reveal">
-                    <h4>Request a Quote</h4>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <!-- Contact form -->
+                <div class="lg:col-span-3">
+                    <form class="bg-white p-6 sm:p-8 md:p-10 rounded-sm shadow-lg border border-beige-200" novalidate>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold text-forest-700">Send us a message</h3>
+                        <p class="text-charcoal/70 mt-2 text-sm">We typically respond within 2 business days.</p>
+
+                        <div class="mt-6 sm:mt-8 grid sm:grid-cols-2 gap-4 sm:gap-5">
+                            <div>
+                                <label class="text-[10px] sm:text-xs tracking-widest text-charcoal/70 uppercase font-semibold" for="fullName">Full Name</label>
+                                <input type="text" id="fullName" class="form-input mt-2" placeholder="Your name" required />
+                            </div>
+                            <div>
+                                <label class="text-[10px] sm:text-xs tracking-widest text-charcoal/70 uppercase font-semibold" for="email">Email</label>
+                                <input type="email" id="email" class="form-input mt-2" placeholder="you@example.com" required />
+                            </div>
+                            <div>
+                                <label class="text-[10px] sm:text-xs tracking-widest text-charcoal/70 uppercase font-semibold" for="phone">Phone</label>
+                                <input type="tel" id="phone" class="form-input mt-2" placeholder="+211 ..." />
+                            </div>
+                            <div>
+                                <label class="text-[10px] sm:text-xs tracking-widest text-charcoal/70 uppercase font-semibold" for="subject">Subject</label>
+                                <select id="subject" class="form-input mt-2">
+                                    <option>General Inquiry</option>
+                                    <option>Partnership</option>
+                                    <option>Donation</option>
+                                    <option>Volunteer</option>
+                                    <option>Media</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                        <div class="mt-4 sm:mt-5">
+                            <label class="text-[10px] sm:text-xs tracking-widest text-charcoal/70 uppercase font-semibold" for="message">Message</label>
+                            <textarea id="message" rows="5" class="form-input mt-2" placeholder="Tell us how we can help..." required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interested In</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service...</option>
-                                <option value="Residential Construction">Residential Construction</option>
-                                <option value="Commercial Construction">Commercial Construction</option>
-                                <option value="Building Renovation & Remodeling">Building Renovation & Remodeling</option>
-                                <option value="Architectural Design & Planning">Architectural Design & Planning</option>
-                                <option value="Project Management">Project Management</option>
-                                <option value="Construction Materials Supply">Construction Materials Supply</option>
-                                <option value="Installment-Based Construction">Installment-Based Construction</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details *</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your project — location, scope, timeline, and any specific requirements..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-                            <i class="fas fa-paper-plane"></i> Send Inquiry
+
+                        <button type="submit" class="btn-forest mt-5 sm:mt-6 w-full justify-center text-sm sm:text-base">
+                            Send Message
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
                         </button>
                     </form>
                 </div>
             </div>
+
+            <!-- Map -->
+            <div class="mt-10 sm:mt-16 rounded-sm overflow-hidden shadow-lg border border-beige-200 fade-up">
+                <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=31.5%2C4.8%2C31.7%2C4.9&layer=mapnik&marker=4.859%2C31.571"
+                class="w-full h-64 sm:h-72 md:h-80"
+                loading="lazy"
+                title="ERA Office Location - Juba, South Sudan"
+                allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </section>
 
-    <!-- ═══════════════ FOOTER ═══════════════ -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div>
-                <div class="footer-logo-text">Quantum Spring Construction Company</div>
-                <p style="font-size:0.85rem;margin-bottom:12px;color:rgba(255,255,255,0.5);">We don't just build structures — we build futures.</p>
-                <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);">A dynamic construction firm based in Gudele 1, Juba, South Sudan, delivering high-quality, durable, and cost-effective building solutions with flexible installment payment options. Serving homeowners, investors, businesses, and government projects.</p>
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-forest-900 text-white/80 pt-14 sm:pt-16 md:pt-20 pb-6 sm:pb-8" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pb-10 sm:pb-12">
+                <div>
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <div class="w-9 h-9 sm:w-11 sm:h-11 bg-gold-500 text-forest-800 rounded-sm flex items-center justify-center font-display font-bold text-base sm:text-lg">E</div>
+                        <div>
+                            <div class="text-white font-display font-bold text-base sm:text-lg">Equity Resource Aid</div>
+                            <div class="text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.3em] text-gold-400 uppercase">ERA · South Sudan</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 sm:mt-6 text-sm leading-relaxed">Building an equitable society through education, peace-building, livelihoods, food security, nutrition, and economic empowerment.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-display font-bold text-base sm:text-lg mb-4 sm:mb-5">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3 text-sm">
+                        <li><a href="#about" class="hover:text-gold-400 transition">About ERA</a></li>
+                        <li><a href="#programs" class="hover:text-gold-400 transition">Our Programs</a></li>
+                        <li><a href="#projects" class="hover:text-gold-400 transition">Projects</a></li>
+                        <li><a href="#news" class="hover:text-gold-400 transition">Latest News</a></li>
+                        <li><a href="#documentation" class="hover:text-gold-400 transition">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-display font-bold text-base sm:text-lg mb-4 sm:mb-5">Get Involved</h4>
+                    <ul class="space-y-2 sm:space-y-3 text-sm">
+                        <li><a href="#donate" class="hover:text-gold-400 transition">Donate</a></li>
+                        <li><a href="#contact" class="hover:text-gold-400 transition">Volunteer</a></li>
+                        <li><a href="#contact" class="hover:text-gold-400 transition">Partner With Us</a></li>
+                        <li><a href="#contact" class="hover:text-gold-400 transition">Contact Our Team</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-display font-bold text-base sm:text-lg mb-4 sm:mb-5">Contact</h4>
+                    <ul class="space-y-2 sm:space-y-3 text-sm">
+                        <li>Juba, South Sudan</li>
+                        <li><a href="tel:+211919399329" class="hover:text-gold-400 transition">+211 919 399 329</a></li>
+                        <li><a href="mailto:equityresourceaid.net@gmail.com" class="hover:text-gold-400 transition break-all">equityresourceaid.net@gmail.com</a></li>
+                    </ul>
+                    <div class="mt-5 sm:mt-6">
+                        <div class="text-[10px] sm:text-xs tracking-widest text-gold-400 uppercase font-semibold mb-2 sm:mb-3">Newsletter</div>
+                        <form class="flex" novalidate>
+                            <input type="email" placeholder="Your email" class="flex-1 bg-white/5 border border-white/10 text-white px-3 py-2 text-sm rounded-l-sm focus:outline-none focus:border-gold-400 min-w-0" aria-label="Email for newsletter" />
+                            <button class="bg-gold-500 text-forest-800 px-3 sm:px-4 rounded-r-sm font-semibold text-sm hover:bg-gold-400 transition flex-shrink-0" aria-label="Subscribe">→</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h5>Quick Links</h5>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#projects">Projects</a>
-                <a href="#mission-vision">Mission & Vision</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Contact</a>
+
+            <div class="footer-divider pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-[10px] sm:text-xs text-white/50 text-center sm:text-left">
+                <div>© 2026 Equity Resource Aid (ERA). All rights reserved. Registered National NGO — South Sudan.</div>
+                <div class="flex gap-4 sm:gap-6 flex-wrap justify-center">
+                    <a href="#" class="hover:text-gold-400 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-gold-400 transition">Terms of Use</a>
+                    <a href="#" class="hover:text-gold-400 transition">Safeguarding</a>
+                </div>
             </div>
-            <div>
-                <h5>Our Services</h5>
-                <a href="#services">Residential Construction</a>
-                <a href="#services">Commercial Construction</a>
-                <a href="#services">Renovation & Remodeling</a>
-                <a href="#services">Architectural Design</a>
-                <a href="#services">Project Management</a>
-                <a href="#services">Materials Supply</a>
-                <a href="#services">Installment Plans</a>
-            </div>
-            <div>
-                <h5>Contact Info</h5>
-                <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:4px;"><i class="fas fa-map-marker-alt" style="margin-right:6px;color:var(--secondary-light);"></i> Gudele 1, Juba, South Sudan</p>
-                <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:4px;"><i class="fas fa-phone" style="margin-right:6px;color:var(--secondary-light);"></i> +211 916 705 730</p>
-                <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:4px;"><i class="fas fa-envelope" style="margin-right:6px;color:var(--secondary-light);"></i> info@quantumspring.com</p>
-                <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);"><i class="fas fa-clock" style="margin-right:6px;color:var(--secondary-light);"></i> Mon–Sat | 8AM–5PM</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> Quantum Spring Construction Company. All rights reserved. | Building Futures Through Quality Construction.</p>
         </div>
     </footer>
 
-    <!-- ═══════════════ SCROLL TO TOP ═══════════════ -->
-    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script>
-        // ──────── DOM ELEMENTS ────────
-        const navbar = document.getElementById('navbar');
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        const navOverlay = document.getElementById('navOverlay');
-        const scrollTopBtn = document.getElementById('scrollTopBtn');
-        const allNavLinks = document.querySelectorAll('[data-link]');
-        const faqItems = document.querySelectorAll('.faq-item');
-        const contactForm = document.getElementById('contactForm');
-        const currentYearSpan = document.getElementById('currentYear');
-
-        // ──────── SET CURRENT YEAR ────────
-        currentYearSpan.textContent = new Date().getFullYear();
-
-        // ──────── MOBILE MENU TOGGLE ────────
-        function toggleMenu() {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        }
-
-        hamburger.addEventListener('click', toggleMenu);
-        navOverlay.addEventListener('click', toggleMenu);
-
-        // Close mobile menu when a link is clicked
-        allNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // ──────── NAVBAR SCROLL EFFECT ────────
-        function updateNavbar() {
-            if (window.scrollY > 60) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Scroll to top button
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-
-            // Update active nav link based on scroll position
-            updateActiveNavLink();
-        }
-
-        function updateActiveNavLink() {
-            const sections = document.querySelectorAll('section[id]');
-            let currentSection = 'home';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                const sectionHeight = section.offsetHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            allNavLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + currentSection) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateNavbar, { passive: true });
-
-        // ──────── SCROLL TO TOP ────────
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ──────── FAQ ACCORDION ────────
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                // Close all
-                faqItems.forEach(f => f.classList.remove('active'));
-                // Open clicked (unless it was already open)
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-
-            // Keyboard accessibility
-            question.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    question.click();
-                }
-            });
-        });
-
-        // ──────── SCROLL REVEAL ANIMATION ────────
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // ──────── CONTACT FORM ────────
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
-            // Simple validation
-            if (!data.name.trim() || !data.email.trim() || !data.message.trim()) {
-                alert('Please fill in all required fields (Name, Email, and Project Details).');
-                return;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // Simulate form submission
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Inquiry Sent Successfully!';
-                submitBtn.style.background = '#2d8a4e';
-                contactForm.reset();
-
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = '';
-                    submitBtn.disabled = false;
-                }, 3000);
-            }, 1500);
-        });
-
-        // ──────── SMOOTH SCROLL FOR ALL ANCHOR LINKS ────────
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    const offsetTop = targetElement.offsetTop - navbar.offsetHeight - 10;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
+        (function() {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            let scrollTicking = false;
+            window.addEventListener('scroll', () => {
+                if (!scrollTicking) {
+                    requestAnimationFrame(() => {
+                        if (window.scrollY > 80) {
+                            navbar.classList.add('nav-scrolled');
+                        } else {
+                            navbar.classList.remove('nav-scrolled');
+                        }
+                        scrollTicking = false;
                     });
+                    scrollTicking = true;
                 }
             });
-        });
 
-        // ──────── INITIAL LOAD ────────
-        updateNavbar();
+            // Mobile menu
+            const menuToggle = document.getElementById('menuToggle');
+            const menuClose = document.getElementById('menuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const body = document.body;
 
-        // ──────── HANDLE IMAGE LOAD ERRORS GRACEFULLY ────────
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('error', function() {
-                if (!this.style.background || this.style.background === '') {
-                    this.style.background = '#d5dbe3';
-                    this.style.minHeight = '200px';
-                    this.style.display = 'flex';
-                    this.style.alignItems = 'center';
-                    this.style.justifyContent = 'center';
-                    this.alt = this.alt || 'Image';
+            function openMenu() {
+                mobileMenu.classList.add('open');
+                mobileOverlay.classList.add('open');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                mobileMenu.classList.remove('open');
+                mobileOverlay.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', openMenu);
+            menuClose.addEventListener('click', closeMenu);
+            mobileOverlay.addEventListener('click', closeMenu);
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.mobile-link').forEach(l => {
+                l.addEventListener('click', closeMenu);
+            });
+
+            // Close mobile menu on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                    closeMenu();
                 }
             });
-        });
 
-        console.log('%c🏗️ Quantum Spring Construction Company %c| %cBuilding Futures Through Quality Construction.',
-            'font-weight:bold;font-size:16px;color:#0b1d3a;',
-            '',
-            'color:#d4953a;font-style:italic;');
-        console.log('%c📍 Gudele 1, Juba, South Sudan | 📞 +211 916 705 730 | ✉️ info@quantumspring.com',
-            'color:#5a5f6e;');
+            // Touch support for dropdown menus
+            const dropdownTriggers = document.querySelectorAll('.has-dropdown > a');
+            dropdownTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    if (window.innerWidth >= 1024) {
+                        // On desktop, check if it's a touch device without hover
+                        if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+                            e.preventDefault();
+                            const parent = this.parentElement;
+                            const wasOpen = parent.classList.contains('dropdown-open');
+                            // Close all dropdowns
+                            document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove(
+                                'dropdown-open'));
+                            if (!wasOpen) {
+                                parent.classList.add('dropdown-open');
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.has-dropdown')) {
+                    document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('dropdown-open'));
+                }
+            });
+
+            // Scroll animations with Intersection Observer
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
+
+            // Animated counters
+            const counters = document.querySelectorAll('[data-count]');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.dataset.count);
+                        const duration = 2000;
+                        const start = performance.now();
+                        const animate = (now) => {
+                            const progress = Math.min((now - start) / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const value = Math.floor(eased * target);
+                            el.textContent = value + (target >= 1000 ? '+' : '+');
+                            if (progress < 1) {
+                                requestAnimationFrame(animate);
+                            } else {
+                                el.textContent = target + (target >= 1000 ? '+' : '+');
+                            }
+                        };
+                        requestAnimationFrame(animate);
+                        counterObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(c => counterObserver.observe(c));
+
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const href = a.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = navbar.offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset -
+                            navHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        // Close mobile menu if open
+                        if (mobileMenu.classList.contains('open')) {
+                            closeMenu();
+                        }
+                    }
+                });
+            });
+
+            // Handle resize - close mobile menu on desktop breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024 && mobileMenu.classList.contains('open')) {
+                    closeMenu();
+                }
+            });
+
+            // Form submission prevention
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        const originalText = submitBtn.textContent;
+                        submitBtn.textContent = 'Message Sent! ✓';
+                        submitBtn.style.opacity = '0.8';
+                        submitBtn.disabled = true;
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.style.opacity = '1';
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    }
+                });
+            });
+        })();
     </script>
+
 </body>
 </html>
