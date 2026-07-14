@@ -73,7 +73,7 @@
       display: block;
     }
 
-    /* ---------- TOP BAR ---------- */
+    /* ---------- TOP BAR (hidden on mobile) ---------- */
     .top-bar {
       position: fixed;
       top: 0;
@@ -127,21 +127,10 @@
 
     @media (max-width: 768px) {
       .top-bar {
-        font-size: 0.7rem;
-        padding: 0 10px;
-        overflow-x: auto;
-        white-space: nowrap;
-        gap: 6px;
+        display: none;                  /* removed from phones */
       }
-      .top-bar-inner {
-        gap: 6px;
-      }
-      .top-bar a {
-        margin: 0 3px;
-      }
-      .top-bar .donate-btn {
-        padding: 4px 10px;
-        font-size: 0.7rem;
+      body {
+        padding-top: 80px;               /* adjust for missing topbar */
       }
     }
 
@@ -337,26 +326,26 @@
       display: none !important;
     }
 
-    /* ---------- MOBILE TOGGLE BUTTON (enhanced) ---------- */
+    /* ---------- MOBILE TOGGLE BUTTON ---------- */
     .mobile-toggle {
       display: none;
       background: none;
       border: none;
-      color: var(--era-secondary);       /* gold accent */
+      color: var(--era-secondary);       /* warm gold */
       font-size: 2rem;
       cursor: pointer;
       transition: color 0.35s, transform 0.2s;
       padding: 4px 8px;
       border-radius: 4px;
       line-height: 1;
+      margin-right: -4px;                 /* breathing room from edge */
     }
     .mobile-toggle:hover {
       color: #fff;
       transform: scale(1.1);
     }
-    /* When scrolled, toggle turns red */
     .navbar.scrolled .mobile-toggle {
-      color: var(--era-primary);
+      color: var(--era-primary);         /* red when scrolled */
     }
     .navbar.scrolled .mobile-toggle:hover {
       color: var(--era-primary-dark);
@@ -381,13 +370,13 @@
     .mobile-menu {
       position: fixed;
       top: 0;
-      left: 0;                           /* slides from left side */
+      left: 0;
       width: 320px;
       max-width: 82vw;
       height: 100%;
-      background: #1A1A1A;               /* soft dark background */
+      background: #1A1A1A;
       z-index: 2000;
-      transform: translateX(-100%);       /* hidden off-screen to the left */
+      transform: translateX(-100%);
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 0 22px 30px;
       overflow-y: auto;
@@ -443,7 +432,7 @@
       color: var(--era-secondary);
     }
 
-    /* Regular links inside mobile menu */
+    /* Menu links */
     .mobile-menu a {
       display: block;
       padding: 13px 4px;
@@ -471,7 +460,7 @@
       padding-left: 14px;
     }
 
-    /* Dropdown buttons in mobile menu */
+    /* Dropdown buttons */
     .mobile-dropdown-btn {
       display: flex;
       align-items: center;
@@ -493,7 +482,7 @@
       color: var(--era-secondary);
     }
 
-    /* Chevron arrow icon (replaces old ▾) */
+    /* Chevron arrow */
     .dropdown-chevron {
       display: inline-flex;
       align-items: center;
@@ -506,17 +495,17 @@
       color: var(--era-secondary);
     }
 
-    /* Submenu container */
+    /* Submenu (expands fully, no inner scroll) */
     .mobile-submenu {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
       background: rgba(255,255,255,0.03);
       border-radius: 6px;
       margin-left: 8px;
     }
     .mobile-submenu.open {
-      max-height: 600px;
+      max-height: 2000px;       /* large enough to fit all items */
     }
     .mobile-submenu a {
       padding: 10px 16px !important;
@@ -535,6 +524,9 @@
       }
       .mobile-toggle {
         display: block;
+      }
+      body {
+        padding-top: 80px;                /* no topbar offset on mobile */
       }
     }
 
@@ -561,7 +553,7 @@
     .slide-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);   /* lighter overlay for better visibility */
+      background: rgba(0, 0, 0, 0.35);
       z-index: 2;
       pointer-events: none;
     }
@@ -577,7 +569,6 @@
       color: #fff;
     }
 
-    /* Text shadows keep hero text readable on any background */
     .hero-badge {
       display: inline-block;
       background: rgba(255, 255, 255, 0.13);
