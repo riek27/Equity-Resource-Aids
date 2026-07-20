@@ -1,242 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Advent Roofing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>About ERA-SS | Our Story, Vision & Mission</title>
+    <meta name="description" content="Learn about Equity Resource Aid – South Sudan (ERA), our history, vision, mission, core values, and how we work to build an equitable society." />
+    <meta name="theme-color" content="#C62828" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <!-- Header -->
-    <header id="main-header">
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar" id="topBar">
+        <div class="top-bar-inner">
+            <a href="mailto:contact@era-ss.org"><i class="fas fa-envelope"></i> contact@era-ss.org</a>
+            <span><i class="fas fa-phone"></i> +211 927 757 777</span>
+        </div>
+        <div class="top-bar-inner">
+            <a href="career.html"><i class="fas fa-briefcase"></i> Career</a>
+            <a href="report.html"><i class="fas fa-file-alt"></i> Reports</a>
+            <a href="team.html"><i class="fas fa-users"></i> Our Team</a>
+            <a href="support.html" class="donate-btn"><i class="fas fa-heart"></i> Donate</a>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="logo-text">Advent <span>Roofing</span></div>
+            <a href="index.html" class="logo">
+                <img src="assets/erass.jpeg" alt="ERA-SS Logo" onerror="this.outerHTML='<div class=\'logo-fallback\'>E</div>';" />
+                <div class="logo-text-wrapper">
+                    <span class="logo-text">ERA</span>
+                    <span class="logo-sub">Empowering with Equality</span>
                 </div>
-                
-                <button class="mobile-menu-btn" id="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <nav class="nav-links" id="main-nav">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="about.html" class="nav-link active">About</a>
-                    <div class="dropdown" id="services-dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">
-                            Services <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="services.html" class="dropdown-item">All Services</a>
-                            <a href="services.html#installation" class="dropdown-item">Roof Installation</a>
-                            <a href="services.html#repair" class="dropdown-item">Roof Repair</a>
-                            <a href="services.html#inspection" class="dropdown-item">Roof Inspection</a>
-                            <a href="services.html#gutter" class="dropdown-item">Gutter Systems</a>
-                            <a href="services.html#emergency" class="dropdown-item">Emergency Services</a>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="dropdown">
+                    <a href="about.html" class="nav-link active">About ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="about.html#history">Our Story</a>
+                        <a href="about.html#vision-mission">Vision & Mission</a>
+                        <a href="about.html#core-values">Core Values</a>
+                        <a href="about.html#genesis">Our Genesis</a>
+                        <a href="about.html#why-era-exists">Why ERA Exists</a>
+                        <a href="about.html#transparency">Transparency</a>
+                        <a href="about.html#sdgs">SDGs</a>
+                        <a href="team.html">Meet Our Team</a>
+                        <a href="report.html">Our Reports</a>
+                        <a href="partners.html">Partners &amp; Donors</a>
+                    </div>
+                </div>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="approach.html" class="nav-link">Approach</a>
+                <a href="partners.html" class="nav-link">Partners</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="support.html" class="nav-link">Support</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="support.html" class="nav-donate"><i class="fas fa-heart" style="margin-right:6px;"></i>Donate</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-logo">
+            <img src="assets/erass.jpeg" alt="ERA-SS Logo" onerror="this.outerHTML='<div class=\'mobile-logo-fallback\'>E</div>';" />
+            <div class="mobile-logo-text-wrapper">
+                <span class="mobile-logo-text">ERA</span>
+                <span class="mobile-logo-sub">Empowering with Equality</span>
+            </div>
+        </div>
+        <a href="index.html">Home</a>
+        <button class="mobile-dropdown-btn" data-target="mobile-about-submenu">
+            <span>About</span>
+            <span class="dropdown-chevron">▾</span>
+        </button>
+        <div class="mobile-submenu" id="mobile-about-submenu">
+            <a href="about.html#history">Our Story</a>
+            <a href="about.html#vision-mission">Vision & Mission</a>
+            <a href="about.html#core-values">Core Values</a>
+            <a href="about.html#genesis">Our Genesis</a>
+            <a href="about.html#why-era-exists">Why ERA Exists</a>
+            <a href="about.html#transparency">Transparency</a>
+            <a href="about.html#sdgs">SDGs</a>
+            <a href="team.html">Meet Our Team</a>
+            <a href="report.html">Our Reports</a>
+            <a href="partners.html">Partners &amp; Donors</a>
+        </div>
+        <a href="programs.html">Programs</a>
+        <a href="approach.html">Approach</a>
+        <a href="partners.html">Partners</a>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+        <a href="support.html" class="mobile-donate"><i class="fas fa-heart" style="margin-right:8px;"></i>Donate</a>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+        <!-- ===== HERO ===== -->
+        <section class="hero about-hero" style="background-image: url('assets/equity.jpg'); height: 70vh; min-height: 500px; display: flex; align-items: center; justify-content: center; position:relative;">
+            <div class="slide-overlay" style="background: rgba(0,0,0,0.35);"></div>
+            <div class="container" style="position:relative; z-index:2; text-align:center; color:#fff;">
+                <h1 style="color:#fff; font-size:clamp(2.5rem,6vw,4.5rem); text-shadow:0 2px 12px rgba(0,0,0,0.6);">About ERA-SS</h1>
+                <p style="font-size:1.2rem; max-width:600px; margin:10px auto 0; opacity:0.9; text-shadow:0 1px 6px rgba(0,0,0,0.5);">Our story, vision, and commitment to building an equitable South Sudan.</p>
+            </div>
+        </section>
+
+        <!-- ===== HISTORY SECTION ===== -->
+        <section id="history" class="section bg-white">
+            <div class="container">
+                <div class="grid-2" style="align-items: center;">
+                    <div>
+                        <p class="section-subtitle"><i class="fas fa-history" style="margin-right:6px;"></i>Our Story</p>
+                        <h2 class="section-title">Who We Are &amp; How We Began</h2>
+                        <div style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8;">
+                            <p><strong>Equity Resource Aid (ERA)</strong> is a non-profit national non-governmental organization
+                            founded and registered with the <strong>Relief and Rehabilitation Commission (RRC)</strong> of
+                            the Republic of South Sudan on <strong>10th June 2026</strong>. We were established by a group
+                            of passionate South Sudanese professionals who saw the urgent need for a locally-led organization
+                            that could respond to the complex challenges facing our communities.</p>
+                        </div>
+                        <div style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-top: 14px;">
+                            <p>ERA was born out of a vision to create a platform where the voices of the most vulnerable are
+                            heard, and where resources are distributed equitably. We believe that lasting change comes from
+                            within communities, and our work is rooted in participatory approaches that empower local actors.</p>
+                        </div>
+                        <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px;">
+                            <a href="#vision-mission" class="btn btn-primary"><i class="fas fa-eye" style="margin-right:8px;"></i>Our Vision</a>
+                            <a href="contact.html" class="btn btn-secondary"><i class="fas fa-handshake" style="margin-right:8px;"></i>Partner With Us</a>
                         </div>
                     </div>
-                    <a href="gallery.html" class="nav-link">Gallery</a>
-                    <a href="testimonials.html" class="nav-link">Testimonials</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </nav>
+                    <div>
+                        <img src="assets/equity1.jpg" alt="ERA-SS team in the field" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); width: 100%;" loading="lazy" />
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <!-- Page Hero -->
-    <section class="page-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1595752776689-a3d6bc7a4a5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-        <div class="container">
-            <div class="page-hero-content animate-on-scroll">
-                <h1>About Advent Roofing</h1>
-                <p>Two decades of excellence in roofing solutions</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Content -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text animate-on-scroll">
-                    <h2>Our Story</h2>
-                    <p>Founded in 2003, Advent Roofing began as a small family-owned business with a simple mission: to provide exceptional roofing services with integrity, quality, and reliability. What started as a two-person operation has grown into one of the region's most trusted roofing companies.</p>
-                    <p>Over the past 20 years, we've completed thousands of roofing projects, from simple repairs to complex commercial installations. Our commitment to using premium materials, employing skilled craftsmen, and delivering outstanding customer service has earned us a reputation for excellence.</p>
-                    <p>Today, we continue to uphold the values that our founders established: honesty, quality workmanship, and putting our customers first in everything we do.</p>
-                </div>
-                <div class="about-img animate-on-scroll" style="animation-delay: 0.3s;">
-                    <img src="https://images.unsplash.com/photo-1623298317882-8e6a7d21e8c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="About Advent Roofing">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Awards & Recognition -->
-    <section class="section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Awards & Recognition</h2>
-            <div class="awards-grid">
-                <div class="award-card animate-on-scroll">
-                    <div class="award-icon">
-                        <i class="fas fa-trophy"></i>
+        <!-- ===== VISION & MISSION ===== -->
+        <section id="vision-mission" class="section bg-light">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="card" style="border-left: 5px solid var(--era-primary); padding: 32px 28px;">
+                        <h3 style="color: var(--era-primary); font-size: 1.4rem;"><i class="fas fa-eye" style="margin-right:10px;"></i>Our Vision</h3>
+                        <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">Creating enabling opportunities for all people to achieve their needs, actively embracing continual social inclusion, change, and justice to take center stage in achieving optimum human development.</p>
                     </div>
-                    <h3>Best Roofing Company 2022</h3>
-                    <p>National Roofing Contractors Association</p>
-                </div>
-                
-                <div class="award-card animate-on-scroll" style="animation-delay: 0.2s;">
-                    <div class="award-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3>Excellence in Customer Service</h3>
-                    <p>Home Improvement Awards 2021</p>
-                </div>
-                
-                <div class="award-card animate-on-scroll" style="animation-delay: 0.4s;">
-                    <div class="award-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>Top 10 Roofing Contractors</h3>
-                    <p>Roofing Professionals Magazine 2020</p>
-                </div>
-                
-                <div class="award-card animate-on-scroll" style="animation-delay: 0.6s;">
-                    <div class="award-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Safety Excellence Award</h3>
-                    <p>Occupational Safety Council 2019</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Team Section -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Meet Our Leadership Team</h2>
-            <div class="team-grid">
-                <div class="team-card animate-on-scroll">
-                    <div class="team-img">
-                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="John Anderson">
-                    </div>
-                    <div class="team-content">
-                        <h3>John Anderson</h3>
-                        <p class="team-role">Founder & CEO</p>
-                        <p>With 25 years in the roofing industry, John founded Advent Roofing with a vision for quality and customer satisfaction.</p>
-                    </div>
-                </div>
-                
-                <div class="team-card animate-on-scroll" style="animation-delay: 0.2s;">
-                    <div class="team-img">
-                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Miller">
-                    </div>
-                    <div class="team-content">
-                        <h3>Sarah Miller</h3>
-                        <p class="team-role">Operations Director</p>
-                        <p>Sarah oversees all roofing projects, ensuring they meet our high standards for quality and timeliness.</p>
-                    </div>
-                </div>
-                
-                <div class="team-card animate-on-scroll" style="animation-delay: 0.4s;">
-                    <div class="team-img">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
-                    </div>
-                    <div class="team-content">
-                        <h3>Michael Chen</h3>
-                        <p class="team-role">Technical Director</p>
-                        <p>Michael is our roofing expert with certifications in all major roofing systems and materials.</p>
+                    <div class="card" style="border-left: 5px solid var(--era-secondary); padding: 32px 28px;">
+                        <h3 style="color: var(--era-primary); font-size: 1.4rem;"><i class="fas fa-bullseye" style="margin-right:10px;"></i>Our Mission</h3>
+                        <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">All citizens, regardless of their backgrounds, working together, uphold the peace and stability, and take the lead in fulfilling their talents and skills for a progressive change.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Stats Section -->
-    <section class="section-padding bg-dark text-white">
-        <div class="container">
-            <div class="stats">
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-number">2,500+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-item animate-on-scroll" style="animation-delay: 0.2s;">
-                    <div class="stat-number">20+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item animate-on-scroll" style="animation-delay: 0.4s;">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Satisfied Customers</div>
-                </div>
-                <div class="stat-item animate-on-scroll" style="animation-delay: 0.6s;">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Emergency Service</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta-section section-padding" style="background-image: linear-gradient(rgba(0, 91, 179, 0.9), rgba(0, 91, 179, 0.9)), url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
-        <div class="container">
-            <div class="cta-content animate-on-scroll">
-                <h2>Work With Award-Winning Roofers</h2>
-                <p>Experience the difference that 20 years of roofing excellence can make for your home or business.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn" style="background-color: var(--white); color: var(--primary);">Get Your Free Quote</a>
-                    <a href="tel:+15551237663" class="btn btn-cta-outline">
-                        <i class="fas fa-phone"></i> Call (555) 123-ROOF
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">Advent <span>Roofing</span></div>
-                    <p>Premium roofing solutions with over 20 years of experience. We protect your home with quality craftsmanship and reliable service.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <!-- ===== CORE VALUES ===== -->
+        <section id="core-values" class="section bg-white">
+            <div class="container text-center">
+                <p class="section-subtitle"><i class="fas fa-star" style="margin-right:6px;"></i>What Drives Us</p>
+                <h2 class="section-title">Our Core Values</h2>
+                <div class="grid-3" style="margin-top: 40px;">
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-hand-holding-heart"></i></span><h3>Dignity</h3><p style="font-size: 0.95rem;">Every person deserves respect and inherent worth.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-globe-africa"></i></span><h3>Respect for All</h3><p style="font-size: 0.95rem;">Honouring diversity and uniqueness.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-balance-scale"></i></span><h3>Equality</h3><p style="font-size: 0.95rem;">Fair opportunities for everyone.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-clipboard-check"></i></span><h3>Accountability</h3><p style="font-size: 0.95rem;">Transparent and responsible stewardship.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-fire"></i></span><h3>Dedication</h3><p style="font-size: 0.95rem;">Unwavering commitment to our mission.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-wheelchair"></i></span><h3>Inclusion</h3><p style="font-size: 0.95rem;">Leaving no one behind.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== OUR GENESIS (Aims & Objectives) ===== -->
+        <section id="genesis" class="section bg-light">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 48px;">
+                    <p class="section-subtitle"><i class="fas fa-seedling" style="margin-right:6px;"></i>Our Genesis</p>
+                    <h2 class="section-title">Founded with Purpose</h2>
+                    <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted);">ERA was established to fill a critical gap in locally-led development. Our foundational aims and strategic objectives guide everything we do.</p>
+                </div>
+                <div class="grid-2" style="align-items: stretch;">
+                    <div class="card" style="padding: 28px 24px;">
+                        <h3 style="color: var(--era-primary); margin-bottom: 18px;"><i class="fas fa-flag-checkered" style="margin-right:10px;"></i>9 Foundational Aims</h3>
+                        <ul style="list-style: none; padding-left: 0; color: var(--text-muted); line-height: 2.2;">
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To empower, educate, and inspire children and all citizens for the importance of being responsible patriots.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To ensure that these people occupy the center stage in the development of South Sudan.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To prepare the mindsets of the people in line with national cohesion.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To unify all regions and enhance the values of national integration.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To serve as an entity for both inclusion and tolerance in the nation-building process.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To complement the government's efforts in making South Sudan a better place for all citizens.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To ensure multi-dimensional mobilizations for the nation's building and sustenance.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To promote the relevance of non-violence to children and young people across the country.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To raise awareness about environmental safety, gender-based violence, and good accessibility to health education.</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="padding: 28px 24px;">
+                        <h3 style="color: var(--era-primary); margin-bottom: 18px;"><i class="fas fa-list-check" style="margin-right:10px;"></i>10 Strategic Objectives</h3>
+                        <ul style="list-style: none; padding-left: 0; color: var(--text-muted); line-height: 2.2;">
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To develop mutual relation and brotherhood feelings in South Sudanese communities through peace building and reconciliation.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To launch awareness programs in peace building, education, health, community policing, hygiene &amp; sanitation, civic education, human rights, gender and children's issues.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To work for creative youth activities and sports development for peace building and better security.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To carry out water, sanitation and hygiene programs among local populations especially those in need.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To cooperate in managing water schemes in its working areas.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To promote community well-being &amp; reassurance through community security &amp; community policing programs.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To enhance well-being of indigenous people by operating result-oriented programs for poverty alleviation.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To repair and maintain feeder roads in coordination with local structures of underserved communities.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To launch appropriate programs for women, children, elderly, helpless and disabled persons.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To implement, promote and support environmental conservation, food security, and economic stability.</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="footer-links">
+            </div>
+        </section>
+
+        <!-- ===== WHY ERA EXISTS ===== -->
+        <section id="why-era-exists" class="section why-era-section">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 48px;">
+                    <p class="section-subtitle"><i class="fas fa-question-circle" style="margin-right:6px;"></i>The Context</p>
+                    <h2 class="section-title">Why ERA Exists</h2>
+                    <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+                        South Sudan continues to face immense challenges — poverty, conflict, food insecurity, climate shocks,
+                        limited education, gender inequality, and weak healthcare systems. ERA-SS was founded to ensure that
+                        the voices of communities are heard and that resources are distributed equitably.
+                    </p>
+                </div>
+                <div class="grid-3">
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-fist-raised"></i></div>
+                        <div>
+                            <h4>Conflict &amp; Displacement</h4>
+                            <p>Ongoing instability has displaced millions, fracturing communities and disrupting lives across the nation.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-utensils"></i></div>
+                        <div>
+                            <h4>Food Insecurity &amp; Malnutrition</h4>
+                            <p>Millions face acute hunger due to conflict, droughts, floods, and disrupted agricultural cycles.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-book"></i></div>
+                        <div>
+                            <h4>Limited Access to Education</h4>
+                            <p>Many children and youth remain out of school, lacking quality learning opportunities and infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div>
+                            <h4>Poor Healthcare &amp; WASH</h4>
+                            <p>Weak health systems and inadequate water, sanitation, and hygiene facilities endanger lives daily.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-venus-mars"></i></div>
+                        <div>
+                            <h4>Gender Inequality &amp; GBV</h4>
+                            <p>Women and girls face systemic discrimination, limited rights, and high rates of gender-based violence.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-tree"></i></div>
+                        <div>
+                            <h4>Climate Change Impacts</h4>
+                            <p>Erratic weather, floods, and droughts threaten livelihoods, food production, and community resilience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TRANSPARENCY & ACCOUNTABILITY ===== -->
+        <section id="transparency" class="section bg-white">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 48px;">
+                    <p class="section-subtitle"><i class="fas fa-balance-scale" style="margin-right:6px;"></i>Commitment</p>
+                    <h2 class="section-title">Transparency &amp; Accountability</h2>
+                    <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted);">We believe that trust is built on openness. Our stakeholders can count on us to be transparent in all our operations.</p>
+                </div>
+                <p style="max-width: 800px; margin: 0 auto 24px; color: var(--text-muted); font-size: 1.05rem; text-align:center;">
+                    ERA-SS adheres to the highest standards of financial management, program monitoring, and reporting.
+                    We regularly share our progress with donors, communities, and the government to ensure mutual accountability.
+                </p>
+                <div class="grid-2" style="max-width: 800px; margin: 0 auto;">
+                    <div class="card" style="padding: 28px 24px;">
+                        <h3 style="color: var(--era-primary); margin-bottom: 18px;"><i class="fas fa-check-circle" style="margin-right:10px;"></i> Our Commitments</h3>
+                        <ul style="list-style: none; padding: 0; color: var(--text-muted); line-height: 2.2;">
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Regular financial audits by independent firms</li>
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Publicly available annual reports</li>
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Community feedback mechanisms</li>
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Zero tolerance for fraud and corruption</li>
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Compliant with RRC regulations</li>
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Protection of whistleblowers</li>
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Gender and inclusion-sensitive programming</li>
+                            <li><i class="fas fa-angle-right" style="color:var(--era-primary); margin-right:8px;"></i>Environmental sustainability in operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SDGs WE SUPPORT ===== -->
+        <section id="sdgs" class="section bg-light">
+            <div class="container text-center">
+                <p class="section-subtitle"><i class="fas fa-globe" style="margin-right:6px;"></i>Global Goals</p>
+                <h2 class="section-title">SDGs We Support</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px; color: var(--text-muted);">Our work directly contributes to 7 Sustainable Development Goals, aligned with South Sudan's national priorities.</p>
+                <div class="grid-3">
+                    <div class="card"><h4>SDG 2 – Zero Hunger</h4><p>Food security and sustainable agriculture.</p></div>
+                    <div class="card"><h4>SDG 3 – Good Health</h4><p>Health and well-being for all.</p></div>
+                    <div class="card"><h4>SDG 4 – Quality Education</h4><p>Inclusive and equitable education.</p></div>
+                    <div class="card"><h4>SDG 5 – Gender Equality</h4><p>Empower women and girls.</p></div>
+                    <div class="card"><h4>SDG 6 – Clean Water</h4><p>Water and sanitation for all.</p></div>
+                    <div class="card"><h4>SDG 13 – Climate Action</h4><p>Combat climate change impacts.</p></div>
+                    <div class="card"><h4>SDG 16 – Peace, Justice</h4><p>Promote peaceful and inclusive societies.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CALL TO ACTION ===== -->
+        <section class="cta-banner" style="background: var(--era-primary-dark);">
+            <div class="container text-center">
+                <h2><i class="fas fa-handshake" style="margin-right:12px;"></i>Be Part of the Change</h2>
+                <p>Join us in our mission to build an equitable South Sudan. Partner, volunteer, or donate to support our work.</p>
+                <a href="contact.html" class="btn btn-light"><i class="fas fa-arrow-right" style="margin-right:8px;"></i>Get Involved</a>
+                <a href="support.html" class="btn btn-outline-light"><i class="fas fa-heart" style="margin-right:8px;"></i>Support Us</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/erass.jpeg" alt="ERA-SS Logo" class="footer-logo-img" onerror="this.outerHTML='<div style=\'width:44px;height:44px;background:var(--era-primary);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.3rem;\'>E</div>';" />
+                        <div class="footer-brand-wrapper">
+                            <span class="footer-brand-name">ERA</span>
+                            <span class="footer-brand-sub">Empowering with Equality</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Registered national NGO, Republic of South Sudan. Committed to equitable development, peace, and resilience.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/people/Equity-Resource-Aid-South-Sudan/61590477338666/" target="_blank" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-icon" style="opacity:0.5;cursor:default;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon" style="opacity:0.5;cursor:default;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/211928118089" target="_blank" class="footer-social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
                     <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="gallery.html">Project Gallery</a></li>
-                        <li><a href="testimonials.html">Testimonials</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Who We Are</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="approach.html">Our Approach</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-contact">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Roofing Street, NY 10001</p>
-                    <p><i class="fas fa-phone"></i> (555) 123-ROOF</p>
-                    <p><i class="fas fa-envelope"></i> info@adventroofing.com</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</p>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="programs.html#education">Education</a></li>
+                        <li><a href="programs.html#livelihoods">Livelihoods</a></li>
+                        <li><a href="programs.html#peacebuilding">Peacebuilding</a></li>
+                        <li><a href="programs.html#youth">Youth Empowerment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact-info">
+                        <li><i class="fas fa-location-dot" style="width:18px;color:var(--era-primary);"></i> Shirikat, Juba, South Sudan</li>
+                        <li><i class="fas fa-phone" style="width:18px;color:var(--era-primary);"></i> +211 927 757 777</li>
+                        <li><i class="fas fa-phone" style="width:18px;color:var(--era-primary);"></i> +211 928 118 089</li>
+                        <li><i class="fas fa-envelope" style="width:18px;color:var(--era-primary);"></i> <a href="mailto:contact@era-ss.org">contact@era-ss.org</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 Advent Roofing. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--gold);"></i> for premium roofing solutions</p>
+            <div class="footer-bottom">
+                <p>© 2026 Equity Resource Aid – South Sudan (ERA-SS). All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms</a> |
+                    <a href="#">Safeguarding</a> |
+                    <a href="#">Child Protection</a> |
+                    <a href="#">Code of Conduct</a>
+                </div>
             </div>
         </div>
     </footer>
