@@ -1,1227 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Equity Resource Aid – South Sudan (ERA) | Empowering with Equality</title>
-  <meta name="description" content="ERA-SS is a registered national NGO in South Sudan working in education, peacebuilding, livelihoods, WASH, health, youth empowerment, gender equality, and climate resilience." />
-  <meta name="theme-color" content="#C62828" />
-
-  <meta property="og:title" content="ERA-SS | Empowering with Equality – South Sudan" />
-  <meta property="og:description" content="A national NGO working across South Sudan for education, peace, livelihoods, WASH, and inclusive development." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200" />
-
-<style>
-    :root {
-      --era-primary: #C62828;
-      --era-primary-dark: #8B0000;
-      --era-secondary: #F4A825;
-      --era-dark: #1F1F1F;
-      --era-light: #F9F9F9;
-      --era-white: #FFFFFF;
-      --font-primary: 'Archivo', sans-serif;
-      --container-max: 1280px;
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
-      --shadow-md: 0 8px 28px rgba(0,0,0,.10);
-      --shadow-lg: 0 20px 50px rgba(0,0,0,.14);
-      --shadow-xl: 0 30px 70px rgba(0,0,0,.18);
-      --transition: 250ms ease;
-      --transition-slow: 400ms ease;
-      --text-dark: #1e1e1e;
-      --text-muted: #555;
-      --text-light-muted: #777;
-      --border-light: #E0E0E0;
-      --border-lighter: #EEEEEE;
-      --topbar-height: 40px;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-      scroll-padding-top: calc(var(--topbar-height) + 90px);
-    }
-    body {
-      font-family: var(--font-primary);
-      background: var(--era-white);
-      color: var(--text-dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-      min-width: 320px;
-      padding-top: calc(var(--topbar-height) + 80px);
-    }
-    h1,h2,h3,h4,h5,h6 {
-      font-family: var(--font-primary);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    img { max-width:100%; height:auto; display:block; }
-
-    /* ---------- TOP BAR (desktop only) ---------- */
-    .top-bar {
-      position: fixed; top:0; left:0; right:0; height: var(--topbar-height);
-      background: rgba(0,0,0,0.92); backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color:#fff; font-size:0.8rem; display:flex; align-items:center;
-      justify-content:space-between; padding:0 24px; z-index:1002;
-      transition: transform 0.35s ease;
-    }
-    .top-bar.hidden { transform: translateY(-100%); }
-    .top-bar a { color:#fff; text-decoration:none; margin:0 8px; white-space:nowrap; transition: color 0.2s; }
-    .top-bar a:hover { color: var(--era-secondary); }
-    .top-bar .donate-btn {
-      background: var(--era-secondary); color:#000; font-weight:700;
-      padding:5px 14px; border-radius:4px; transition: background 0.25s, transform 0.2s;
-      display:inline-block;
-    }
-    .top-bar .donate-btn:hover { background:#e0a61a; transform:scale(1.04); }
-    .top-bar-inner { display:flex; align-items:center; gap:12px; flex-shrink:0; }
-
-    /* ---------- MAIN NAVIGATION ---------- */
-    .navbar {
-      position: fixed; top: var(--topbar-height); left:0; right:0; height:80px;
-      background: transparent; z-index:1001;
-      transition: top 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
-    }
-    .navbar.scrolled {
-      background: rgba(255,255,255,0.98); box-shadow:0 2px 24px rgba(0,0,0,0.08);
-      top:0;
-    }
-    .navbar.scrolled .nav-link { color: var(--text-dark); }
-    .navbar.scrolled .nav-link:hover { color: var(--era-primary); }
-    .navbar.scrolled .logo-text { color: var(--era-dark); }
-    .navbar.scrolled .logo-sub { color: var(--era-primary); }
-    .navbar.scrolled .mobile-toggle { color: var(--era-primary); }
-
-    .navbar .container {
-      max-width: var(--container-max); margin:0 auto; padding:0 24px;
-      height:100%; display:flex; align-items:center; justify-content:space-between;
-    }
-
-    .logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
-    .logo img { width:44px; height:44px; object-fit:contain; border-radius:6px; }
-    .logo-fallback {
-      width:44px; height:44px; background:var(--era-primary); color:#fff;
-      border-radius:6px; display:flex; align-items:center; justify-content:center;
-      font-weight:800; font-size:1.3rem; flex-shrink:0;
-    }
-    .logo-text { font-weight:700; font-size:1.2rem; color:#fff; line-height:1.2; transition: color 0.35s; }
-    .logo-sub { font-size:0.65rem; letter-spacing:0.2em; color:rgba(255,255,255,0.8); text-transform:uppercase; transition: color 0.35s; }
-
-    .nav-links { display:flex; align-items:center; gap:22px; }
-    .nav-link {
-      color:#fff; text-decoration:none; font-weight:500; font-size:0.9rem;
-      position:relative; transition: color 0.3s; cursor:pointer; white-space:nowrap;
-    }
-    .nav-link::after {
-      content:''; position:absolute; left:0; bottom:-6px; width:0; height:2px;
-      background: var(--era-secondary); transition: width 0.3s ease; border-radius:1px;
-    }
-    .nav-link:hover { color: var(--era-secondary); }
-    .nav-link:hover::after { width:100%; }
-    .navbar.scrolled .nav-link:hover { color: var(--era-primary); }
-    .navbar.scrolled .nav-link::after { background: var(--era-primary); }
-
-    .dropdown { position:relative; display:flex; align-items:center; }
-    .dropdown-menu {
-      position:absolute; top:calc(100% + 6px); left:-10px; background:#fff;
-      border-radius:10px; box-shadow:var(--shadow-xl); min-width:230px;
-      opacity:0; visibility:hidden; transform:translateY(10px);
-      transition: opacity 0.28s ease, visibility 0.28s ease, transform 0.28s ease;
-      padding:8px 0; z-index:999; pointer-events:none;
-    }
-    .dropdown:hover .dropdown-menu,
-    .dropdown-menu:hover { opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto; }
-    .dropdown::after { content:''; position:absolute; top:100%; left:0; right:0; height:14px; }
-    .dropdown-menu a {
-      display:block; padding:11px 22px; color:var(--text-dark); text-decoration:none;
-      font-size:0.9rem; font-weight:500; transition: background 0.2s, color 0.2s, padding-left 0.2s;
-      white-space:nowrap;
-    }
-    .dropdown-menu a:hover { background:#f5f5f5; color:var(--era-primary); padding-left:26px; }
-
-    .nav-donate {
-      background: var(--era-primary); color:#fff !important; padding:10px 22px;
-      border-radius:4px; font-weight:700; transition: background 0.3s, transform 0.2s;
-      display:inline-block;
-    }
-    .nav-donate:hover { background:var(--era-primary-dark); transform:translateY(-2px); box-shadow:0 6px 20px rgba(198,40,40,0.35); }
-    .nav-donate::after { display:none !important; }
-
-    /* ---------- MOBILE TOGGLE (perfectly positioned) ---------- */
-    .mobile-toggle {
-      display: none; background:none; border:none; color: var(--era-secondary);
-      font-size:2rem; cursor:pointer; transition: color 0.35s, transform 0.2s;
-      padding: 6px 8px; border-radius:4px; line-height:1;
-      margin-right: -2px;           /* minimal, will be overridden on mobile */
-    }
-    .mobile-toggle:hover { color:#fff; transform:scale(1.1); }
-    .navbar.scrolled .mobile-toggle { color: var(--era-primary); }
-    .navbar.scrolled .mobile-toggle:hover { color: var(--era-primary-dark); }
-
-    /* ---------- MOBILE OVERLAY ---------- */
-    .mobile-overlay {
-      position: fixed; inset:0; background:rgba(0,0,0,0.55); z-index:1500;
-      opacity:0; visibility:hidden; transition: opacity 0.35s ease, visibility 0.35s ease;
-    }
-    .mobile-overlay.open { opacity:1; visibility:visible; }
-
-    /* ---------- MOBILE MENU (slides in from left) ---------- */
-    .mobile-menu {
-      position: fixed; top:0; left:0; width:320px; max-width:85vw; height:100%;
-      background: #1A1A1A; z-index:2000;
-      transform: translateX(-100%);
-      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-      padding: 0 20px 30px; overflow-y:auto;
-      box-shadow: 4px 0 30px rgba(0,0,0,0.4);
-      display:flex; flex-direction:column; gap:4px;
-    }
-    .mobile-menu.open { transform: translateX(0); }
-
-    .mobile-menu-logo {
-      display:flex; align-items:center; gap:12px;
-      padding: 24px 0 22px; border-bottom:1px solid rgba(255,255,255,0.1);
-      margin-bottom:8px;
-    }
-    .mobile-menu-logo img { width:48px; height:48px; object-fit:contain; border-radius:8px; background:rgba(255,255,255,0.05); padding:2px; }
-    .mobile-logo-fallback {
-      width:48px; height:48px; background:var(--era-primary); color:#fff;
-      border-radius:8px; display:flex; align-items:center; justify-content:center;
-      font-weight:800; font-size:1.5rem; flex-shrink:0;
-    }
-    .mobile-logo-text { font-weight:700; font-size:1.2rem; color:#fff; line-height:1.2; }
-    .mobile-logo-sub { font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--era-secondary); }
-
-    .mobile-menu a {
-      display:block; padding:13px 4px; color:#fff; text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,0.08); font-size:1rem;
-      transition: color 0.2s, padding-left 0.2s;
-    }
-    .mobile-menu a:hover { color: var(--era-secondary); padding-left:8px; }
-    .mobile-menu .mobile-donate {
-      background: var(--era-primary); text-align:center; border-radius:4px;
-      margin-top:12px; padding:14px; font-weight:700; border-bottom:none;
-    }
-    .mobile-menu .mobile-donate:hover { background:var(--era-primary-dark); padding-left:14px; }
-
-    .mobile-dropdown-btn {
-      display:flex; align-items:center; justify-content:space-between;
-      width:100%; padding:14px 8px; background:none; border:none;
-      border-bottom:1px solid rgba(255,255,255,0.08); color:#fff;
-      font-family:var(--font-primary); font-size:1rem; font-weight:500;
-      cursor:pointer; transition: color 0.2s; text-align:left;
-    }
-    .mobile-dropdown-btn:hover { color: var(--era-secondary); }
-
-    .dropdown-chevron {
-      display:inline-flex; align-items:center; transition: transform 0.3s ease;
-      color:rgba(255,255,255,0.7); margin-left:8px;
-    }
-    .mobile-dropdown-btn.active .dropdown-chevron { transform: rotate(-180deg); color: var(--era-secondary); }
-
-    .mobile-submenu {
-      max-height:0; overflow:hidden; transition: max-height 0.4s ease;
-      background:rgba(255,255,255,0.03); border-radius:6px; margin-left:8px;
-    }
-    .mobile-submenu.open { max-height:2000px !important; overflow:visible !important; }
-    .mobile-submenu a {
-      padding:10px 16px !important; font-size:0.92rem !important;
-      border-bottom:none !important; opacity:0.85;
-    }
-    .mobile-submenu a:hover { opacity:1; background:rgba(255,255,255,0.05); }
-
-    /* ---------- RESPONSIVE NAV & TOGGLE ---------- */
-    @media (max-width: 1024px) {
-      .nav-links { display: none; }
-      .mobile-toggle { display: block; }
-      body { padding-top: 80px; }            /* no topbar on mobile */
-      .navbar { top: 0; }                    /* navbar always at top on mobile */
-      .navbar .container { padding-right: 20px; } /* safe right padding */
-      .mobile-toggle { margin-right: 12px; } /* guaranteed gap from edge */
-    }
-    @media (max-width: 400px) {
-      .navbar .container { padding-right: 16px; }
-      .mobile-toggle { margin-right: 8px; font-size: 1.9rem; }
-    }
-
-    /* ---------- HERO SLIDER ---------- */
-    .hero {
-      position:relative; margin-top: calc(-1 * (var(--topbar-height) + 80px));
-      height:100vh; min-height:620px; overflow:hidden;
-    }
-    .slide {
-      position:absolute; inset:0; background-size:cover; background-position:center;
-      opacity:0; transition: opacity 1.5s ease-in-out; will-change:opacity;
-    }
-    .slide.active { opacity:1; }
-    .slide-overlay {
-      position:absolute; inset:0; background:rgba(0,0,0,0.35);
-      z-index:2; pointer-events:none;
-    }
-    .hero-content { position:relative; z-index:3; height:100%; display:flex; align-items:center; }
-    .hero-text { max-width:700px; color:#fff; padding:0 20px; }  /* padding for small screens */
-
-    .hero-badge {
-      display:inline-block; background:rgba(255,255,255,0.13); backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px); padding:9px 20px; border-radius:50px;
-      font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase;
-      border:1px solid rgba(255,255,255,0.28); margin-bottom:24px; font-weight:600;
-      text-shadow:0 2px 8px rgba(0,0,0,0.6);
-    }
-    .hero-text h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem); font-weight:800; line-height:1.08;
-      margin-bottom:16px; text-shadow:0 2px 12px rgba(0,0,0,0.7);
-    }
-    .hero-text h1 span { color:#FFCDD2; }
-    .hero-text p {
-      font-size:1.1rem; line-height:1.65; opacity:0.9; margin-bottom:38px;
-      max-width:580px; text-shadow:0 1px 6px rgba(0,0,0,0.6);
-    }
-    .btn {
-      display:inline-block; padding:15px 34px; border-radius:4px; font-weight:700;
-      text-decoration:none; transition: all 0.3s ease; cursor:pointer; font-size:0.95rem;
-      margin-right:12px; letter-spacing:0.01em;
-    }
-    .btn-primary { background:var(--era-primary); color:#fff; border:2px solid var(--era-primary); }
-    .btn-primary:hover { background:var(--era-primary-dark); border-color:var(--era-primary-dark); transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
-    .btn-outline { border:2px solid rgba(255,255,255,0.8); color:#fff; background:transparent; }
-    .btn-outline:hover { background:#fff; color:var(--era-primary); border-color:#fff; transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
-
-    .slider-dots {
-      position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
-      display:flex; gap:12px; z-index:4;
-    }
-    .dot {
-      width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,0.5);
-      cursor:pointer; transition: all 0.35s ease; border:2px solid transparent;
-    }
-    .dot.active { background:#fff; width:34px; border-radius:12px; border-color:rgba(255,255,255,0.6); }
-    .dot:hover { background:rgba(255,255,255,0.8); transform:scale(1.2); }
-
-    /* ---------- SECTIONS ---------- */
-    .section { padding: 100px 0; }
-    .section-sm { padding: 70px 0; }
-    .container { max-width: var(--container-max); margin:0 auto; padding:0 24px; }
-    .section-subtitle { color:var(--era-primary); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:12px; }
-    .section-title { font-size:clamp(2rem, 4vw, 2.8rem); font-weight:700; margin-bottom:16px; color:#111; }
-    .bg-light { background:var(--era-light); }
-    .bg-white { background:#fff; }
-    .bg-dark { background:#111; color:#fff; }
-    .text-muted { color:var(--text-muted); }
-    .text-center { text-align:center; }
-
-    .card {
-      background:#fff; border-radius:var(--radius-lg); padding:30px;
-      box-shadow:var(--shadow-sm); transition: var(--transition); border:1px solid transparent;
-    }
-    .card:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:#eee; }
-
-    .grid-2 { display:grid; grid-template-columns: repeat(auto-fit, minmax(340px,1fr)); gap:40px; }
-    .grid-3 { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:30px; }
-    .grid-4 { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:24px; }
-
-    .value-card {
-      background:#fff; border-radius:var(--radius-md); padding:28px 20px; text-align:center;
-      border:1px solid var(--border-light); transition: all 0.35s ease; cursor:default;
-    }
-    .value-card:hover { background:var(--era-primary); color:#fff; border-color:var(--era-primary); transform:translateY(-6px); box-shadow:var(--shadow-md); }
-    .value-card h3 { font-size:1.3rem; margin-bottom:8px; }
-    .value-card .icon-emoji { font-size:2.2rem; margin-bottom:10px; display:block; transition: transform 0.35s; }
-    .value-card:hover .icon-emoji { transform:scale(1.2); }
-
-    .why-era-section { background:#fafafa; position:relative; overflow:hidden; }
-    .why-era-section::before {
-      content:''; position:absolute; top:-80px; right:-120px; width:400px; height:400px;
-      background: radial-gradient(circle, rgba(198,40,40,0.04) 0%, transparent 70%);
-      border-radius:50%; pointer-events:none;
-    }
-    .challenge-card {
-      background:#fff; border-radius:var(--radius-lg); padding:24px 22px;
-      display:flex; align-items:flex-start; gap:16px;
-      border:1px solid var(--border-lighter); transition: all 0.3s ease; box-shadow:var(--shadow-sm);
-    }
-    .challenge-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:#ddd; }
-    .challenge-icon {
-      font-size:2.4rem; flex-shrink:0; width:56px; height:56px;
-      display:flex; align-items:center; justify-content:center;
-      background:#fef5f5; border-radius:12px; transition: transform 0.3s;
-    }
-    .challenge-card:hover .challenge-icon { transform:scale(1.1); }
-    .challenge-card h4 { font-size:1rem; font-weight:700; margin-bottom:4px; color:#111; }
-    .challenge-card p { font-size:0.9rem; color:var(--text-muted); line-height:1.5; margin:0; }
-
-    .coverage-image-wrapper { position:relative; border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-lg); }
-    .coverage-image-wrapper img { width:100%; height:100%; object-fit:cover; min-height:360px; border-radius:var(--radius-xl); }
-    .coverage-image-wrapper::after {
-      content:''; position:absolute; inset:0; border-radius:var(--radius-xl);
-      border:3px solid rgba(198,40,40,0.15); pointer-events:none;
-    }
-    .coverage-stats { display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; }
-    .coverage-stat {
-      background:#fef5f5; border-radius:var(--radius-md); padding:14px 18px;
-      text-align:center; flex:1; min-width:70px; border:1px solid rgba(198,40,40,0.1);
-    }
-    .coverage-stat strong { display:block; font-size:1.6rem; color:var(--era-primary); font-weight:800; letter-spacing:-0.01em; }
-    .coverage-stat span { font-size:0.78rem; color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:0.04em; }
-
-    .partner-marquee { overflow:hidden; background:#fff; padding:44px 0; border-top:1px solid #eee; border-bottom:1px solid #eee; position:relative; }
-    .partner-marquee::before,
-    .partner-marquee::after {
-      content:''; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;
-    }
-    .partner-marquee::before { left:0; background: linear-gradient(to right, #fff, transparent); }
-    .partner-marquee::after { right:0; background: linear-gradient(to left, #fff, transparent); }
-    .partner-track { display:flex; gap:50px; animation: scroll 28s linear infinite; width:max-content; }
-    .partner-item {
-      display:flex; align-items:center; justify-content:center; height:56px; min-width:130px;
-      background:#f8f8f8; border-radius:8px; padding:10px 22px; font-weight:600;
-      font-size:0.88rem; color:#555; white-space:nowrap; box-shadow:var(--shadow-sm);
-      border:1px solid #eee; transition: all 0.3s;
-    }
-    .partner-item:hover { background:#fff; box-shadow:var(--shadow-md); color:var(--era-primary); }
-    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    .contact-section { position:relative; background:#fafafa; overflow:hidden; }
-    .contact-section::before {
-      content:''; position:absolute; bottom:-100px; left:-100px; width:350px; height:350px;
-      background: radial-gradient(circle, rgba(198,40,40,0.05) 0%, transparent 70%);
-      border-radius:50%; pointer-events:none;
-    }
-    .contact-info-card {
-      background:#fff; border-radius:var(--radius-lg); padding:28px 24px;
-      box-shadow:var(--shadow-sm); border:1px solid var(--border-lighter); height:100%;
-      display:flex; flex-direction:column; gap:18px;
-    }
-    .contact-info-item { display:flex; align-items:flex-start; gap:14px; padding:10px 0; }
-    .contact-info-icon {
-      width:46px; height:46px; background:#fef5f5; border-radius:10px;
-      display:flex; align-items:center; justify-content:center; font-size:1.4rem;
-      flex-shrink:0; color:var(--era-primary);
-    }
-    .contact-info-item h4 { font-size:0.95rem; font-weight:700; margin-bottom:2px; color:#111; }
-    .contact-info-item p,
-    .contact-info-item a { font-size:0.9rem; color:var(--text-muted); text-decoration:none; line-height:1.4; transition: color 0.2s; }
-    .contact-info-item a:hover { color:var(--era-primary); }
-    .contact-form-card {
-      background:#fff; border-radius:var(--radius-lg); padding:32px 28px;
-      box-shadow:var(--shadow-md); border:1px solid var(--border-lighter); height:100%;
-    }
-    .contact-form-card input,
-    .contact-form-card textarea {
-      width:100%; padding:13px 16px; border:2px solid #e8e8e8; border-radius:8px;
-      font-family:var(--font-primary); font-size:0.95rem; transition: border-color 0.3s, box-shadow 0.3s;
-      background:#fafafa; resize:vertical;
-    }
-    .contact-form-card input:focus,
-    .contact-form-card textarea:focus {
-      outline:none; border-color:var(--era-primary); box-shadow:0 0 0 3px rgba(198,40,40,0.08);
-      background:#fff;
-    }
-    .contact-form-card textarea { min-height:120px; }
-    .btn-submit {
-      display:inline-block; padding:15px 36px; background:var(--era-primary); color:#fff;
-      border:none; border-radius:6px; font-weight:700; font-size:0.95rem; cursor:pointer;
-      transition: all 0.3s; font-family:var(--font-primary); letter-spacing:0.02em; width:100%;
-    }
-    .btn-submit:hover { background:var(--era-primary-dark); transform:translateY(-2px); box-shadow:0 10px 28px rgba(198,40,40,0.3); }
-
-    .social-icon-link {
-      display:inline-flex; align-items:center; justify-content:center;
-      width:42px; height:42px; background:var(--era-primary); color:#fff;
-      border-radius:8px; text-decoration:none; margin-right:8px; transition: all 0.3s; font-size:1.1rem;
-    }
-    .social-icon-link:hover { background:var(--era-primary-dark); transform:translateY(-3px); box-shadow:0 8px 20px rgba(198,40,40,0.3); }
-
-    /* ---------- FOOTER ---------- */
-    .footer {
-      background:#111; color:#ccc; padding:60px 0 30px;
-    }
-    .footer a { color:#ccc; text-decoration:none; transition: color 0.2s; }
-    .footer a:hover { color:var(--era-secondary); }
-    .footer-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:40px; }
-    .footer-col { min-width:0; }
-    .footer-logo { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
-    .footer-brand-name { font-weight:700; font-size:1.2rem; color:#fff; display:block; line-height:1.2; }
-    .footer-brand-sub { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--era-primary); display:block; }
-    .footer-description { font-size:0.85rem; margin-bottom:16px; color:#aaa; }
-    .footer-socials { display:flex; gap:10px; margin-top:12px; }
-    .footer-social-icon {
-      display:inline-flex; align-items:center; justify-content:center;
-      width:36px; height:36px; background:rgba(255,255,255,0.08); color:#fff;
-      border-radius:6px; transition: all 0.3s ease;
-    }
-    .footer-social-icon:hover { background:var(--era-primary); color:#fff; transform:translateY(-2px); }
-    .footer h4 { color:#fff; font-size:1rem; margin-bottom:14px; font-weight:700; }
-    .footer-links { list-style:none; padding:0; margin:0; }
-    .footer-links li { margin-bottom:8px; }
-    .footer-links li a { font-size:0.9rem; transition: padding-left 0.2s; }
-    .footer-links li a:hover { padding-left:5px; color:var(--era-secondary); }
-    .footer-contact-info { list-style:none; padding:0; margin:0; font-size:0.9rem; }
-    .footer-contact-info li { margin-bottom:8px; line-height:1.4; }
-    .footer-contact-info a { text-decoration:underline; text-underline-offset:2px; }
-    .footer-bottom {
-      border-top:1px solid rgba(255,255,255,0.08); margin-top:40px; padding-top:20px;
-      text-align:center; font-size:0.8rem; color:#888;
-      display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px;
-    }
-    .footer-legal { display:inline-flex; flex-wrap:wrap; gap:6px; }
-    .footer-legal a { color:#888; margin:0 2px; }
-    .footer-legal a:hover { color:var(--era-secondary); }
-
-    /* ========== ULTIMATE MOBILE RESPONSIVENESS ========== */
-    @media (max-width: 768px) {
-      .section { padding: 60px 0; }
-      .container { padding: 0 16px; }
-      .btn { padding: 13px 24px; font-size:0.9rem; margin-right:8px; margin-bottom:8px; }
-      .grid-2 { grid-template-columns:1fr; gap:28px; }
-      .grid-3 { grid-template-columns:1fr 1fr; gap:16px; }
-      .grid-4 { grid-template-columns:1fr 1fr; gap:14px; }
-      .challenge-card { flex-direction:column; align-items:flex-start; gap:10px; }
-      .coverage-image-wrapper img { min-height:240px; }
-      .hero-text h1 { font-size:2rem; }
-      .hero-text p { font-size:0.95rem; }
-      .partner-item { min-width:100px; font-size:0.78rem; padding:8px 14px; height:44px; }
-      .partner-track { gap:28px; }
-      .contact-form-card { padding:22px 16px; }
-      .contact-info-card { padding:20px 16px; }
-    }
-    @media (max-width: 480px) {
-      .grid-3 { grid-template-columns:1fr; }
-      .grid-4 { grid-template-columns:1fr; }
-      .hero { min-height:500px; }
-      .hero-text h1 { font-size:1.7rem; }
-      .hero-badge { font-size:0.65rem; padding:7px 14px; }
-      .slider-dots { bottom:20px; gap:8px; }
-      .dot { width:10px; height:10px; }
-      .dot.active { width:26px; }
-      .mobile-menu { width: 85vw; }   /* wider on tiny screens */
-    }
-    /* hide topbar on all mobile */
-    @media (max-width: 768px) {
-      .top-bar { display: none; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>ERA-SS | Empowering with Equality – Home</title>
+    <meta name="description" content="Equity Resource Aid – South Sudan (ERA) is a registered national NGO working in education, peacebuilding, livelihoods, WASH, health, youth empowerment, gender equality, and climate resilience." />
+    <meta name="theme-color" content="#C62828" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Mobile Overlay (must exist for menu close) -->
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-
-  <!-- ==================== TOP BAR ==================== -->
-  <div class="top-bar" id="topBar">
-    <div class="top-bar-inner">
-      <a href="mailto:contact@era-ss.org">📧 contact@era-ss.org</a>
-      <span>📞 +211 927 757 777</span>
-    </div>
-    <div class="top-bar-inner">
-      <a href="javascript:void(0)" role="button">Volunteer</a>
-      <a href="javascript:void(0)" role="button">Reports</a>
-      <a href="javascript:void(0)" role="button">Our Team</a>
-      <a href="#support" class="donate-btn">Donate</a>
-    </div>
-  </div>
-
-  <!-- ==================== MAIN NAVIGATION ==================== -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#home" class="logo">
-        <img src="assets/erass.jpeg" alt="ERA-SS Logo"
-             onerror="this.onerror=null; this.outerHTML='<div class=\'logo-fallback\'>E</div>';" />
-        <div>
-          <div class="logo-text">ERA</div>
-          <div class="logo-sub">Empowering with Equality</div>
+    <!-- ===== TOP BAR ===== -->
+    <div class="top-bar" id="topBar">
+        <div class="top-bar-inner">
+            <a href="mailto:contact@era-ss.org"><i class="fas fa-envelope"></i> contact@era-ss.org</a>
+            <span><i class="fas fa-phone"></i> +211 927 757 777</span>
         </div>
-      </a>
-      <div class="nav-links">
-        <a href="#home" class="nav-link">Home</a>
-        <div class="dropdown">
-          <a href="#about" class="nav-link">About ▾</a>
-          <div class="dropdown-menu">
-            <a href="#background">Know Who We Are</a>
-            <a href="#vision">Our Genesis</a>
-            <a href="javascript:void(0)">Meet Our Team</a>
-            <a href="javascript:void(0)">Our Reports</a>
-            <a href="#partners">Partners & Donors</a>
-          </div>
-        </div>
-        <a href="#coverage" class="nav-link">Coverage</a>
-        <div class="dropdown">
-          <a href="#programs" class="nav-link">Programs ▾</a>
-          <div class="dropdown-menu">
-            <a href="#programs">Education</a>
-            <a href="#programs">Agriculture & Livelihood</a>
-            <a href="#programs">Peacebuilding & Advocacy</a>
-            <a href="#programs">Youth Empowerment</a>
-            <a href="#programs">General Protection</a>
-            <a href="#programs">Gender Equality</a>
-            <a href="#programs">Climate Resilience</a>
-          </div>
-        </div>
-        <a href="#approach" class="nav-link">Approach</a>
-        <a href="#partners" class="nav-link">Partners</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#support" class="nav-link">Support</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="#support" class="nav-donate">Donate</a>
-      </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
-    </div>
-  </nav>
-
-  <!-- ==================== MOBILE MENU (slides in from left) ==================== -->
-<div class="mobile-menu" id="mobileMenu">
-    <!-- Logo at top -->
-    <div class="mobile-menu-logo">
-        <img src="assets/erass.jpeg" alt="ERA-SS Logo"
-             onerror="this.outerHTML='<div class=\'mobile-logo-fallback\'>E</div>';" />
-        <div>
-            <div class="mobile-logo-text">ERA</div>
-            <div class="mobile-logo-sub">Empowering with Equality</div>
+        <div class="top-bar-inner">
+            <a href="career.html"><i class="fas fa-briefcase"></i> Career</a>
+            <a href="report.html"><i class="fas fa-file-alt"></i> Reports</a>
+            <a href="team.html"><i class="fas fa-users"></i> Our Team</a>
+            <a href="support.html" class="donate-btn"><i class="fas fa-heart"></i> Donate</a>
         </div>
     </div>
 
-    <a href="#home">Home</a>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/erass.jpeg" alt="ERA-SS Logo" onerror="this.outerHTML='<div class=\'logo-fallback\'>E</div>';" />
+                <div class="logo-text-wrapper">
+                    <span class="logo-text">ERA</span>
+                    <span class="logo-sub">Empowering with Equality</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <div class="dropdown">
+                    <a href="about.html" class="nav-link">About ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="about.html#background">Know Who We Are</a>
+                        <a href="about.html#vision">Our Genesis</a>
+                        <a href="team.html">Meet Our Team</a>
+                        <a href="report.html">Our Reports</a>
+                        <a href="partners.html">Partners &amp; Donors</a>
+                    </div>
+                </div>
+                <a href="programs.html" class="nav-link">Programs</a>
+                <a href="approach.html" class="nav-link">Approach</a>
+                <a href="partners.html" class="nav-link">Partners</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="support.html" class="nav-link">Support</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="support.html" class="nav-donate"><i class="fas fa-heart" style="margin-right:6px;"></i>Donate</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+        </div>
+    </nav>
 
-    <!-- About dropdown toggle -->
-    <button class="mobile-dropdown-btn" data-target="mobile-about-submenu">
-        <span>About</span>
-        <span class="dropdown-chevron">
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </span>
-    </button>
-    <div class="mobile-submenu" id="mobile-about-submenu">
-        <a href="#background">Know Who We Are</a>
-        <a href="#vision">Our Genesis</a>
-        <a href="javascript:void(0)">Meet Our Team</a>
-        <a href="javascript:void(0)">Our Reports</a>
-        <a href="#partners">Partners & Donors</a>
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-logo">
+            <img src="assets/images/erass.jpeg" alt="ERA-SS Logo" onerror="this.outerHTML='<div class=\'mobile-logo-fallback\'>E</div>';" />
+            <div class="mobile-logo-text-wrapper">
+                <span class="mobile-logo-text">ERA</span>
+                <span class="mobile-logo-sub">Empowering with Equality</span>
+            </div>
+        </div>
+        <a href="index.html">Home</a>
+        <button class="mobile-dropdown-btn" data-target="mobile-about-submenu">
+            <span>About</span>
+            <span class="dropdown-chevron">▾</span>
+        </button>
+        <div class="mobile-submenu" id="mobile-about-submenu">
+            <a href="about.html#background">Know Who We Are</a>
+            <a href="about.html#vision">Our Genesis</a>
+            <a href="team.html">Meet Our Team</a>
+            <a href="report.html">Our Reports</a>
+            <a href="partners.html">Partners &amp; Donors</a>
+        </div>
+        <a href="programs.html">Programs</a>
+        <a href="approach.html">Approach</a>
+        <a href="partners.html">Partners</a>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+        <a href="support.html" class="mobile-donate"><i class="fas fa-heart" style="margin-right:8px;"></i>Donate</a>
     </div>
 
-    <a href="#coverage">Coverage</a>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
 
-    <!-- Programs dropdown toggle -->
-    <button class="mobile-dropdown-btn" data-target="mobile-programs-submenu">
-        <span>Programs</span>
-        <span class="dropdown-chevron">
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </span>
-    </button>
-    <div class="mobile-submenu" id="mobile-programs-submenu">
-        <a href="#programs">Education</a>
-        <a href="#programs">Agriculture & Livelihood</a>
-        <a href="#programs">Peacebuilding & Advocacy</a>
-        <a href="#programs">Youth Empowerment</a>
-        <a href="#programs">General Protection</a>
-        <a href="#programs">Gender Equality</a>
-        <a href="#programs">Climate Resilience</a>
-    </div>
-
-    <a href="#approach">Approach</a>
-    <a href="#partners">Partners</a>
-    <a href="#faq">FAQ</a>
-    <a href="#support">Support</a>
-    <a href="#contact">Contact</a>
-    <a href="#support" class="mobile-donate">💛 Donate</a>
-</div>
-
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <main>
-
-    <!-- HERO SLIDER -->
-    <section id="home" class="hero">
-      <div class="slide active" style="background-image: url('assets/equity.jpg');" role="img" aria-label="Community gathering in South Sudan"></div>
-      <div class="slide" style="background-image: url('assets/equity1.jpg');" role="img" aria-label="ERA-SS field work"></div>
-      <div class="slide" style="background-image: url('assets/equity2.jpg');" role="img" aria-label="ERA-SS community engagement"></div>
-      <div class="slide" style="background-image: url('assets/equity3.jpg');" role="img" aria-label="ERA-SS program activity"></div>
-        <div class="slide" style="background-image: url('assets/equity4.jpg');" role="img" aria-label="ERA-SS program activity"></div>
-        <div class="slide" style="background-image: url('assets/equity5.jpg');" role="img" aria-label="ERA-SS program activity"></div>
-      <div class="slide-overlay"></div>
-      <div class="hero-content container">
-        <div class="hero-text">
-          <div class="hero-badge">REGISTERED NATIONAL NGO • REPUBLIC OF SOUTH SUDAN</div>
-          <h1>Empowering with <span>Equality</span></h1>
-          <p>Equity Resource Aid – South Sudan (ERA) is a registered national non-profit organization working to build an equitable society through education, peacebuilding, livelihoods, protection, youth empowerment, gender equality, climate resilience, and sustainable development.</p>
-          <div>
-            <a href="#background" class="btn btn-primary">Learn About Us</a>
-            <a href="#support" class="btn btn-outline">Support Our Mission</a>
-          </div>
-        </div>
-      </div>
-      <div class="slider-dots" id="sliderDots"></div>
-    </section>
-
-    <!-- WHY ERA EXISTS -->
-    <section id="why-era-exists" class="section why-era-section">
-      <div class="container">
-        <div class="text-center" style="margin-bottom: 48px;">
-          <p class="section-subtitle">The Context</p>
-          <h2 class="section-title">Why ERA Exists</h2>
-          <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
-            South Sudan continues to face immense challenges — poverty, conflict, food insecurity, climate shocks, limited education, gender inequality, and weak healthcare systems. ERA-SS was founded to ensure that the voices of communities are heard and that resources are distributed equitably.
-          </p>
-        </div>
-        <div class="grid-3">
-          <div class="challenge-card">
-            <div class="challenge-icon">🛑</div>
-            <div>
-              <h4>Conflict & Displacement</h4>
-              <p>Ongoing instability has displaced millions, fracturing communities and disrupting lives across the nation.</p>
+        <!-- ===== HERO SLIDER ===== -->
+        <section id="home" class="hero">
+            <div class="slide active" style="background-image: url('assets/images/equity.jpg');" role="img" aria-label="Community gathering in South Sudan"></div>
+            <div class="slide" style="background-image: url('assets/images/equity1.jpg');" role="img" aria-label="ERA-SS field work"></div>
+            <div class="slide" style="background-image: url('assets/images/equity2.jpg');" role="img" aria-label="ERA-SS community engagement"></div>
+            <div class="slide" style="background-image: url('assets/images/equity3.jpg');" role="img" aria-label="ERA-SS program activity"></div>
+            <div class="slide" style="background-image: url('assets/images/equity4.jpg');" role="img" aria-label="ERA-SS program activity"></div>
+            <div class="slide" style="background-image: url('assets/images/equity5.jpg');" role="img" aria-label="ERA-SS program activity"></div>
+            <div class="slide-overlay"></div>
+            <div class="hero-content container">
+                <div class="hero-text">
+                    <div class="hero-badge"><i class="fas fa-globe-africa" style="margin-right:8px;"></i>REGISTERED NATIONAL NGO • REPUBLIC OF SOUTH SUDAN</div>
+                    <h1>Empowering with Equality</h1>
+                    <p class="hero-description">
+                        <strong>Equity Resource Aid – South Sudan (ERA)</strong> is a registered national non-profit organization
+                        founded on <strong>10th June 2026</strong> to build an equitable society through <strong>education,
+                        peacebuilding, livelihoods, protection, youth empowerment, gender equality, climate resilience,
+                        and sustainable development</strong>. We work with communities across all 10 states, ensuring that
+                        the voices of the most vulnerable are heard and that resources are distributed fairly.
+                        ERA-SS is committed to <strong>leaving no one behind</strong> — from conflict-affected families
+                        to displaced populations, from children out of school to women facing gender-based violence.
+                        We believe in <strong>local solutions for local challenges</strong>, and we partner with
+                        communities, government, UN agencies, and international foundations to create lasting change.
+                        Our work is guided by the <strong>Sustainable Development Goals</strong> and the
+                        <strong>South Sudan Vision 2030</strong>.
+                    </p>
+                    <div>
+                        <a href="about.html" class="btn btn-primary"><i class="fas fa-info-circle" style="margin-right:8px;"></i>Learn About Us</a>
+                        <a href="support.html" class="btn btn-outline"><i class="fas fa-hand-holding-heart" style="margin-right:8px;"></i>Support Our Mission</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="challenge-card">
-            <div class="challenge-icon">🍽️</div>
-            <div>
-              <h4>Food Insecurity & Malnutrition</h4>
-              <p>Millions face acute hunger due to conflict, droughts, floods, and disrupted agricultural cycles.</p>
+            <div class="slider-dots" id="sliderDots"></div>
+        </section>
+
+        <!-- ===== CTA BANNER 1 (About) ===== -->
+        <section id="about-cta" class="cta-banner" style="background: var(--era-primary-dark);">
+            <div class="container">
+                <h2><i class="fas fa-bullseye" style="margin-right:12px;"></i>Join Us in Building a Better South Sudan</h2>
+                <p>ERA-SS is driven by a vision of an inclusive, peaceful, and prosperous nation. Your partnership can help turn this vision into reality.</p>
+                <a href="about.html" class="btn btn-light"><i class="fas fa-arrow-right" style="margin-right:8px;"></i>Discover Our Story</a>
+                <a href="contact.html" class="btn btn-outline-light"><i class="fas fa-envelope" style="margin-right:8px;"></i>Get in Touch</a>
             </div>
-          </div>
-          <div class="challenge-card">
-            <div class="challenge-icon">📚</div>
-            <div>
-              <h4>Limited Access to Education</h4>
-              <p>Many children and youth remain out of school, lacking quality learning opportunities and infrastructure.</p>
+        </section>
+
+        <!-- ===== WHY ERA EXISTS ===== -->
+        <section id="why-era-exists" class="section why-era-section">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 48px;">
+                    <p class="section-subtitle"><i class="fas fa-question-circle" style="margin-right:6px;"></i>The Context</p>
+                    <h2 class="section-title">Why ERA Exists</h2>
+                    <p style="max-width: 700px; margin: 0 auto; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+                        South Sudan continues to face immense challenges — poverty, conflict, food insecurity, climate shocks,
+                        limited education, gender inequality, and weak healthcare systems. ERA-SS was founded to ensure that
+                        the voices of communities are heard and that resources are distributed equitably.
+                    </p>
+                </div>
+                <div class="grid-3">
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-fist-raised"></i></div>
+                        <div>
+                            <h4>Conflict &amp; Displacement</h4>
+                            <p>Ongoing instability has displaced millions, fracturing communities and disrupting lives across the nation.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-utensils"></i></div>
+                        <div>
+                            <h4>Food Insecurity &amp; Malnutrition</h4>
+                            <p>Millions face acute hunger due to conflict, droughts, floods, and disrupted agricultural cycles.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-book"></i></div>
+                        <div>
+                            <h4>Limited Access to Education</h4>
+                            <p>Many children and youth remain out of school, lacking quality learning opportunities and infrastructure.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div>
+                            <h4>Poor Healthcare &amp; WASH</h4>
+                            <p>Weak health systems and inadequate water, sanitation, and hygiene facilities endanger lives daily.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-venus-mars"></i></div>
+                        <div>
+                            <h4>Gender Inequality &amp; GBV</h4>
+                            <p>Women and girls face systemic discrimination, limited rights, and high rates of gender-based violence.</p>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon"><i class="fas fa-tree"></i></div>
+                        <div>
+                            <h4>Climate Change Impacts</h4>
+                            <p>Erratic weather, floods, and droughts threaten livelihoods, food production, and community resilience.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="challenge-card">
-            <div class="challenge-icon">🚑</div>
-            <div>
-              <h4>Poor Healthcare & WASH</h4>
-              <p>Weak health systems and inadequate water, sanitation, and hygiene facilities endanger lives daily.</p>
+        </section>
+
+        <!-- ===== BACKGROUND / WHO WE ARE ===== -->
+        <section id="background" class="section bg-white">
+            <div class="container">
+                <div class="grid-2" style="align-items: center;">
+                    <div>
+                        <p class="section-subtitle"><i class="fas fa-flag" style="margin-right:6px;"></i>Background</p>
+                        <h2 class="section-title">Who We Are</h2>
+                        <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+                            <strong>Equity Resource Aid (ERA)</strong> is a non-profit national non-governmental organization
+                            founded and registered with the <strong>Relief and Rehabilitation Commission (RRC)</strong> of
+                            the Republic of South Sudan on <strong>10th June 2026</strong>. We are geared towards building
+                            an equitable society in all aspects of life. Together with national and international partners,
+                            we respond to humanitarian crises and support long-term solutions that empower and improve the
+                            living conditions for the neediest neglected people.
+                        </p>
+                        <p style="margin-top: 14px; color: var(--text-muted); line-height: 1.8;">
+                            ERA was founded to ensure that the voices and needs of communities are heard, responded to,
+                            and changed through equitable redistribution of resources for all, especially the most
+                            underprivileged segments of society. As an <strong>impact-oriented &amp; human-centered</strong>
+                            organization, we use innovative evidence and data-driven decision-making to contribute to a
+                            just and equal world.
+                        </p>
+                        <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px;">
+                            <a href="about.html#vision" class="btn btn-primary"><i class="fas fa-eye" style="margin-right:8px;"></i>Our Vision</a>
+                            <a href="contact.html" class="btn btn-secondary"><i class="fas fa-handshake" style="margin-right:8px;"></i>Partner With Us</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="assets/images/equity.jpg" alt="ERA-SS team" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); width: 100%;" loading="lazy" />
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="challenge-card">
-            <div class="challenge-icon">👩</div>
-            <div>
-              <h4>Gender Inequality & GBV</h4>
-              <p>Women and girls face systemic discrimination, limited rights, and high rates of gender-based violence.</p>
+        </section>
+
+        <!-- ===== VISION & MISSION ===== -->
+        <section id="vision" class="section bg-light">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="card" style="border-left: 5px solid var(--era-primary); padding: 32px 28px;">
+                        <h3 style="color: var(--era-primary); font-size: 1.4rem;"><i class="fas fa-eye" style="margin-right:10px;"></i>Our Vision</h3>
+                        <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">Creating enabling opportunities for all people to achieve their needs, actively embracing continual social inclusion, change, and justice to take center stage in achieving optimum human development.</p>
+                    </div>
+                    <div class="card" style="border-left: 5px solid var(--era-secondary); padding: 32px 28px;">
+                        <h3 style="color: var(--era-primary); font-size: 1.4rem;"><i class="fas fa-bullseye" style="margin-right:10px;"></i>Our Mission</h3>
+                        <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">All citizens, regardless of their backgrounds, working together, uphold the peace and stability, and take the lead in fulfilling their talents and skills for a progressive change.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="challenge-card">
-            <div class="challenge-icon">🌍</div>
-            <div>
-              <h4>Climate Change Impacts</h4>
-              <p>Erratic weather, floods, and droughts threaten livelihoods, food production, and community resilience.</p>
+        </section>
+
+        <!-- ===== CORE VALUES ===== -->
+        <section id="core-values" class="section bg-white">
+            <div class="container text-center">
+                <p class="section-subtitle"><i class="fas fa-star" style="margin-right:6px;"></i>Core Values</p>
+                <h2 class="section-title">What We Stand For</h2>
+                <div class="grid-3" style="margin-top: 40px;">
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-hand-holding-heart"></i></span><h3>Dignity</h3><p style="font-size: 0.95rem;">Every person deserves respect and inherent worth.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-globe-africa"></i></span><h3>Respect for All</h3><p style="font-size: 0.95rem;">Honouring diversity and uniqueness.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-balance-scale"></i></span><h3>Equality</h3><p style="font-size: 0.95rem;">Fair opportunities for everyone.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-clipboard-check"></i></span><h3>Accountability</h3><p style="font-size: 0.95rem;">Transparent and responsible stewardship.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-fire"></i></span><h3>Dedication</h3><p style="font-size: 0.95rem;">Unwavering commitment to our mission.</p></div>
+                    <div class="value-card"><span class="icon-wrap"><i class="fas fa-wheelchair"></i></span><h3>Inclusion</h3><p style="font-size: 0.95rem;">Leaving no one behind.</p></div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- BACKGROUND / ABOUT -->
-    <section id="background" class="section bg-white">
-      <div class="container">
-        <div class="grid-2" style="align-items: center;">
-          <div>
-            <p class="section-subtitle">Background</p>
-            <h2 class="section-title">Who We Are</h2>
-            <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.7;">
-              Equity Resource Aid (ERA) is a non-profit national non-governmental organization founded and registered with the Relief and Rehabilitation Commission (RRC) of the Republic of South Sudan on <strong>10th of June 2026</strong>. We are geared towards building an equitable society in all aspects of life. Together with national and international partners, we respond to humanitarian crises and support long-term solutions that empower and improve the living conditions for the neediest neglected people.
-            </p>
-            <p style="margin-top: 12px; color: var(--text-muted);">
-              ERA was founded to ensure that the voices and needs of communities are heard, responded to, and changed through equitable redistribution of resources for all, especially the most underprivileged segments of society. As an impact-oriented & human-centered organization, we use innovative evidence and data-driven decision-making to contribute to a just and equal world.
-            </p>
-          </div>
-          <div>
-            <img src="assets/equity.jpg" alt="ERA-SS team working with local community in South Sudan" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); width: 100%;" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISION & MISSION -->
-    <section id="vision" class="section bg-light">
-      <div class="container">
-        <div class="grid-2">
-          <div class="card" style="border-left: 5px solid var(--era-primary); padding: 32px 28px;">
-            <h3 style="color: var(--era-primary); font-size: 1.4rem;">Our Vision</h3>
-            <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">Creating enabling opportunities for all people to achieve their needs, actively embracing continual social inclusion, change, and justice to take center stage in achieving optimum human development.</p>
-          </div>
-          <div class="card" style="border-left: 5px solid var(--era-secondary); padding: 32px 28px;">
-            <h3 style="color: var(--era-primary); font-size: 1.4rem;">Our Mission</h3>
-            <p style="font-size: 1.1rem; margin-top: 10px; line-height: 1.7;">All citizens, regardless of their backgrounds, working together, uphold the peace and stability, and take the lead in fulfilling their talents and skills for a progressive change.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CORE VALUES -->
-    <section id="core-values" class="section bg-white">
-      <div class="container text-center">
-        <p class="section-subtitle">Core Values</p>
-        <h2 class="section-title">What We Stand For</h2>
-        <div class="grid-3" style="margin-top: 40px;">
-          <div class="value-card"><span class="icon-emoji">🤝</span><h3>Dignity</h3><p style="font-size: 0.95rem;">Every person deserves respect and inherent worth.</p></div>
-          <div class="value-card"><span class="icon-emoji">🌍</span><h3>Respect for All</h3><p style="font-size: 0.95rem;">Honouring diversity and uniqueness.</p></div>
-          <div class="value-card"><span class="icon-emoji">⚖️</span><h3>Equality</h3><p style="font-size: 0.95rem;">Fair opportunities for everyone.</p></div>
-          <div class="value-card"><span class="icon-emoji">📋</span><h3>Accountability</h3><p style="font-size: 0.95rem;">Transparent and responsible stewardship.</p></div>
-          <div class="value-card"><span class="icon-emoji">🔥</span><h3>Dedication</h3><p style="font-size: 0.95rem;">Unwavering commitment to our mission.</p></div>
-          <div class="value-card"><span class="icon-emoji">♿</span><h3>Inclusion</h3><p style="font-size: 0.95rem;">Leaving no one behind.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AIMS & OBJECTIVES -->
-    <section id="aims" class="section bg-light">
-      <div class="container">
-        <div class="text-center" style="margin-bottom: 40px;">
-          <p class="section-subtitle">Aims & Objectives</p>
-          <h2 class="section-title">9 Foundational Aims & 10 Strategic Objectives</h2>
-        </div>
-        <div class="grid-2">
-          <div class="card" style="padding: 28px 24px;">
-            <h3 style="color: var(--era-primary); margin-bottom: 18px;">Aims</h3>
-            <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-muted); line-height: 1.9;">
-              <li>To empower, educate, and inspire children and all citizens for the importance of being responsible patriots.</li>
-              <li>To ensure that these people occupy the center stage in the development of South Sudan.</li>
-              <li>To prepare the mindsets of the people in line with national cohesion.</li>
-              <li>To unify all regions and enhance the values of national integration.</li>
-              <li>To serve as an entity for both inclusion and tolerance in the nation-building process.</li>
-              <li>To complement the government's efforts in making South Sudan a better place for all citizens.</li>
-              <li>To ensure multi-dimensional mobilizations for the nation's building and sustenance.</li>
-              <li>To promote the relevance of non-violence to children and young people across the country.</li>
-              <li>To raise awareness about environmental safety, gender-based violence, and good accessibility to health education.</li>
-            </ul>
-          </div>
-          <div class="card" style="padding: 28px 24px;">
-            <h3 style="color: var(--era-primary); margin-bottom: 18px;">Objectives</h3>
-            <ul style="list-style-type: disc; padding-left: 20px; color: var(--text-muted); line-height: 1.9;">
-              <li>To develop mutual relation and brotherhood feelings in South Sudanese communities through peace building and reconciliation.</li>
-              <li>To launch awareness programs in peace building, education, health, community policing, hygiene & sanitation, civic education, human rights, gender and children's issues.</li>
-              <li>To work for creative youth activities and sports development for peace building and better security.</li>
-              <li>To carry out water, sanitation and hygiene programs among local populations especially those in need.</li>
-              <li>To cooperate in managing water schemes in its working areas.</li>
-              <li>To promote community well-being & reassurance through community security & community policing programs.</li>
-              <li>To enhance well-being of indigenous people by operating result-oriented programs for poverty alleviation.</li>
-              <li>To repair and maintain feeder roads in coordination with local structures of underserved communities.</li>
-              <li>To launch appropriate programs for women, children, elderly, helpless and disabled persons.</li>
-              <li>To implement, promote and support environmental conservation, food security, and economic stability.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COVERAGE -->
-    <section id="coverage" class="section bg-white">
-      <div class="container">
-        <div class="grid-2" style="align-items: center;">
-          <div class="coverage-image-wrapper">
-            <img src="assets/equity1.jpg" alt="South Sudan community members participating in an ERA-SS program" loading="lazy" />
-          </div>
-          <div>
-            <p class="section-subtitle">Coverage</p>
-            <h2 class="section-title">Working Nationwide</h2>
-            <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px;">
-              We operate nation-wide, collaborating with community and youth-led NGOs, networks and changemakers as well as working with the government's existing structures and systems to reach the most vulnerable and marginalized groups.
-            </p>
-            <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px;">
-              Our work contributes towards the <strong>Sustainable Development Goals</strong> (2, 3, 4, 5, 6, 13, and 16), the <strong>South Sudan Growth Development Strategy</strong> and <strong>South Sudan Vision 2030</strong>.
-            </p>
-            <div class="coverage-stats">
-              <div class="coverage-stat"><strong>10</strong><span>States</span></div>
-              <div class="coverage-stat"><strong>7</strong><span>SDGs</span></div>
-              <div class="coverage-stat"><strong>Nationwide</strong><span>Reach</span></div>
+        <!-- ===== AIMS & OBJECTIVES ===== -->
+        <section id="aims" class="section bg-light">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 40px;">
+                    <p class="section-subtitle"><i class="fas fa-bullseye" style="margin-right:6px;"></i>Aims &amp; Objectives</p>
+                    <h2 class="section-title">9 Foundational Aims &amp; 10 Strategic Objectives</h2>
+                </div>
+                <div class="grid-2">
+                    <div class="card" style="padding: 28px 24px;">
+                        <h3 style="color: var(--era-primary); margin-bottom: 18px;"><i class="fas fa-flag-checkered" style="margin-right:10px;"></i>Aims</h3>
+                        <ul style="list-style-type: none; padding-left: 0; color: var(--text-muted); line-height: 2;">
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To empower, educate, and inspire children and all citizens for the importance of being responsible patriots.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To ensure that these people occupy the center stage in the development of South Sudan.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To prepare the mindsets of the people in line with national cohesion.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To unify all regions and enhance the values of national integration.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To serve as an entity for both inclusion and tolerance in the nation-building process.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To complement the government's efforts in making South Sudan a better place for all citizens.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To ensure multi-dimensional mobilizations for the nation's building and sustenance.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To promote the relevance of non-violence to children and young people across the country.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To raise awareness about environmental safety, gender-based violence, and good accessibility to health education.</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="padding: 28px 24px;">
+                        <h3 style="color: var(--era-primary); margin-bottom: 18px;"><i class="fas fa-list-check" style="margin-right:10px;"></i>Objectives</h3>
+                        <ul style="list-style-type: none; padding-left: 0; color: var(--text-muted); line-height: 2;">
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To develop mutual relation and brotherhood feelings in South Sudanese communities through peace building and reconciliation.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To launch awareness programs in peace building, education, health, community policing, hygiene &amp; sanitation, civic education, human rights, gender and children's issues.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To work for creative youth activities and sports development for peace building and better security.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To carry out water, sanitation and hygiene programs among local populations especially those in need.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To cooperate in managing water schemes in its working areas.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To promote community well-being &amp; reassurance through community security &amp; community policing programs.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To enhance well-being of indigenous people by operating result-oriented programs for poverty alleviation.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To repair and maintain feeder roads in coordination with local structures of underserved communities.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To launch appropriate programs for women, children, elderly, helpless and disabled persons.</li>
+                            <li><i class="fas fa-check-circle" style="color:var(--era-primary);margin-right:10px;font-size:0.85rem;"></i>To implement, promote and support environmental conservation, food security, and economic stability.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- PROGRAMMATIC FOCUS -->
-    <section id="programs" class="section bg-light">
-      <div class="container text-center">
-        <p class="section-subtitle">Programmatic Focus</p>
-        <h2 class="section-title">Seven Thematic Areas</h2>
-        <div class="grid-3" style="margin-top: 40px;">
-          <div class="card"><h3>📚 Education</h3><p>Quality learning, teacher training, inclusive materials.</p></div>
-          <div class="card"><h3>🌾 Agriculture & Livelihood</h3><p>Skills, enterprise, climate-smart farming.</p></div>
-          <div class="card"><h3>☮️ Peacebuilding & Advocacy</h3><p>Dialogue, reconciliation, policy advocacy.</p></div>
-          <div class="card"><h3>🧑 Youth Empowerment</h3><p>Leadership, sports, digital skills.</p></div>
-          <div class="card"><h3>🛡️ General Protection</h3><p>Women, children, elderly, persons with disabilities.</p></div>
-          <div class="card"><h3>👩 Gender Equality</h3><p>Women's rights, economic empowerment, ending GBV.</p></div>
-          <div class="card"><h3>🌱 Climate Resilience</h3><p>Conservation, afforestation, community-led adaptation.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ERA APPROACHES -->
-    <section id="approach" class="section bg-white">
-      <div class="container text-center">
-        <p class="section-subtitle">ERA Approaches</p>
-        <h2 class="section-title">How We Create Change</h2>
-        <div class="grid-3" style="margin-top: 40px;">
-          <div class="card"><h3>Capacity Building</h3><p>Developing young leaders with skills in leadership, research, advocacy, and communication.</p></div>
-          <div class="card"><h3>Peer Education</h3><p>Trained peer educators provide support and networking for marginalized youth.</p></div>
-          <div class="card"><h3>Meaningful Youth Participation</h3><p>Young people integrated into programmatic, policy, and institutional decision-making.</p></div>
-          <div class="card"><h3>Sports & Arts for Development</h3><p>Using sports and expressive arts to discuss education, health, and gender equality.</p></div>
-          <div class="card"><h3>Media & Communications</h3><p>Digital advocacy and social media tools to amplify youth voices.</p></div>
-          <div class="card"><h3>Youth Wave</h3><p>Meaningful youth participation drives change and leadership for tomorrow.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STRATEGIC PARTNERSHIPS -->
-    <section id="partners" class="section bg-light">
-      <div class="container text-center">
-        <p class="section-subtitle">Strategic Partnerships</p>
-        <h2 class="section-title">Trusted Partners & Donors</h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">We aim to work with UN agencies, CSOs, foundations, and the Government of South Sudan to provide strategic support for vulnerable communities.</p>
-      </div>
-      <div class="partner-marquee">
-        <div class="partner-track">
-          <div class="partner-item">UN Agencies</div>
-          <div class="partner-item">Government of South Sudan</div>
-          <div class="partner-item">Civil Society Organizations</div>
-          <div class="partner-item">Community-Based Organizations</div>
-          <div class="partner-item">Funding Agencies</div>
-          <div class="partner-item">International Foundations</div>
-          <div class="partner-item">Development Partners</div>
-          <div class="partner-item">UN Agencies</div>
-          <div class="partner-item">Government of South Sudan</div>
-          <div class="partner-item">Civil Society Organizations</div>
-          <div class="partner-item">Community-Based Organizations</div>
-          <div class="partner-item">Funding Agencies</div>
-          <div class="partner-item">International Foundations</div>
-          <div class="partner-item">Development Partners</div>
-        </div>
-      </div>
-      <div class="container text-center" style="margin-top: 30px;">
-        <p style="color: var(--text-muted);">Official logos and confirmed partners will be displayed here soon.</p>
-      </div>
-    </section>
-
-    <!-- ORGANOGRAM -->
-    <section id="structure" class="section bg-white">
-      <div class="container text-center">
-        <p class="section-subtitle">Our Structure</p>
-        <h2 class="section-title">Organogram</h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">ERA-SS operates with a defined internal hierarchy and departmental structure. Detailed organogram available upon request.</p>
-        <a href="javascript:void(0)" class="btn btn-primary" role="button">View Organogram</a>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section bg-light">
-      <div class="container">
-        <h2 class="section-title text-center">Frequently Asked Questions</h2>
-        <div class="grid-2" style="margin-top: 30px;">
-          <div class="card"><h3>Who is ERA-SS?</h3><p>A registered national NGO working across South Sudan to empower communities through equitable development.</p></div>
-          <div class="card"><h3>How can I partner?</h3><p>Reach out via email or the contact form. We welcome collaboration with donors and agencies.</p></div>
-          <div class="card"><h3>How can I volunteer?</h3><p>Send us a message with your skills and interest – we'll connect you with opportunities.</p></div>
-          <div class="card"><h3>How do you ensure transparency?</h3><p>We adhere to strict accountability standards and provide reports upon request.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SUPPORT -->
-    <section id="support" class="section" style="background: var(--era-primary); color:#fff;">
-      <div class="container text-center">
-        <h2 style="color:#fff;">Support Our Mission</h2>
-        <p style="max-width: 500px; margin: 0 auto; opacity: 0.9;">Your generosity helps us build a more equitable South Sudan through education, peace, and sustainable development.</p>
-        <div class="grid-4" style="margin-top: 40px;">
-          <a href="#contact" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">🤝 Become a Partner</a>
-          <a href="#contact" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">🙋 Volunteer</a>
-          <a href="#contact" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">💛 Donate</a>
-          <a href="#contact" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);">💬 Contact Us</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <div class="text-center" style="margin-bottom: 48px;">
-          <p class="section-subtitle">Get In Touch</p>
-          <h2 class="section-title">We'd Love to Hear From You</h2>
-          <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">Reach out to collaborate, volunteer, donate, or learn more about our work across South Sudan.</p>
-        </div>
-        <div class="grid-2" style="align-items: stretch;">
-          <div class="contact-info-card">
-            <h3 style="font-size: 1.3rem; color: #111; margin-bottom: 6px;">Contact Information</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;">We respond within 2 hours.</p>
-            <div class="contact-info-item">
-              <div class="contact-info-icon">📍</div>
-              <div><h4>Head Office</h4><p>Shirikat, Juba, Republic of South Sudan</p></div>
+        <!-- ===== CTA BANNER 2 (Coverage) ===== -->
+        <section class="cta-banner" style="background: var(--era-secondary); color: #000;">
+            <div class="container">
+                <h2 style="color: #000;"><i class="fas fa-map-marked-alt" style="margin-right:12px;"></i>Working Nationwide — Reach Every Community</h2>
+                <p style="color: #222;">From Juba to the remotest villages, ERA-SS is present in all 10 states. We partner with local communities to deliver impact where it's needed most.</p>
+                <a href="programs.html" class="btn" style="background:#000;color:#fff;border-color:#000;"><i class="fas fa-arrow-right" style="margin-right:8px;"></i>Explore Our Coverage</a>
+                <a href="partners.html" class="btn btn-outline-light" style="border-color:rgba(0,0,0,0.5);color:#000;"><i class="fas fa-handshake" style="margin-right:8px;"></i>Become a Partner</a>
             </div>
-            <div class="contact-info-item">
-              <div class="contact-info-icon">📞</div>
-              <div><h4>Phone</h4><p>+211 927 757 777<br>+211 928 118 089<br>+211 922 503 888<br>+211 927 036 669</p></div>
+        </section>
+
+        <!-- ===== COVERAGE ===== -->
+        <section id="coverage" class="section bg-white">
+            <div class="container">
+                <div class="grid-2" style="align-items: center;">
+                    <div class="coverage-image-wrapper">
+                        <img src="assets/images/equity1.jpg" alt="South Sudan community members" loading="lazy" />
+                    </div>
+                    <div>
+                        <p class="section-subtitle"><i class="fas fa-globe" style="margin-right:6px;"></i>Coverage</p>
+                        <h2 class="section-title">Working Nationwide</h2>
+                        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                            We operate nation-wide, collaborating with community and youth-led NGOs, networks and changemakers
+                            as well as working with the government's existing structures and systems to reach the most
+                            vulnerable and marginalized groups.
+                        </p>
+                        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                            Our work contributes towards the <strong>Sustainable Development Goals</strong> (2, 3, 4, 5, 6, 13, and 16),
+                            the <strong>South Sudan Growth Development Strategy</strong> and <strong>South Sudan Vision 2030</strong>.
+                        </p>
+                        <div class="coverage-stats">
+                            <div class="coverage-stat"><strong>10</strong><span>States</span></div>
+                            <div class="coverage-stat"><strong>7</strong><span>SDGs</span></div>
+                            <div class="coverage-stat"><strong>Nationwide</strong><span>Reach</span></div>
+                        </div>
+                        <div style="margin-top: 28px;">
+                            <a href="contact.html" class="btn btn-primary"><i class="fas fa-handshake" style="margin-right:8px;"></i>Partner With Us</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="contact-info-item">
-              <div class="contact-info-icon">✉️</div>
-              <div><h4>Email</h4><a href="mailto:contact@era-ss.org">contact@era-ss.org</a></div>
+        </section>
+
+        <!-- ===== PROGRAMMATIC FOCUS ===== -->
+        <section id="programs" class="section bg-light">
+            <div class="container text-center">
+                <p class="section-subtitle"><i class="fas fa-th-large" style="margin-right:6px;"></i>Programmatic Focus</p>
+                <h2 class="section-title">Seven Thematic Areas</h2>
+                <div class="grid-3" style="margin-top: 40px;">
+                    <div class="card"><h3><i class="fas fa-graduation-cap" style="color:var(--era-primary);margin-right:10px;"></i>Education</h3><p>Quality learning, teacher training, inclusive materials.</p></div>
+                    <div class="card"><h3><i class="fas fa-seedling" style="color:var(--era-primary);margin-right:10px;"></i>Agriculture &amp; Livelihood</h3><p>Skills, enterprise, climate-smart farming.</p></div>
+                    <div class="card"><h3><i class="fas fa-dove" style="color:var(--era-primary);margin-right:10px;"></i>Peacebuilding &amp; Advocacy</h3><p>Dialogue, reconciliation, policy advocacy.</p></div>
+                    <div class="card"><h3><i class="fas fa-users" style="color:var(--era-primary);margin-right:10px;"></i>Youth Empowerment</h3><p>Leadership, sports, digital skills.</p></div>
+                    <div class="card"><h3><i class="fas fa-shield-alt" style="color:var(--era-primary);margin-right:10px;"></i>General Protection</h3><p>Women, children, elderly, persons with disabilities.</p></div>
+                    <div class="card"><h3><i class="fas fa-venus-mars" style="color:var(--era-primary);margin-right:10px;"></i>Gender Equality</h3><p>Women's rights, economic empowerment, ending GBV.</p></div>
+                    <div class="card"><h3><i class="fas fa-tree" style="color:var(--era-primary);margin-right:10px;"></i>Climate Resilience</h3><p>Conservation, afforestation, community-led adaptation.</p></div>
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="programs.html" class="btn btn-primary"><i class="fas fa-arrow-right" style="margin-right:8px;"></i>Get Involved</a>
+                </div>
             </div>
-            <div style="margin-top: 8px; padding-top: 12px; border-top: 1px solid #eee;">
-              <p style="font-weight: 600; font-size: 0.85rem; margin-bottom: 8px; color: #111;">Follow Us</p>
-              <a href="https://www.facebook.com/people/Equity-Resource-Aid-South-Sudan/61590477338666/" target="_blank" class="social-icon-link" aria-label="Facebook"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.842c-3.596 0-5.115 1.334-5.115 4.333v1.667z"/></svg></a>
-              <a href="javascript:void(0)" class="social-icon-link" aria-label="Instagram – coming soon" style="opacity:0.5; cursor:default;"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-              <a href="javascript:void(0)" class="social-icon-link" aria-label="LinkedIn – coming soon" style="opacity:0.5; cursor:default;"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
-              <a href="https://wa.me/211928118089" target="_blank" class="social-icon-link" aria-label="WhatsApp"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </section>
+
+        <!-- ===== CTA BANNER 3 (Approach) ===== -->
+        <section class="cta-banner" style="background: #1a1a1a;">
+            <div class="container">
+                <h2><i class="fas fa-lightbulb" style="margin-right:12px;"></i>Innovative Approaches for Sustainable Change</h2>
+                <p>From capacity building to youth participation, our methods are designed to create lasting impact and empower communities to lead their own development.</p>
+                <a href="approach.html" class="btn btn-light"><i class="fas fa-arrow-right" style="margin-right:8px;"></i>Discover Our Approach</a>
+                <a href="support.html" class="btn btn-outline-light"><i class="fas fa-heart" style="margin-right:8px;"></i>Support Our Work</a>
             </div>
-          </div>
-          <div class="contact-form-card">
-            <h3 style="font-size: 1.3rem; color: #111; margin-bottom: 20px;">Send a Message</h3>
-            <form style="display:flex; flex-direction:column; gap:16px;" id="contactForm">
-              <input type="text" placeholder="Full Name *" required aria-label="Full Name" />
-              <input type="email" placeholder="Email Address *" required aria-label="Email Address" />
-              <input type="text" placeholder="Subject" aria-label="Subject" />
-              <textarea rows="4" placeholder="Your message here... *" required aria-label="Your message"></textarea>
-              <button type="submit" class="btn-submit">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-  </main>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">
-            <img src="assets/erass.jpeg" alt="ERA-SS Logo" style="width:44px; height:44px; border-radius:6px;"
-                 onerror="this.outerHTML='<div style=\'width:44px;height:44px;background:var(--era-primary);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.3rem;\'>E</div>';" />
-            <div>
-              <span class="footer-brand-name">ERA</span>
-              <span class="footer-brand-sub">Empowering with Equality</span>
+        <!-- ===== ERA APPROACHES ===== -->
+        <section id="approach" class="section bg-white">
+            <div class="container text-center">
+                <p class="section-subtitle"><i class="fas fa-cogs" style="margin-right:6px;"></i>ERA Approaches</p>
+                <h2 class="section-title">How We Create Change</h2>
+                <div class="grid-3" style="margin-top: 40px;">
+                    <div class="card"><h3><i class="fas fa-chart-line" style="color:var(--era-primary);margin-right:10px;"></i>Capacity Building</h3><p>Developing young leaders with skills in leadership, research, advocacy, and communication.</p></div>
+                    <div class="card"><h3><i class="fas fa-users" style="color:var(--era-primary);margin-right:10px;"></i>Peer Education</h3><p>Trained peer educators provide support and networking for marginalized youth.</p></div>
+                    <div class="card"><h3><i class="fas fa-comments" style="color:var(--era-primary);margin-right:10px;"></i>Meaningful Youth Participation</h3><p>Young people integrated into programmatic, policy, and institutional decision-making.</p></div>
+                    <div class="card"><h3><i class="fas fa-futbol" style="color:var(--era-primary);margin-right:10px;"></i>Sports &amp; Arts for Development</h3><p>Using sports and expressive arts to discuss education, health, and gender equality.</p></div>
+                    <div class="card"><h3><i class="fas fa-bullhorn" style="color:var(--era-primary);margin-right:10px;"></i>Media &amp; Communications</h3><p>Digital advocacy and social media tools to amplify youth voices.</p></div>
+                    <div class="card"><h3><i class="fas fa-wave-square" style="color:var(--era-primary);margin-right:10px;"></i>Youth Wave</h3><p>Meaningful youth participation drives change and leadership for tomorrow.</p></div>
+                </div>
             </div>
-          </div>
-          <p class="footer-description">Registered national NGO, Republic of South Sudan. Committed to equitable development, peace, and resilience.</p>
-          <div class="footer-socials">
-            <a href="https://www.facebook.com/people/Equity-Resource-Aid-South-Sudan/61590477338666/" target="_blank" class="footer-social-icon" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.842c-3.596 0-5.115 1.334-5.115 4.333v1.667z"/></svg></a>
-            <a href="javascript:void(0)" class="footer-social-icon" aria-label="Instagram – coming soon" style="opacity:0.5; cursor:default;"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            <a href="javascript:void(0)" class="footer-social-icon" aria-label="LinkedIn – coming soon" style="opacity:0.5; cursor:default;"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg></a>
-            <a href="https://wa.me/211928118089" target="_blank" class="footer-social-icon" aria-label="WhatsApp"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          </div>
+        </section>
+
+        <!-- ===== PARTNERS MARQUEE ===== -->
+        <section id="partners" class="partner-marquee-section">
+            <div class="container">
+                <p class="section-subtitle"><i class="fas fa-handshake" style="margin-right:6px;"></i>Strategic Partnerships</p>
+                <h2 class="section-title">Trusted Partners &amp; Donors</h2>
+                <p style="text-align:center;color:var(--text-muted);max-width:600px;margin:0 auto 10px;">
+                    We work with UN agencies, CSOs, foundations, and the Government of South Sudan to provide strategic
+                    support for vulnerable communities.
+                </p>
+            </div>
+            <div class="partner-marquee-wrapper">
+                <div class="partner-track">
+                    <!-- Set 1 -->
+                    <div class="partner-item"><img src="assets/images/partner1.jpg" alt="Partner 1" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNICEF'"></div>
+                    <div class="partner-item"><img src="assets/images/partner2.jpg" alt="Partner 2" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNHCR'"></div>
+                    <div class="partner-item"><img src="assets/images/partner3.jpg" alt="Partner 3" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='WFP'"></div>
+                    <div class="partner-item"><img src="assets/images/partner4.jpg" alt="Partner 4" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNDP'"></div>
+                    <div class="partner-item"><img src="assets/images/partner5.jpg" alt="Partner 5" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='WHO'"></div>
+                    <div class="partner-item"><img src="assets/images/partner6.jpg" alt="Partner 6" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNFPA'"></div>
+                    <div class="partner-item"><img src="assets/images/partner7.jpg" alt="Partner 7" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='GIZ'"></div>
+                    <div class="partner-item"><img src="assets/images/partner8.jpg" alt="Partner 8" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='USAID'"></div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="partner-item"><img src="assets/images/partner1.jpg" alt="Partner 1" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNICEF'"></div>
+                    <div class="partner-item"><img src="assets/images/partner2.jpg" alt="Partner 2" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNHCR'"></div>
+                    <div class="partner-item"><img src="assets/images/partner3.jpg" alt="Partner 3" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='WFP'"></div>
+                    <div class="partner-item"><img src="assets/images/partner4.jpg" alt="Partner 4" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNDP'"></div>
+                    <div class="partner-item"><img src="assets/images/partner5.jpg" alt="Partner 5" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='WHO'"></div>
+                    <div class="partner-item"><img src="assets/images/partner6.jpg" alt="Partner 6" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='UNFPA'"></div>
+                    <div class="partner-item"><img src="assets/images/partner7.jpg" alt="Partner 7" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='GIZ'"></div>
+                    <div class="partner-item"><img src="assets/images/partner8.jpg" alt="Partner 8" loading="lazy" onerror="this.style.display='none';this.parentElement.textContent='USAID'"></div>
+                </div>
+            </div>
+            <div class="container text-center" style="margin-top:20px;">
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle" style="margin-right:6px;"></i>Official logos and confirmed partners displayed above.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center"><i class="fas fa-question-circle" style="color:var(--era-primary);margin-right:12px;"></i>Frequently Asked Questions</h2>
+                <div class="grid-2" style="margin-top: 30px;">
+                    <div class="card"><h3><i class="fas fa-building" style="color:var(--era-primary);margin-right:10px;"></i>Who is ERA-SS?</h3><p>A registered national NGO working across South Sudan to empower communities through equitable development.</p></div>
+                    <div class="card"><h3><i class="fas fa-handshake" style="color:var(--era-primary);margin-right:10px;"></i>How can I partner?</h3><p>Reach out via email or the contact form. We welcome collaboration with donors and agencies.</p></div>
+                    <div class="card"><h3><i class="fas fa-user-plus" style="color:var(--era-primary);margin-right:10px;"></i>How can I volunteer?</h3><p>Send us a message with your skills and interest – we'll connect you with opportunities.</p></div>
+                    <div class="card"><h3><i class="fas fa-shield-alt" style="color:var(--era-primary);margin-right:10px;"></i>How do you ensure transparency?</h3><p>We adhere to strict accountability standards and provide reports upon request.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SUPPORT ===== -->
+        <section id="support" class="section" style="background: var(--era-primary); color:#fff;">
+            <div class="container text-center">
+                <h2 style="color:#fff;"><i class="fas fa-heart" style="margin-right:12px;"></i>Support Our Mission</h2>
+                <p style="max-width: 500px; margin: 0 auto; opacity: 0.9;">Your generosity helps us build a more equitable South Sudan through education, peace, and sustainable development.</p>
+                <div class="grid-4" style="margin-top: 40px;">
+                    <a href="contact.html" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-handshake" style="font-size:1.8rem;display:block;margin-bottom:8px;"></i>Become a Partner</a>
+                    <a href="contact.html" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-user-plus" style="font-size:1.8rem;display:block;margin-bottom:8px;"></i>Volunteer</a>
+                    <a href="contact.html" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-donate" style="font-size:1.8rem;display:block;margin-bottom:8px;"></i>Donate</a>
+                    <a href="contact.html" class="card" style="background: rgba(255,255,255,0.14); color:#fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-envelope" style="font-size:1.8rem;display:block;margin-bottom:8px;"></i>Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 48px;">
+                    <p class="section-subtitle"><i class="fas fa-phone-alt" style="margin-right:6px;"></i>Get In Touch</p>
+                    <h2 class="section-title">We'd Love to Hear From You</h2>
+                    <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">Reach out to collaborate, volunteer, donate, or learn more about our work across South Sudan.</p>
+                </div>
+                <div class="grid-2" style="align-items: stretch;">
+                    <div class="contact-info-card">
+                        <h3 style="font-size: 1.3rem; color: #111; margin-bottom: 6px;"><i class="fas fa-map-pin" style="color:var(--era-primary);margin-right:10px;"></i>Contact Information</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px;">We respond within 2 hours.</p>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-location-dot"></i></div>
+                            <div><h4>Head Office</h4><p>Shirikat, Juba, Republic of South Sudan</p></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+                            <div><h4>Phone</h4><p>+211 927 757 777<br>+211 928 118 089<br>+211 922 503 888<br>+211 927 036 669</p></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                            <div><h4>Email</h4><a href="mailto:contact@era-ss.org">contact@era-ss.org</a></div>
+                        </div>
+                        <div style="margin-top: 8px; padding-top: 12px; border-top: 1px solid #eee;">
+                            <p style="font-weight: 600; font-size: 0.85rem; margin-bottom: 8px; color: #111;">Follow Us</p>
+                            <a href="https://www.facebook.com/people/Equity-Resource-Aid-South-Sudan/61590477338666/" target="_blank" class="social-icon-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="javascript:void(0)" class="social-icon-link" aria-label="Instagram – coming soon" style="opacity:0.5; cursor:default;"><i class="fab fa-instagram"></i></a>
+                            <a href="javascript:void(0)" class="social-icon-link" aria-label="LinkedIn – coming soon" style="opacity:0.5; cursor:default;"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/211928118089" target="_blank" class="social-icon-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form-card">
+                        <h3 style="font-size: 1.3rem; color: #111; margin-bottom: 20px;"><i class="fas fa-paper-plane" style="color:var(--era-primary);margin-right:10px;"></i>Send a Message</h3>
+                        <form style="display:flex; flex-direction:column; gap:16px;" id="contactForm">
+                            <input type="text" placeholder="Full Name *" required aria-label="Full Name" />
+                            <input type="email" placeholder="Email Address *" required aria-label="Email Address" />
+                            <input type="text" placeholder="Subject" aria-label="Subject" />
+                            <textarea rows="4" placeholder="Your message here... *" required aria-label="Your message"></textarea>
+                            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane" style="margin-right:8px;"></i>Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/images/erass.jpeg" alt="ERA-SS Logo" class="footer-logo-img" onerror="this.outerHTML='<div style=\'width:44px;height:44px;background:var(--era-primary);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.3rem;\'>E</div>';" />
+                        <div class="footer-brand-wrapper">
+                            <span class="footer-brand-name">ERA</span>
+                            <span class="footer-brand-sub">Empowering with Equality</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Registered national NGO, Republic of South Sudan. Committed to equitable development, peace, and resilience.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/people/Equity-Resource-Aid-South-Sudan/61590477338666/" target="_blank" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-icon" style="opacity:0.5;cursor:default;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-icon" style="opacity:0.5;cursor:default;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/211928118089" target="_blank" class="footer-social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Who We Are</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="approach.html">Our Approach</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="programs.html#education">Education</a></li>
+                        <li><a href="programs.html#livelihoods">Livelihoods</a></li>
+                        <li><a href="programs.html#peacebuilding">Peacebuilding</a></li>
+                        <li><a href="programs.html#youth">Youth Empowerment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact-info">
+                        <li><i class="fas fa-location-dot" style="width:18px;color:var(--era-primary);"></i> Shirikat, Juba, South Sudan</li>
+                        <li><i class="fas fa-phone" style="width:18px;color:var(--era-primary);"></i> +211 927 757 777</li>
+                        <li><i class="fas fa-phone" style="width:18px;color:var(--era-primary);"></i> +211 928 118 089</li>
+                        <li><i class="fas fa-envelope" style="width:18px;color:var(--era-primary);"></i> <a href="mailto:contact@era-ss.org">contact@era-ss.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Equity Resource Aid – South Sudan (ERA-SS). All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms</a> |
+                    <a href="#">Safeguarding</a> |
+                    <a href="#">Child Protection</a> |
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul class="footer-links">
-            <li><a href="#background">Who We Are</a></li>
-            <li><a href="#why-era-exists">Why ERA Exists</a></li>
-            <li><a href="#coverage">Coverage</a></li>
-            <li><a href="#approach">Our Approach</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Programs</h4>
-          <ul class="footer-links">
-            <li><a href="#programs">Education</a></li>
-            <li><a href="#programs">Livelihoods</a></li>
-            <li><a href="#programs">Peacebuilding</a></li>
-            <li><a href="#programs">Youth Empowerment</a></li>
-            <li><a href="#programs">Gender Equality</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <ul class="footer-contact-info">
-            <li>📍 Shirikat, Juba, South Sudan</li>
-            <li>📞 +211 927 757 777</li>
-            <li>📞 +211 928 118 089</li>
-            <li>✉️ <a href="mailto:contact@era-ss.org">contact@era-ss.org</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Equity Resource Aid – South Sudan (ERA-SS). All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="javascript:void(0)">Privacy Policy</a> |
-          <a href="javascript:void(0)">Terms</a> |
-          <a href="javascript:void(0)">Safeguarding</a> |
-          <a href="javascript:void(0)">Child Protection</a> |
-          <a href="javascript:void(0)">Code of Conduct</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script>
-    (function() {
-      // Navbar scroll effect & top bar hide
-      const navbar = document.getElementById('navbar');
-      const topBar = document.getElementById('topBar');
-      window.addEventListener('scroll', function() {
-        if (window.scrollY > 40) {
-          navbar.classList.add('scrolled');
-          topBar.classList.add('hidden');
-        } else {
-          navbar.classList.remove('scrolled');
-          topBar.classList.remove('hidden');
-        }
-      }, { passive: true });
-
-      // ---------- Mobile menu toggle & dropdown logic ----------
-      const mobileToggle = document.getElementById('mobileToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const mobileOverlay = document.getElementById('mobileOverlay');
-
-      function openMenu() {
-        mobileMenu.classList.add('open');
-        mobileOverlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeMenu() {
-        mobileMenu.classList.remove('open');
-        mobileOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-        document.querySelectorAll('.mobile-submenu.open').forEach(sub => sub.classList.remove('open'));
-        document.querySelectorAll('.mobile-dropdown-btn.active').forEach(btn => btn.classList.remove('active'));
-      }
-
-      mobileToggle.addEventListener('click', openMenu);
-      mobileOverlay.addEventListener('click', closeMenu);
-      document.querySelectorAll('.mobile-menu a').forEach(function(link) {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.querySelectorAll('.mobile-dropdown-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          const targetId = this.getAttribute('data-target');
-          const submenu = document.getElementById(targetId);
-          const isActive = this.classList.contains('active');
-
-          document.querySelectorAll('.mobile-submenu.open').forEach(function(sub) {
-            if (sub.id !== targetId) sub.classList.remove('open');
-          });
-          document.querySelectorAll('.mobile-dropdown-btn.active').forEach(function(otherBtn) {
-            if (otherBtn !== this) otherBtn.classList.remove('active');
-          }, this);
-
-          if (!isActive) {
-            this.classList.add('active');
-            submenu.classList.add('open');
-          } else {
-            this.classList.remove('active');
-            submenu.classList.remove('open');
-          }
-        });
-      });
-
-      // Hero slider
-      const slides = document.querySelectorAll('.slide');
-      const dotsContainer = document.getElementById('sliderDots');
-      let currentSlide = 0;
-      let slideInterval;
-
-      slides.forEach(function(_, i) {
-        const dot = document.createElement('span');
-        dot.className = 'dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', function() {
-          showSlide(i);
-          resetInterval();
-        });
-        dotsContainer.appendChild(dot);
-      });
-      const dots = document.querySelectorAll('.dot');
-
-      function showSlide(index) {
-        slides.forEach(function(s) { s.classList.remove('active'); });
-        dots.forEach(function(d) { d.classList.remove('active'); });
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentSlide = index;
-      }
-
-      function nextSlide() {
-        let next = (currentSlide + 1) % slides.length;
-        showSlide(next);
-      }
-
-      function resetInterval() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 6000);
-      }
-      slideInterval = setInterval(nextSlide, 6000);
-
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            const offset = navbar.offsetHeight + topBar.offsetHeight + 16;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-          }
-        });
-      });
-
-      // Form submit
-      const form = document.getElementById('contactForm');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const btn = form.querySelector('.btn-submit');
-          const originalText = btn.textContent;
-          btn.textContent = 'Sending...';
-          btn.disabled = true;
-          btn.style.opacity = '0.7';
-          setTimeout(function() {
-            btn.textContent = '✓ Message Sent!';
-            btn.style.background = '#2e7d32';
-            btn.style.opacity = '1';
-            form.reset();
-            setTimeout(function() {
-              btn.textContent = originalText;
-              btn.style.background = '';
-              btn.disabled = false;
-            }, 3000);
-          }, 1200);
-        });
-      }
-
-      // Desktop dropdown click enhancement for touch
-      const dropdowns = document.querySelectorAll('.dropdown');
-      dropdowns.forEach(function(dropdown) {
-        const toggle = dropdown.querySelector('.nav-link');
-        const menu = dropdown.querySelector('.dropdown-menu');
-        if (!toggle || !menu) return;
-        toggle.addEventListener('click', function(e) {
-          if (window.innerWidth <= 1024) return;
-          const isVisible = window.getComputedStyle(menu).opacity === '1';
-          if (!isVisible) {
-            e.preventDefault();
-            e.stopPropagation();
-            menu.style.opacity = '1';
-            menu.style.visibility = 'visible';
-            menu.style.transform = 'translateY(0)';
-            menu.style.pointerEvents = 'auto';
-          }
-        });
-      });
-      document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 1024) return;
-        dropdowns.forEach(function(dropdown) {
-          if (!dropdown.contains(e.target)) {
-            const menu = dropdown.querySelector('.dropdown-menu');
-            if (menu) {
-              menu.style.opacity = '';
-              menu.style.visibility = '';
-              menu.style.transform = '';
-              menu.style.pointerEvents = '';
-            }
-          }
-        });
-      });
-    })();
-  </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
