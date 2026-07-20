@@ -1322,6 +1322,42 @@ a {
   }
 }
 
+/* ============================================================
+   ADD THIS BLOCK TO YOUR EXISTING style.css
+   ============================================================ */
+
+/* ---------- Top Bar: Icons & Spacing ---------- */
+
+/* Add icons to top bar links */
+.top-bar .nav-link-top i {
+    margin-right: 5px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+/* On small screens, scale icons down */
+@media (max-width: 520px) {
+    .top-bar .nav-link-top i {
+        font-size: 0.7rem;
+        margin-right: 3px;
+    }
+    
+    /* --- IMPORTANT: creates a visible gap between top bar and navbar --- */
+    .top-bar {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        margin-bottom: 4px;   /* <-- this adds the space */
+    }
+}
+
+/* On very tiny screens, keep icons and text fitting */
+@media (max-width: 380px) {
+    .top-bar .nav-link-top i {
+        font-size: 0.6rem;
+        margin-right: 2px;
+    }
+}
+
 /* ---------- COVERAGE ---------- */
 .coverage-image-wrapper {
   position: relative;
