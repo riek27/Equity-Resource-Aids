@@ -12,18 +12,26 @@
 <body>
 
     <!-- ===== TOP BAR ===== -->
-    <div class="top-bar" id="topBar">
-        <div class="top-bar-inner">
-            <a href="mailto:contact@era-ss.org"><i class="fas fa-envelope"></i> contact@era-ss.org</a>
-            <span><i class="fas fa-phone"></i> +211 928 118 089</span>
-        </div>
-        <div class="top-bar-inner">
-            <a href="career.html"><i class="fas fa-briefcase"></i> Career</a>
-            <a href="report.html"><i class="fas fa-file-alt"></i> Reports</a>
-            <a href="team.html"><i class="fas fa-users"></i> Our Team</a>
-            <a href="support.html" class="donate-btn"><i class="fas fa-heart"></i> Donate</a>
-        </div>
+<div class="top-bar" id="topBar">
+    <!-- LEFT: email + phone (desktop only) -->
+    <div class="top-bar-inner left">
+        <a href="mailto:contact@era-ss.org">
+            <i class="fas fa-envelope"></i>
+            <span class="label">contact@era-ss.org</span>
+        </a>
+        <a href="tel:+211928118089">
+            <i class="fas fa-phone"></i>
+            <span class="label">+211 928 118 089</span>
+        </a>
     </div>
+    <!-- RIGHT: Career, Reports, Team with icons + Donate -->
+    <div class="top-bar-inner right">
+        <a href="career.html" class="nav-link-top"><i class="fas fa-briefcase"></i> Career</a>
+        <a href="report.html" class="nav-link-top"><i class="fas fa-file-alt"></i> Reports</a>
+        <a href="team.html" class="nav-link-top"><i class="fas fa-users"></i> Team</a>
+        <a href="support.html" class="donate-btn">Donate</a>
+    </div>
+</div>
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar">
