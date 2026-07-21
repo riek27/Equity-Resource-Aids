@@ -123,6 +123,82 @@ a {
   }
 }
 
+/* ============================================================
+   ADD THESE STYLES TO YOUR EXISTING style.css
+   ============================================================ */
+
+/* ---------- 1. Make navbar white by default ---------- */
+.navbar {
+  background: #ffffff !important; /* white background */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Navbar links - dark color for visibility on white */
+.navbar .nav-link {
+  color: var(--text-dark) !important;
+}
+.navbar .nav-link:hover {
+  color: var(--era-primary) !important;
+}
+.navbar .nav-link::after {
+  background: var(--era-primary) !important;
+}
+
+/* Logo text - dark color */
+.navbar .logo-text {
+  color: var(--text-dark) !important;
+}
+.navbar .logo-sub,
+.navbar .logo-sub-line2 {
+  color: var(--era-primary) !important;
+}
+
+/* Mobile toggle - dark color */
+.navbar .mobile-toggle {
+  color: var(--era-primary) !important;
+}
+.navbar .mobile-toggle:hover {
+  color: var(--era-primary-dark) !important;
+}
+
+/* Remove scrolled class overrides since navbar is always white */
+.navbar.scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  top: 0;
+}
+
+/* ---------- 2. Fix hero so it starts BELOW the navbar ---------- */
+.hero {
+  margin-top: 0 !important; /* remove the negative margin */
+  height: calc(100vh - var(--topbar-height) - 80px); /* adjust height to fit below navbar */
+  min-height: 500px;
+}
+
+/* For mobile, adjust height */
+@media (max-width: 768px) {
+  .hero {
+    height: calc(100vh - var(--topbar-height) - 68px);
+    min-height: 400px;
+  }
+}
+@media (max-width: 520px) {
+  .hero {
+    height: calc(100vh - var(--topbar-height) - 60px);
+    min-height: 350px;
+  }
+}
+
+/* ---------- 3. Adjust hero content padding (no longer needed) ---------- */
+.hero-content {
+  padding-top: 0;
+}
+
+/* ---------- 4. Fix slider dots position ---------- */
+.slider-dots {
+  bottom: 30px;
+}
+
 /* ---------- TOP BAR (Red Background) ---------- */
 .top-bar {
   position: fixed;
