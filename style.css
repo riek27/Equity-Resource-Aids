@@ -26,7 +26,7 @@
   --text-muted: #555;
   --border-light: #E0E0E0;
   --border-lighter: #EEEEEE;
-  --topbar-height: 40px;
+  --topbar-height: 48px;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -65,141 +65,8 @@ a {
 }
 
 /* ============================================================
-   ADD THESE STYLES TO YOUR EXISTING style.css
+   TOP BAR – BIG, CLEAN, RESPONSIVE
    ============================================================ */
-
-/* ---------- Reduce logo size ---------- */
-.logo-text {
-  font-size: 1.8rem !important; /* was 2.4rem */
-}
-@media (max-width: 768px) {
-  .logo-text {
-    font-size: 1.5rem !important;
-  }
-}
-@media (max-width: 520px) {
-  .logo-text {
-    font-size: 1.3rem !important;
-  }
-}
-@media (max-width: 400px) {
-  .logo-text {
-    font-size: 1.1rem !important;
-  }
-}
-
-/* ---------- Increase spacing between logo and nav links ---------- */
-.navbar .container {
-  justify-content: space-between;
-  gap: 30px; /* adds space between logo group and nav links */
-}
-@media (max-width: 1100px) {
-  .navbar .container {
-    gap: 20px;
-  }
-}
-@media (max-width: 1024px) {
-  .navbar .container {
-    gap: 0; /* mobile toggle takes over */
-  }
-}
-
-/* ---------- Hero: remove badge, reduce title size ---------- */
-.hero-badge {
-  display: none !important; /* hides the badge completely */
-}
-.hero-text h1 {
-  font-size: clamp(1.8rem, 4.5vw, 3.5rem) !important; /* reduced from previous */
-  margin-bottom: 20px;
-}
-@media (max-width: 768px) {
-  .hero-text h1 {
-    font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
-  }
-}
-@media (max-width: 520px) {
-  .hero-text h1 {
-    font-size: clamp(1.2rem, 3.5vw, 1.8rem) !important;
-  }
-}
-
-/* ============================================================
-   ADD THESE STYLES TO YOUR EXISTING style.css
-   ============================================================ */
-
-/* ---------- 1. Make navbar white by default ---------- */
-.navbar {
-  background: #ffffff !important; /* white background */
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* Navbar links - dark color for visibility on white */
-.navbar .nav-link {
-  color: var(--text-dark) !important;
-}
-.navbar .nav-link:hover {
-  color: var(--era-primary) !important;
-}
-.navbar .nav-link::after {
-  background: var(--era-primary) !important;
-}
-
-/* Logo text - dark color */
-.navbar .logo-text {
-  color: var(--text-dark) !important;
-}
-.navbar .logo-sub,
-.navbar .logo-sub-line2 {
-  color: var(--era-primary) !important;
-}
-
-/* Mobile toggle - dark color */
-.navbar .mobile-toggle {
-  color: var(--era-primary) !important;
-}
-.navbar .mobile-toggle:hover {
-  color: var(--era-primary-dark) !important;
-}
-
-/* Remove scrolled class overrides since navbar is always white */
-.navbar.scrolled {
-  background: #ffffff !important;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  top: 0;
-}
-
-/* ---------- 2. Fix hero so it starts BELOW the navbar ---------- */
-.hero {
-  margin-top: 0 !important; /* remove the negative margin */
-  height: calc(100vh - var(--topbar-height) - 80px); /* adjust height to fit below navbar */
-  min-height: 500px;
-}
-
-/* For mobile, adjust height */
-@media (max-width: 768px) {
-  .hero {
-    height: calc(100vh - var(--topbar-height) - 68px);
-    min-height: 400px;
-  }
-}
-@media (max-width: 520px) {
-  .hero {
-    height: calc(100vh - var(--topbar-height) - 60px);
-    min-height: 350px;
-  }
-}
-
-/* ---------- 3. Adjust hero content padding (no longer needed) ---------- */
-.hero-content {
-  padding-top: 0;
-}
-
-/* ---------- 4. Fix slider dots position ---------- */
-.slider-dots {
-  bottom: 30px;
-}
-
-/* ---------- TOP BAR (Red Background) ---------- */
 .top-bar {
   position: fixed;
   top: 0;
@@ -207,16 +74,15 @@ a {
   right: 0;
   height: var(--topbar-height);
   background: var(--era-primary);
-  backdrop-filter: none;
   color: #fff;
-  font-size: 0.75rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 24px;
   z-index: 1002;
   transition: transform 0.35s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 .top-bar.hidden {
   transform: translateY(-100%);
@@ -227,8 +93,9 @@ a {
   transition: color 0.2s;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   white-space: nowrap;
+  font-size: 1rem;
 }
 .top-bar a:hover {
   color: #000;
@@ -237,39 +104,39 @@ a {
   background: #fff;
   color: var(--era-primary) !important;
   font-weight: 700;
-  padding: 4px 12px;
+  padding: 6px 16px;
   border-radius: 4px;
+  font-size: 0.95rem;
   transition: background 0.25s, transform 0.2s;
 }
 .top-bar .donate-btn:hover {
   background: #e0e0e0;
   transform: scale(1.04);
-  color: var(--era-primary) !important;
 }
 .top-bar-inner {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 .top-bar-inner.left {
-  gap: 12px;
+  gap: 18px;
 }
 .top-bar-inner.right {
-  gap: 12px;
+  gap: 18px;
 }
 
-/* Career, Report, Team - always show text with icons */
+/* Top bar nav links (Career, Reports, Team) */
 .top-bar .nav-link-top {
   color: #fff;
   font-weight: 500;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding: 2px 0;
   transition: color 0.2s;
 }
 .top-bar .nav-link-top i {
-  margin-right: 5px;
-  font-size: 0.8rem;
+  margin-right: 6px;
+  font-size: 1.05rem;
 }
 .top-bar .nav-link-top:hover {
   color: #000;
@@ -278,142 +145,49 @@ a {
   display: inline;
 }
 
-/* Tablet: hide email/phone labels, keep nav labels */
+/* Tablet: slightly smaller */
 @media (max-width: 820px) {
   .top-bar {
-    padding: 0 14px;
-    font-size: 0.7rem;
-    height: 36px;
-  }
-  .top-bar-inner.left .label {
-    display: none;
-  }
-  .top-bar-inner.left a i,
-  .top-bar-inner.left a {
+    padding: 0 16px;
+    height: 44px;
     font-size: 0.85rem;
   }
-  .top-bar-inner.right {
-    gap: 8px;
-  }
-  .top-bar .nav-link-top {
-    font-size: 0.68rem;
-  }
-  .top-bar .nav-link-top i {
-    font-size: 0.7rem;
-  }
-  .top-bar .donate-btn {
-    padding: 3px 10px;
-    font-size: 0.65rem;
-  }
-}
-
-/* ============================================================
-   ADD THESE STYLES TO YOUR EXISTING style.css
-   ============================================================ */
-
-/* ---------- Make Top Bar Font Bigger ---------- */
-.top-bar {
-  font-size: 0.9rem !important; /* was 0.75rem */
-  height: 44px !important; /* slightly taller to accommodate bigger text */
-}
-.top-bar a {
-  font-size: 0.9rem !important;
-}
-.top-bar .nav-link-top {
-  font-size: 0.9rem !important;
-}
-.top-bar .nav-link-top i {
-  font-size: 0.95rem !important;
-}
-.top-bar .donate-btn {
-  font-size: 0.85rem !important;
-  padding: 5px 14px !important;
-}
-.top-bar-inner {
-  gap: 18px !important;
-}
-.top-bar-inner.left {
-  gap: 16px !important;
-}
-.top-bar-inner.right {
-  gap: 16px !important;
-}
-
-/* Tablet: slightly smaller but still readable */
-@media (max-width: 820px) {
-  .top-bar {
-    font-size: 0.75rem !important;
-    height: 38px !important;
-  }
   .top-bar a {
-    font-size: 0.75rem !important;
+    font-size: 0.85rem;
   }
   .top-bar .nav-link-top {
-    font-size: 0.72rem !important;
-  }
-  .top-bar .donate-btn {
-    font-size: 0.7rem !important;
-    padding: 3px 10px !important;
-  }
-}
-
-/* Mobile: keep smaller for space */
-@media (max-width: 520px) {
-  .top-bar {
-    font-size: 0.65rem !important;
-    height: 34px !important;
-  }
-  .top-bar .nav-link-top {
-    font-size: 0.65rem !important;
+    font-size: 0.82rem;
   }
   .top-bar .nav-link-top i {
-    font-size: 0.6rem !important;
+    font-size: 0.85rem;
+  }
+  .top-bar .donate-btn {
+    font-size: 0.78rem;
+    padding: 4px 12px;
+  }
+  .top-bar-inner {
+    gap: 14px;
+  }
+  .top-bar-inner.left {
+    gap: 12px;
+  }
+  .top-bar-inner.right {
+    gap: 12px;
+  }
+  .top-bar-inner.left .label {
+    display: none; /* hide email/phone text, show only icons */
+  }
+  .top-bar-inner.left a i {
+    font-size: 0.95rem;
   }
 }
 
-/* ---------- Make Logo Image Bigger ---------- */
-.logo img {
-  width: 52px !important; /* was 44px */
-  height: 52px !important;
-}
-.logo-fallback {
-  width: 52px !important;
-  height: 52px !important;
-  font-size: 1.6rem !important;
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-  .logo img {
-    width: 44px !important;
-    height: 44px !important;
-  }
-  .logo-fallback {
-    width: 44px !important;
-    height: 44px !important;
-    font-size: 1.3rem !important;
-  }
-}
-
-/* Mobile */
-@media (max-width: 520px) {
-  .logo img {
-    width: 38px !important;
-    height: 38px !important;
-  }
-  .logo-fallback {
-    width: 38px !important;
-    height: 38px !important;
-    font-size: 1.1rem !important;
-  }
-}
-/* Mobile: hide left (email/phone) entirely, spread Career, Reports, Team evenly, hide Donate */
+/* Mobile: Career, Reports, Team spread evenly, email/phone hidden, Donate hidden */
 @media (max-width: 520px) {
   .top-bar {
     padding: 0 8px;
-    height: 34px;
-    font-size: 0.6rem;
-    gap: 0;
+    height: 38px;
+    font-size: 0.7rem;
   }
   .top-bar-inner.left {
     display: none !important;
@@ -424,153 +198,51 @@ a {
     gap: 0;
   }
   .top-bar .nav-link-top {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
     font-weight: 600;
     padding: 2px 0;
   }
   .top-bar .nav-link-top i {
-    font-size: 0.6rem;
-    margin-right: 3px;
+    font-size: 0.65rem;
+    margin-right: 4px;
   }
   .top-bar .donate-btn {
     display: none !important;
   }
-  .top-bar-inner.right .nav-link-top:first-child { text-align: left; }
-  .top-bar-inner.right .nav-link-top:last-child { text-align: right; }
-  .top-bar-inner.right .nav-link-top:nth-child(2) { text-align: center; }
 }
+
+/* Very small phones */
 @media (max-width: 380px) {
   .top-bar .nav-link-top {
-    font-size: 0.55rem;
+    font-size: 0.6rem;
   }
   .top-bar .nav-link-top i {
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     margin-right: 2px;
   }
 }
 
-
 /* ============================================================
-   ADD THESE STYLES TO YOUR EXISTING style.css
+   NAVBAR – SOLID WHITE
    ============================================================ */
-
-/* ---------- Make Top Bar Text MUCH Bigger ---------- */
-.top-bar {
-  font-size: 1rem !important;   /* was 0.9rem – bigger! */
-  height: 48px !important;      /* taller to fit larger text */
-  padding: 0 24px !important;
-}
-.top-bar a {
-  font-size: 1rem !important;
-}
-.top-bar .nav-link-top {
-  font-size: 1rem !important;
-}
-.top-bar .nav-link-top i {
-  font-size: 1.05rem !important;
-}
-.top-bar .donate-btn {
-  font-size: 0.95rem !important;
-  padding: 6px 16px !important;
-}
-.top-bar-inner {
-  gap: 20px !important;
-}
-.top-bar-inner.left {
-  gap: 18px !important;
-}
-.top-bar-inner.right {
-  gap: 18px !important;
-}
-.top-bar .label {
-  display: inline !important;
-}
-
-/* Tablet: still large but adjusted */
-@media (max-width: 820px) {
-  .top-bar {
-    font-size: 0.85rem !important;
-    height: 42px !important;
-    padding: 0 16px !important;
-  }
-  .top-bar a {
-    font-size: 0.85rem !important;
-  }
-  .top-bar .nav-link-top {
-    font-size: 0.8rem !important;
-  }
-  .top-bar .nav-link-top i {
-    font-size: 0.85rem !important;
-  }
-  .top-bar .donate-btn {
-    font-size: 0.75rem !important;
-    padding: 4px 12px !important;
-  }
-  .top-bar-inner {
-    gap: 14px !important;
-  }
-}
-
-/* Mobile: keep readable but smaller to fit */
-@media (max-width: 520px) {
-  .top-bar {
-    font-size: 0.7rem !important;
-    height: 36px !important;
-    padding: 0 8px !important;
-  }
-  .top-bar .nav-link-top {
-    font-size: 0.7rem !important;
-  }
-  .top-bar .nav-link-top i {
-    font-size: 0.65rem !important;
-  }
-  .top-bar .label {
-    display: none !important; /* hide email/phone labels on mobile */
-  }
-  .top-bar-inner.left a i {
-    font-size: 0.9rem !important;
-  }
-  .top-bar .donate-btn {
-    font-size: 0.65rem !important;
-    padding: 3px 10px !important;
-  }
-}
-/* ---------- NAVBAR ---------- */
 .navbar {
   position: fixed;
   top: var(--topbar-height);
   left: 0;
   right: 0;
   height: 80px;
-  background: transparent;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   z-index: 1001;
-  transition: top 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+  transition: top 0.35s ease, box-shadow 0.35s ease;
 }
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.08);
-  top: 0;
-}
-.navbar.scrolled .nav-link {
-  color: var(--text-dark);
-}
-.navbar.scrolled .nav-link:hover {
-  color: var(--era-primary);
-}
-.navbar.scrolled .logo-text {
-  color: var(--era-dark);
-}
-.navbar.scrolled .logo-sub,
-.navbar.scrolled .logo-sub-line2 {
-  color: var(--era-primary);
-}
-.navbar.scrolled .mobile-toggle {
-  color: var(--era-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 @media (max-width: 768px) {
   .navbar {
-    top: 0;
     height: 68px;
+    top: 0;
   }
   body {
     padding-top: 68px;
@@ -588,35 +260,46 @@ a {
 .navbar .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 30px;
+}
+@media (max-width: 1100px) {
+  .navbar .container {
+    gap: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .container {
+    gap: 0;
+  }
 }
 @media (max-width: 520px) {
   .navbar .container {
     padding: 0 12px;
   }
 }
- 
+
 /* ----- LOGO (Three-line: ERA, EMPOWERING, WITH EQUALITY) ----- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
 .logo img {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   border-radius: 6px;
 }
 .logo-fallback {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   background: var(--era-primary);
   color: #fff;
   border-radius: 6px;
@@ -624,7 +307,7 @@ a {
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   flex-shrink: 0;
 }
 .logo-text-wrapper {
@@ -635,88 +318,91 @@ a {
 }
 .logo-text {
   font-weight: 900;
-  font-size: 2.4rem;
-  color: #fff;
-  transition: color 0.35s;
+  font-size: 1.6rem;
+  color: var(--text-dark);
   letter-spacing: -0.02em;
   line-height: 1;
 }
 .logo-sub {
-  font-size: 0.5rem;
+  font-size: 0.45rem;
   letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--era-primary);
   text-transform: uppercase;
-  transition: color 0.35s;
   font-weight: 700;
   line-height: 1.2;
-  margin-top: 0px;
 }
 .logo-sub-line2 {
-  font-size: 0.45rem;
+  font-size: 0.4rem;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--era-primary);
   text-transform: uppercase;
-  transition: color 0.35s;
   font-weight: 600;
   line-height: 1.2;
-  margin-top: 0px;
-}
-.navbar.scrolled .logo-sub,
-.navbar.scrolled .logo-sub-line2 {
-  color: var(--era-primary);
 }
 @media (max-width: 768px) {
   .logo img {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
+  }
+  .logo-fallback {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
   }
   .logo-text {
-    font-size: 1.9rem;
+    font-size: 1.3rem;
   }
   .logo-sub {
-    font-size: 0.42rem;
-    letter-spacing: 0.12em;
+    font-size: 0.38rem;
   }
   .logo-sub-line2 {
-    font-size: 0.38rem;
-    letter-spacing: 0.1em;
+    font-size: 0.34rem;
+  }
+  .logo {
+    gap: 10px;
   }
 }
 @media (max-width: 520px) {
   .logo img {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
+  }
+  .logo-fallback {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
   }
   .logo-text {
-    font-size: 1.6rem;
+    font-size: 1.1rem;
   }
   .logo-sub {
-    font-size: 0.36rem;
-    letter-spacing: 0.1em;
+    font-size: 0.32rem;
   }
   .logo-sub-line2 {
-    font-size: 0.32rem;
-    letter-spacing: 0.08em;
+    font-size: 0.28rem;
   }
   .logo {
     gap: 8px;
   }
 }
 @media (max-width: 400px) {
+  .logo img {
+    width: 30px;
+    height: 30px;
+  }
+  .logo-fallback {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
   .logo-text {
-    font-size: 1.3rem;
+    font-size: 0.95rem;
   }
   .logo-sub {
-    font-size: 0.3rem;
-    letter-spacing: 0.08em;
+    font-size: 0.28rem;
   }
   .logo-sub-line2 {
-    font-size: 0.26rem;
-    letter-spacing: 0.06em;
-  }
-  .logo img {
-    width: 28px;
-    height: 28px;
+    font-size: 0.24rem;
   }
   .logo {
     gap: 6px;
@@ -730,7 +416,7 @@ a {
   gap: 22px;
 }
 .nav-link {
-  color: #fff;
+  color: var(--text-dark);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.05rem;
@@ -742,7 +428,7 @@ a {
   white-space: nowrap;
 }
 .nav-link.active {
-  color: var(--era-secondary);
+  color: var(--era-primary);
 }
 .nav-link::after {
   content: '';
@@ -751,21 +437,15 @@ a {
   bottom: -6px;
   width: 0;
   height: 2px;
-  background: var(--era-secondary);
+  background: var(--era-primary);
   transition: width 0.3s ease;
   border-radius: 1px;
 }
 .nav-link:hover {
-  color: var(--era-secondary);
+  color: var(--era-primary);
 }
 .nav-link:hover::after {
   width: 100%;
-}
-.navbar.scrolled .nav-link:hover {
-  color: var(--era-primary);
-}
-.navbar.scrolled .nav-link::after {
-  background: var(--era-primary);
 }
 @media (max-width: 1100px) {
   .nav-link {
@@ -874,7 +554,7 @@ a {
   display: none;
   background: none;
   border: none;
-  color: var(--era-secondary);
+  color: var(--era-primary);
   font-size: 2rem;
   cursor: pointer;
   transition: color 0.35s, transform 0.2s;
@@ -883,14 +563,8 @@ a {
   line-height: 1;
 }
 .mobile-toggle:hover {
-  color: #fff;
-  transform: scale(1.1);
-}
-.navbar.scrolled .mobile-toggle {
-  color: var(--era-primary);
-}
-.navbar.scrolled .mobile-toggle:hover {
   color: var(--era-primary-dark);
+  transform: scale(1.1);
 }
 @media (max-width: 1024px) {
   .mobile-toggle {
@@ -904,7 +578,9 @@ a {
   }
 }
 
-/* ----- MOBILE OVERLAY & MENU ----- */
+/* ============================================================
+   MOBILE OVERLAY & MENU
+   ============================================================ */
 .mobile-overlay {
   position: fixed;
   inset: 0;
@@ -977,13 +653,13 @@ a {
 }
 .mobile-logo-text {
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #fff;
   line-height: 1;
   letter-spacing: -0.02em;
 }
 .mobile-logo-sub {
-  font-size: 0.42rem;
+  font-size: 0.4rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--era-secondary);
@@ -991,7 +667,7 @@ a {
   line-height: 1.2;
 }
 .mobile-logo-sub-line2 {
-  font-size: 0.38rem;
+  font-size: 0.36rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
@@ -1000,7 +676,7 @@ a {
 }
 @media (max-width: 520px) {
   .mobile-logo-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .mobile-logo-sub {
     font-size: 0.35rem;
@@ -1098,24 +774,26 @@ a {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* ---------- HERO (Improved brightness) ---------- */
+/* ============================================================
+   HERO – STARTS BELOW NAVBAR, FULL WIDTH, BRIGHT IMAGES
+   ============================================================ */
 .hero {
   position: relative;
-  margin-top: calc(-1 * (var(--topbar-height) + 80px));
-  height: 100vh;
-  min-height: 620px;
+  margin-top: 0;
+  height: calc(100vh - var(--topbar-height) - 80px);
+  min-height: 500px;
   overflow: hidden;
 }
 @media (max-width: 768px) {
   .hero {
-    min-height: 500px;
-    margin-top: calc(-1 * (var(--topbar-height) + 68px));
+    height: calc(100vh - var(--topbar-height) - 68px);
+    min-height: 400px;
   }
 }
 @media (max-width: 520px) {
   .hero {
-    min-height: 420px;
-    margin-top: calc(-1 * (var(--topbar-height) + 60px));
+    height: calc(100vh - var(--topbar-height) - 60px);
+    min-height: 350px;
   }
 }
 .slide {
@@ -1144,7 +822,7 @@ a {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 0;
 }
 .hero-text {
   max-width: 780px;
@@ -1152,46 +830,11 @@ a {
   padding: 0 20px;
   width: 100%;
 }
-.hero-badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.13);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 9px 20px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  margin-bottom: 16px;
-  font-weight: 600;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  color: #fff;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
-  white-space: normal;
-}
-@media (max-width: 768px) {
-  .hero-badge {
-    font-size: 0.6rem;
-    padding: 7px 14px;
-    letter-spacing: 0.1em;
-  }
-}
-@media (max-width: 520px) {
-  .hero-badge {
-    font-size: 0.5rem;
-    padding: 5px 10px;
-    letter-spacing: 0.08em;
-    border-radius: 30px;
-  }
-}
 .hero-text h1 {
-  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.08;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   color: #fff;
   word-break: break-word;
@@ -1200,16 +843,19 @@ a {
 }
 @media (max-width: 768px) {
   .hero-text h1 {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    margin-bottom: 18px;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 16px;
   }
 }
 @media (max-width: 520px) {
   .hero-text h1 {
-    font-size: clamp(1.4rem, 4.5vw, 2rem);
+    font-size: clamp(1.2rem, 3.5vw, 1.8rem);
     margin-bottom: 14px;
-    line-height: 1.12;
   }
+}
+/* Hero badge hidden */
+.hero-badge {
+  display: none !important;
 }
 /* Hero description hidden */
 .hero-text .hero-description {
@@ -1217,7 +863,7 @@ a {
 }
 .slider-dots {
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -1270,7 +916,9 @@ a {
   }
 }
 
-/* ---------- BUTTONS ---------- */
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .btn {
   display: inline-block;
   padding: 15px 34px;
@@ -1364,7 +1012,9 @@ a {
   }
 }
 
-/* ---------- SECTIONS ---------- */
+/* ============================================================
+   SECTIONS
+   ============================================================ */
 .section {
   padding: 100px 0;
 }
@@ -1425,7 +1075,9 @@ a {
   }
 }
 
-/* ---------- GRIDS ---------- */
+/* ============================================================
+   GRIDS
+   ============================================================ */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -1469,54 +1121,9 @@ a {
   }
 }
 
-/* ---------- TIMELINE ---------- */
-.timeline {
-  position: relative;
-  padding-left: 40px;
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--era-primary);
-  opacity: 0.3;
-}
-.timeline-item {
-  position: relative;
-  margin-bottom: 30px;
-}
-.timeline-badge {
-  position: absolute;
-  left: -40px;
-  top: 0;
-  width: 32px;
-  height: 32px;
-  background: var(--era-primary);
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-}
-.timeline-content {
-  background: #fff;
-  padding: 18px 24px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-.timeline-content h3 {
-  color: var(--era-primary);
-  margin-bottom: 6px;
-}
-
-/* ---------- CARDS ---------- */
+/* ============================================================
+   CARDS
+   ============================================================ */
 .card {
   background: #fff;
   border-radius: var(--radius-lg);
@@ -1743,12 +1350,6 @@ a {
   border-bottom: 1px solid #eee;
   position: relative;
   overflow: hidden;
-}
-.partner-marquee-section .section-subtitle {
-  text-align: center;
-}
-.partner-marquee-section .section-title {
-  text-align: center;
 }
 .partner-marquee-wrapper {
   position: relative;
@@ -2034,7 +1635,7 @@ a {
   }
 }
 
-/* ---------- FOOTER (Three-line logo) ---------- */
+/* ---------- FOOTER ---------- */
 .footer {
   background: #111;
   color: #ccc;
@@ -2078,13 +1679,13 @@ a {
 }
 .footer-brand-name {
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #fff;
   line-height: 1;
   letter-spacing: -0.02em;
 }
 .footer-brand-sub {
-  font-size: 0.42rem;
+  font-size: 0.4rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--era-primary);
@@ -2092,7 +1693,7 @@ a {
   line-height: 1.2;
 }
 .footer-brand-sub-line2 {
-  font-size: 0.38rem;
+  font-size: 0.36rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
@@ -2194,7 +1795,7 @@ a {
     gap: 30px;
   }
   .footer-brand-name {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
   }
   .footer-brand-sub {
     font-size: 0.36rem;
@@ -2211,7 +1812,7 @@ a {
     gap: 24px;
   }
   .footer-brand-name {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .footer-brand-sub {
     font-size: 0.3rem;
@@ -2306,14 +1907,14 @@ a {
   box-shadow: var(--shadow-md);
 }
 
-/* ---------- AIMS/OBJECTIVES ICON (fa-th-large) ---------- */
+/* ---------- AIMS/OBJECTIVES ICON ---------- */
 .aim-icon {
   color: var(--era-primary);
   margin-right: 10px;
   font-size: 1rem;
 }
 
-/* ---------- COVERAGE DROPDOWN (for the select element) ---------- */
+/* ---------- COVERAGE SELECT DROPDOWN ---------- */
 #coverageSelect {
   width: 100%;
   padding: 16px 24px;
