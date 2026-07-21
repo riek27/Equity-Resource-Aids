@@ -64,16 +64,15 @@ a {
   color: inherit;
 }
 
-/* ---------- TOP BAR (Fully Responsive) ---------- */
+/* ---------- TOP BAR (Red Background) ---------- */
 .top-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: var(--topbar-height);
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--era-primary);
+  backdrop-filter: none;
   color: #fff;
   font-size: 0.75rem;
   display: flex;
@@ -82,7 +81,7 @@ a {
   padding: 0 20px;
   z-index: 1002;
   transition: transform 0.35s ease;
-  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 .top-bar.hidden {
   transform: translateY(-100%);
@@ -97,19 +96,20 @@ a {
   white-space: nowrap;
 }
 .top-bar a:hover {
-  color: var(--era-secondary);
+  color: #000;
 }
 .top-bar .donate-btn {
-  background: var(--era-secondary);
-  color: #000;
+  background: #fff;
+  color: var(--era-primary) !important;
   font-weight: 700;
   padding: 4px 12px;
   border-radius: 4px;
   transition: background 0.25s, transform 0.2s;
 }
 .top-bar .donate-btn:hover {
-  background: #e0a61a;
+  background: #e0e0e0;
   transform: scale(1.04);
+  color: var(--era-primary) !important;
 }
 .top-bar-inner {
   display: flex;
@@ -124,7 +124,7 @@ a {
   gap: 12px;
 }
 
-/* Career, Report, Team - always show text */
+/* Career, Report, Team - always show text with icons */
 .top-bar .nav-link-top {
   color: #fff;
   font-weight: 500;
@@ -132,11 +132,13 @@ a {
   padding: 2px 0;
   transition: color 0.2s;
 }
-.top-bar .nav-link-top:hover {
-  color: var(--era-secondary);
+.top-bar .nav-link-top i {
+  margin-right: 5px;
+  font-size: 0.8rem;
 }
-
-/* Desktop: show all labels */
+.top-bar .nav-link-top:hover {
+  color: #000;
+}
 .top-bar .label {
   display: inline;
 }
@@ -160,6 +162,9 @@ a {
   }
   .top-bar .nav-link-top {
     font-size: 0.68rem;
+  }
+  .top-bar .nav-link-top i {
+    font-size: 0.7rem;
   }
   .top-bar .donate-btn {
     padding: 3px 10px;
@@ -188,12 +193,25 @@ a {
     font-weight: 600;
     padding: 2px 0;
   }
+  .top-bar .nav-link-top i {
+    font-size: 0.6rem;
+    margin-right: 3px;
+  }
   .top-bar .donate-btn {
     display: none !important;
   }
   .top-bar-inner.right .nav-link-top:first-child { text-align: left; }
   .top-bar-inner.right .nav-link-top:last-child { text-align: right; }
   .top-bar-inner.right .nav-link-top:nth-child(2) { text-align: center; }
+}
+@media (max-width: 380px) {
+  .top-bar .nav-link-top {
+    font-size: 0.55rem;
+  }
+  .top-bar .nav-link-top i {
+    font-size: 0.5rem;
+    margin-right: 2px;
+  }
 }
 
 /* ---------- NAVBAR ---------- */
@@ -221,7 +239,8 @@ a {
 .navbar.scrolled .logo-text {
   color: var(--era-dark);
 }
-.navbar.scrolled .logo-sub {
+.navbar.scrolled .logo-sub,
+.navbar.scrolled .logo-sub-line2 {
   color: var(--era-primary);
 }
 .navbar.scrolled .mobile-toggle {
@@ -260,7 +279,7 @@ a {
   }
 }
 
-/* ----- LOGO (fully responsive) ----- */
+/* ----- LOGO (Three-line: ERA, EMPOWERING, WITH EQUALITY) ----- */
 .logo {
   display: flex;
   align-items: center;
@@ -290,29 +309,39 @@ a {
 .logo-text-wrapper {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1.1;
   align-items: flex-start;
 }
 .logo-text {
-  font-weight: 800;
-  font-size: 2rem;
+  font-weight: 900;
+  font-size: 2.4rem;
   color: #fff;
   transition: color 0.35s;
   letter-spacing: -0.02em;
   line-height: 1;
 }
 .logo-sub {
-  font-size: 0.35rem;
-  letter-spacing: 0.22em;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  transition: color 0.35s;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0px;
+}
+.logo-sub-line2 {
+  font-size: 0.45rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   transition: color 0.35s;
   font-weight: 600;
-  margin-top: 2px;
   line-height: 1.2;
-  white-space: nowrap;
+  margin-top: 0px;
 }
-.navbar.scrolled .logo-sub {
+.navbar.scrolled .logo-sub,
+.navbar.scrolled .logo-sub-line2 {
   color: var(--era-primary);
 }
 @media (max-width: 768px) {
@@ -321,11 +350,15 @@ a {
     height: 38px;
   }
   .logo-text {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
   }
   .logo-sub {
-    font-size: 0.3rem;
-    letter-spacing: 0.18em;
+    font-size: 0.42rem;
+    letter-spacing: 0.12em;
+  }
+  .logo-sub-line2 {
+    font-size: 0.38rem;
+    letter-spacing: 0.1em;
   }
 }
 @media (max-width: 520px) {
@@ -334,20 +367,31 @@ a {
     height: 32px;
   }
   .logo-text {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
   .logo-sub {
-    font-size: 0.25rem;
-    letter-spacing: 0.15em;
+    font-size: 0.36rem;
+    letter-spacing: 0.1em;
+  }
+  .logo-sub-line2 {
+    font-size: 0.32rem;
+    letter-spacing: 0.08em;
+  }
+  .logo {
+    gap: 8px;
   }
 }
 @media (max-width: 400px) {
   .logo-text {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   .logo-sub {
-    font-size: 0.2rem;
-    letter-spacing: 0.12em;
+    font-size: 0.3rem;
+    letter-spacing: 0.08em;
+  }
+  .logo-sub-line2 {
+    font-size: 0.26rem;
+    letter-spacing: 0.06em;
   }
   .logo img {
     width: 28px;
@@ -358,7 +402,7 @@ a {
   }
 }
 
-/* ----- NAV LINKS ----- */
+/* ----- NAV LINKS (Uppercase, larger) ----- */
 .nav-links {
   display: flex;
   align-items: center;
@@ -367,8 +411,10 @@ a {
 .nav-link {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   position: relative;
   transition: color 0.3s;
   cursor: pointer;
@@ -400,13 +446,22 @@ a {
 .navbar.scrolled .nav-link::after {
   background: var(--era-primary);
 }
+@media (max-width: 1100px) {
+  .nav-link {
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+  }
+  .nav-links {
+    gap: 14px;
+  }
+}
 @media (max-width: 1024px) {
   .nav-links {
     display: none;
   }
 }
 
-/* ----- DROPDOWN ----- */
+/* ----- DROPDOWN (Desktop) ----- */
 .dropdown {
   position: relative;
   display: flex;
@@ -419,7 +474,7 @@ a {
   background: #fff;
   border-radius: 10px;
   box-shadow: var(--shadow-xl);
-  min-width: 230px;
+  min-width: 240px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -448,15 +503,22 @@ a {
   padding: 11px 22px;
   color: var(--text-dark);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: background 0.2s, color 0.2s, padding-left 0.2s;
   white-space: nowrap;
+  text-transform: none;
+  letter-spacing: normal;
 }
 .dropdown-menu a:hover {
   background: #f5f5f5;
   color: var(--era-primary);
   padding-left: 26px;
+}
+.dropdown-menu hr {
+  margin: 4px 12px;
+  border: none;
+  border-top: 1px solid #eee;
 }
 
 /* ----- NAV DONATE ----- */
@@ -468,6 +530,8 @@ a {
   font-weight: 700;
   transition: background 0.3s, transform 0.2s;
   display: inline-block;
+  text-transform: none !important;
+  letter-spacing: normal !important;
 }
 .nav-donate:hover {
   background: var(--era-primary-dark);
@@ -476,6 +540,12 @@ a {
 }
 .nav-donate::after {
   display: none !important;
+}
+@media (max-width: 1100px) {
+  .nav-donate {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
 }
 
 /* ----- MOBILE TOGGLE ----- */
@@ -581,32 +651,41 @@ a {
 .mobile-logo-text-wrapper {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1.1;
   align-items: flex-start;
 }
 .mobile-logo-text {
-  font-weight: 800;
-  font-size: 1.9rem;
+  font-weight: 900;
+  font-size: 2rem;
   color: #fff;
   line-height: 1;
   letter-spacing: -0.02em;
 }
 .mobile-logo-sub {
-  font-size: 0.33rem;
-  letter-spacing: 0.22em;
+  font-size: 0.42rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--era-secondary);
-  font-weight: 600;
-  margin-top: 2px;
+  font-weight: 700;
   line-height: 1.2;
-  white-space: nowrap;
+}
+.mobile-logo-sub-line2 {
+  font-size: 0.38rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  line-height: 1.2;
 }
 @media (max-width: 520px) {
   .mobile-logo-text {
     font-size: 1.5rem;
   }
   .mobile-logo-sub {
-    font-size: 0.28rem;
+    font-size: 0.35rem;
+  }
+  .mobile-logo-sub-line2 {
+    font-size: 0.3rem;
   }
 }
 .mobile-menu a {
@@ -617,6 +696,9 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 1rem;
   transition: color 0.2s, padding-left 0.2s;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 .mobile-menu a:hover {
   color: var(--era-secondary);
@@ -630,6 +712,8 @@ a {
   padding: 14px;
   font-weight: 700;
   border-bottom: none;
+  text-transform: none !important;
+  letter-spacing: normal !important;
 }
 .mobile-menu .mobile-donate:hover {
   background: var(--era-primary-dark);
@@ -651,6 +735,8 @@ a {
   cursor: pointer;
   transition: color 0.2s;
   text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 .mobile-dropdown-btn:hover {
   color: var(--era-secondary);
@@ -680,16 +766,18 @@ a {
 }
 .mobile-submenu a {
   padding: 10px 16px !important;
-  font-size: 0.92rem !important;
+  font-size: 0.85rem !important;
   border-bottom: none !important;
   opacity: 0.85;
+  text-transform: none !important;
+  letter-spacing: normal !important;
 }
 .mobile-submenu a:hover {
   opacity: 1;
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* ---------- HERO (fixed text overflow & top bar overlap) ---------- */
+/* ---------- HERO (Improved brightness) ---------- */
 .hero {
   position: relative;
   margin-top: calc(-1 * (var(--topbar-height) + 80px));
@@ -717,6 +805,7 @@ a {
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   will-change: opacity;
+  filter: brightness(1.1);
 }
 .slide.active {
   opacity: 1;
@@ -724,7 +813,7 @@ a {
 .slide-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.40);
+  background: rgba(0, 0, 0, 0.25);
   z-index: 2;
   pointer-events: none;
 }
@@ -753,7 +842,7 @@ a {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   font-weight: 600;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   color: #fff;
@@ -767,7 +856,6 @@ a {
     font-size: 0.6rem;
     padding: 7px 14px;
     letter-spacing: 0.1em;
-    margin-bottom: 16px;
   }
 }
 @media (max-width: 520px) {
@@ -775,7 +863,6 @@ a {
     font-size: 0.5rem;
     padding: 5px 10px;
     letter-spacing: 0.08em;
-    margin-bottom: 12px;
     border-radius: 30px;
   }
 }
@@ -783,7 +870,7 @@ a {
   font-size: clamp(2.2rem, 6vw, 5rem);
   font-weight: 800;
   line-height: 1.08;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   color: #fff;
   word-break: break-word;
@@ -793,45 +880,19 @@ a {
 @media (max-width: 768px) {
   .hero-text h1 {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
-    margin-bottom: 12px;
+    margin-bottom: 18px;
   }
 }
 @media (max-width: 520px) {
   .hero-text h1 {
     font-size: clamp(1.4rem, 4.5vw, 2rem);
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     line-height: 1.12;
   }
 }
+/* Hero description hidden */
 .hero-text .hero-description {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  opacity: 0.92;
-  margin-bottom: 28px;
-  max-width: 680px;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-  color: #fff;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-}
-.hero-text .hero-description strong {
-  color: #fff;
-  font-weight: 700;
-}
-@media (max-width: 768px) {
-  .hero-text .hero-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-}
-@media (max-width: 520px) {
-  .hero-text .hero-description {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
+  display: none;
 }
 .slider-dots {
   position: absolute;
@@ -1087,46 +1148,6 @@ a {
   }
 }
 
-/* ============================================================
-   ADD THIS BLOCK TO YOUR EXISTING style.css
-   ============================================================ */
-
-/* ---------- Top Bar: Add separation between top bar and navbar ---------- */
-.top-bar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* On mobile, enhance the separation with a subtle shadow */
-@media (max-width: 520px) {
-    .top-bar {
-        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    }
-}
-
-/* ---------- Icons in Top Bar (Career, Reports, Team) ---------- */
-.top-bar .nav-link-top i {
-    margin-right: 5px;
-    font-size: 0.8rem;
-    display: inline-block;
-}
-
-/* On smaller screens, keep icons proportional */
-@media (max-width: 520px) {
-    .top-bar .nav-link-top i {
-        font-size: 0.7rem;
-        margin-right: 3px;
-    }
-}
-
-/* On very tiny screens, ensure icons and text fit */
-@media (max-width: 380px) {
-    .top-bar .nav-link-top i {
-        font-size: 0.6rem;
-        margin-right: 2px;
-    }
-}
-
 /* ---------- TIMELINE ---------- */
 .timeline {
   position: relative;
@@ -1320,42 +1341,6 @@ a {
   .challenge-card {
     padding: 14px 12px;
   }
-}
-
-/* ============================================================
-   ADD THIS BLOCK TO YOUR EXISTING style.css
-   ============================================================ */
-
-/* ---------- Top Bar: Icons & Spacing ---------- */
-
-/* Add icons to top bar links */
-.top-bar .nav-link-top i {
-    margin-right: 5px;
-    font-size: 0.8rem;
-    display: inline-block;
-}
-
-/* On small screens, scale icons down */
-@media (max-width: 520px) {
-    .top-bar .nav-link-top i {
-        font-size: 0.7rem;
-        margin-right: 3px;
-    }
-    
-    /* --- IMPORTANT: creates a visible gap between top bar and navbar --- */
-    .top-bar {
-        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-        margin-bottom: 4px;   /* <-- this adds the space */
-    }
-}
-
-/* On very tiny screens, keep icons and text fitting */
-@media (max-width: 380px) {
-    .top-bar .nav-link-top i {
-        font-size: 0.6rem;
-        margin-right: 2px;
-    }
 }
 
 /* ---------- COVERAGE ---------- */
@@ -1728,7 +1713,7 @@ a {
   }
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- FOOTER (Three-line logo) ---------- */
 .footer {
   background: #111;
   color: #ccc;
@@ -1767,25 +1752,31 @@ a {
 .footer-brand-wrapper {
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1.1;
   align-items: flex-start;
 }
 .footer-brand-name {
-  font-weight: 800;
-  font-size: 1.8rem;
+  font-weight: 900;
+  font-size: 2rem;
   color: #fff;
   line-height: 1;
   letter-spacing: -0.02em;
 }
 .footer-brand-sub {
-  font-size: 0.33rem;
-  letter-spacing: 0.22em;
+  font-size: 0.42rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--era-primary);
-  font-weight: 600;
-  margin-top: 2px;
+  font-weight: 700;
   line-height: 1.2;
-  white-space: nowrap;
+}
+.footer-brand-sub-line2 {
+  font-size: 0.38rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  line-height: 1.2;
 }
 .footer-description {
   font-size: 0.85rem;
@@ -1882,10 +1873,13 @@ a {
     gap: 30px;
   }
   .footer-brand-name {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   .footer-brand-sub {
-    font-size: 0.3rem;
+    font-size: 0.36rem;
+  }
+  .footer-brand-sub-line2 {
+    font-size: 0.32rem;
   }
 }
 @media (max-width: 520px) {
@@ -1896,9 +1890,12 @@ a {
     gap: 24px;
   }
   .footer-brand-name {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   .footer-brand-sub {
+    font-size: 0.3rem;
+  }
+  .footer-brand-sub-line2 {
     font-size: 0.26rem;
   }
   .footer-logo-img {
@@ -1986,4 +1983,70 @@ a {
 .resource-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+}
+
+/* ---------- AIMS/OBJECTIVES ICON (fa-th-large) ---------- */
+.aim-icon {
+  color: var(--era-primary);
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+/* ---------- COVERAGE DROPDOWN (for the select element) ---------- */
+#coverageSelect {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  border: 2px solid var(--era-primary);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--text-dark);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+#coverageSelect:focus {
+  outline: none;
+  border-color: var(--era-primary-dark);
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+}
+#coverageSelect optgroup {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+#coverageSelect option {
+  font-weight: 400;
+  padding: 4px 8px;
+}
+#coverageInfo {
+  margin-top: 30px;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: #fef5f5;
+  border: 1px solid rgba(198, 40, 40, 0.15);
+  display: none;
+  transition: all 0.3s ease;
+}
+#coverageInfo h3 {
+  color: var(--era-primary);
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+#coverageInfo p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+@media (max-width: 520px) {
+  #coverageSelect {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+  #coverageInfo {
+    padding: 16px 14px;
+  }
 }
