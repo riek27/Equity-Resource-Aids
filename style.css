@@ -64,6 +64,65 @@ a {
   color: inherit;
 }
 
+/* ============================================================
+   ADD THESE STYLES TO YOUR EXISTING style.css
+   ============================================================ */
+
+/* ---------- Reduce logo size ---------- */
+.logo-text {
+  font-size: 1.8rem !important; /* was 2.4rem */
+}
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 1.5rem !important;
+  }
+}
+@media (max-width: 520px) {
+  .logo-text {
+    font-size: 1.3rem !important;
+  }
+}
+@media (max-width: 400px) {
+  .logo-text {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* ---------- Increase spacing between logo and nav links ---------- */
+.navbar .container {
+  justify-content: space-between;
+  gap: 30px; /* adds space between logo group and nav links */
+}
+@media (max-width: 1100px) {
+  .navbar .container {
+    gap: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .container {
+    gap: 0; /* mobile toggle takes over */
+  }
+}
+
+/* ---------- Hero: remove badge, reduce title size ---------- */
+.hero-badge {
+  display: none !important; /* hides the badge completely */
+}
+.hero-text h1 {
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem) !important; /* reduced from previous */
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
+  }
+}
+@media (max-width: 520px) {
+  .hero-text h1 {
+    font-size: clamp(1.2rem, 3.5vw, 1.8rem) !important;
+  }
+}
+
 /* ---------- TOP BAR (Red Background) ---------- */
 .top-bar {
   position: fixed;
