@@ -1975,24 +1975,30 @@ a {
 
 
 /* ============================================================
-   FIX LOGO COLORS & SIZE FOR WHITE NAVBAR
+   FORCE LOGO SUBTEXT VISIBLE ON WHITE NAVBAR - FIX FOR HOMEPAGE
    ============================================================ */
 
-/* 1. Make subtext visible on white background */
+/* Force subtext to be visible in default navbar state */
 .navbar .logo-sub,
 .navbar .logo-sub-line2 {
-  color: var(--era-primary) !important; /* red, visible */
+  color: var(--era-primary) !important;
 }
 
-/* 2. Reduce "ERA" size to match about page */
+/* Also ensure scrolled state matches */
+.navbar.scrolled .logo-sub,
+.navbar.scrolled .logo-sub-line2 {
+  color: var(--era-primary) !important;
+}
+
+/* Reduce ERA size */
 .navbar .logo-text {
-  font-size: 1.4rem !important; /* was 1.6rem */
+  font-size: 1.4rem !important;
+}
+.navbar.scrolled .logo-text {
+  color: var(--text-dark) !important;
 }
 
-/* 3. Optional: adjust spacing so everything aligns nicely */
-.navbar .logo-text-wrapper {
-  line-height: 1.15;
-}
+/* Keep subtext sizes consistent */
 .navbar .logo-sub {
   font-size: 0.4rem !important;
   letter-spacing: 0.12em;
@@ -2002,7 +2008,7 @@ a {
   letter-spacing: 0.1em;
 }
 
-/* For mobile, scale accordingly */
+/* Mobile responsive */
 @media (max-width: 768px) {
   .navbar .logo-text {
     font-size: 1.2rem !important;
