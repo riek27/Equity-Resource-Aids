@@ -1972,3 +1972,57 @@ a {
     padding: 16px 14px;
   }
 }
+
+
+/* ============================================================
+   FIX LOGO COLORS & SIZE FOR WHITE NAVBAR
+   ============================================================ */
+
+/* 1. Make subtext visible on white background */
+.navbar .logo-sub,
+.navbar .logo-sub-line2 {
+  color: var(--era-primary) !important; /* red, visible */
+}
+
+/* 2. Reduce "ERA" size to match about page */
+.navbar .logo-text {
+  font-size: 1.4rem !important; /* was 1.6rem */
+}
+
+/* 3. Optional: adjust spacing so everything aligns nicely */
+.navbar .logo-text-wrapper {
+  line-height: 1.15;
+}
+.navbar .logo-sub {
+  font-size: 0.4rem !important;
+  letter-spacing: 0.12em;
+}
+.navbar .logo-sub-line2 {
+  font-size: 0.35rem !important;
+  letter-spacing: 0.1em;
+}
+
+/* For mobile, scale accordingly */
+@media (max-width: 768px) {
+  .navbar .logo-text {
+    font-size: 1.2rem !important;
+  }
+  .navbar .logo-sub {
+    font-size: 0.35rem !important;
+  }
+  .navbar .logo-sub-line2 {
+    font-size: 0.3rem !important;
+  }
+}
+@media (max-width: 520px) {
+  .navbar .logo-text {
+    font-size: 1rem !important;
+  }
+  .navbar .logo-sub {
+    font-size: 0.3rem !important;
+  }
+  .navbar .logo-sub-line2 {
+    font-size: 0.26rem !important;
+  }
+}
+
